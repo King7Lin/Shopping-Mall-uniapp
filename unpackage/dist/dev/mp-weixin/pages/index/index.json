@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "uni-app",
   "usingComponents": {
-    "commodity": "/components/commodity"
+    "index": "/components/index"
   }
 }

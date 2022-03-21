@@ -136,7 +136,25 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 46));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var index = function index() {__webpack_require__.e(/*! require.ensure | components/index */ "components/index").then((function () {return resolve(__webpack_require__(/*! ../../components/index.vue */ 54));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -150,16 +168,19 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     return {
       shop: [
       {
+        id: 0,
         img: '../static/c4.png',
         name: '白给商城1',
         money: 999 },
 
       {
+        id: 1,
         img: '../static/c3.png',
         name: '白给商城2',
         money: 1999 },
 
       {
+        id: 2,
         img: '../static/c5.png',
         name: '白给商城3',
         money: 2999 }] };
@@ -171,7 +192,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
   components: {
-    commodity: commodity } };exports.default = _default;
+    index: index } };exports.default = _default;
 
 /***/ }),
 /* 18 */

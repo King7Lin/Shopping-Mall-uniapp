@@ -1,1 +1,1 @@
-<view><view class="_p">更多</view></view>
+<view class="container"><view class="left"><block wx:for="{{shop}}" wx:for-item="item" wx:for-index="__i0__"><view class="classification"><text>{{item.type}}</text></view></block></view><view class="right"></view></view>

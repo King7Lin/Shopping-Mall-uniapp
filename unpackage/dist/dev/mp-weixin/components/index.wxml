@@ -1,0 +1,1 @@
+<block wx:for="{{shop}}" wx:for-item="item" wx:for-index="__i0__" wx:key="id"><navigator class="container" url><view class="top"><image class="img" src="{{item.img}}" mode></image></view><view class="bottom"><text class="name">{{item.name}}</text><text class="price">{{"￥"+item.money}}</text></view></navigator></block>
