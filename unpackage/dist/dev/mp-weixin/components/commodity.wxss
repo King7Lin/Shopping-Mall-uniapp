@@ -1,0 +1,32 @@
+
+.row{
+	height: 200rpx;
+	display: flex;
+	flex-direction: row;
+	border-bottom:1px solid #000000;
+}
+.book{  
+	height: 200rpx;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+	padding-top: 15rpx;
+}
+/* 书名 */
+.BName{
+  padding-top: 20rxp;
+  font-size: 40rpx;
+  font-weight: bold;
+  height: 70%;
+}
+/* 价钱 */
+.Bmoney{
+  position: relative;
+  bottom: 0;
+  color: red;
+}
+.line{
+	border-bottom: 1px solid #000000;
+}
+

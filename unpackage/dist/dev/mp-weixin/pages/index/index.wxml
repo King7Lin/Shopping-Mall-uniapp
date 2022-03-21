@@ -1,0 +1,1 @@
+<view class="container"><view class="_p">首页</view><commodity vue-id="8dd740cc-1" shop="{{shop}}" bind:__l="__l"></commodity></view>
