@@ -1,48 +1,44 @@
 <template>
 	<view class="container">
-		<view class="left">
-			<view class="classification" v-for="item in shop">
-				<text>{{item.type}}</text>
-			</view>
-		</view>
-		<view class="right">
-			
-		</view>
+		<van-sidebar  v-model="activeKey" >
+		  <van-sidebar-item v-for="(item,index) in shop" :title="item.name" :v-key="index"/>
+		</van-sidebar>
 	</view>
 </template>
 
 <script>
-	import commodity from "../../components/commodity.vue"
+
 	export default {
 		data() {
 			return {
 				shop:[
 					{
 						img:'../static/c4.png',
-						name:'白给商城1',
+						name:'白给商城',
 						money:999,
 						type:'白给'
 					},
 					{
 						img:'../static/c3.png',
-						name:'白给商城2',
+						name:'白给商城',
 						money:1999,
 						type:'白给1'
 					},
 					{
 						img:'../static/c5.png',
-						name:'白给商城3',
+						name:'白给商城',
 						money:2999,
 						type:'白给2'
 					}
-				]
+				],
+				activeKey:0
 			}
 		},
 		methods: {
 			
 		},
 		components:{
-			commodity
+
 		}
 	}
 </script>

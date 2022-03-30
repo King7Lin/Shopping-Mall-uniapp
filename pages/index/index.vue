@@ -1,25 +1,40 @@
 <template>
 	<view class="container">
-		<p>首页</p>
-		<view class="top">
-			<!-- <text></text> -->
-			<image src="../../static/c1.png" class="topImg" mode=""></image>
+		<!-- 搜索框 -->
+		<uni-search-bar focus='true' ></uni-search-bar>
+		<!-- ；轮播 -->
+		<view class="uni-padding-wrap">
+			<view class="page-section swiper">
+				<view class="page-section-spacing">
+					<swiper class="swiper" indicator-dots="true" autoplay="true" interval="4000" duration="500">
+						<swiper-item v-for="item in shop1" :key="item.id">
+							<image :src="item.img" mode="" style="height: 300rpx;"></image>
+						</swiper-item>
+					</swiper>
+				</view>
+			</view>
 		</view>
+		<!-- 广告 -->
 		<view class="guanggao">
 			<navigator class="left">
 				<image src="../../static/logo.png" class="lunbo" mode=""></image>
 			</navigator>
-			<view class="right">
-				<navigator url="">
-					<image src="../../static/c9.png" class="rightImg" mode=""></image>
-				</navigator>
-				<navigator url="">
-					<image src="../../static/c8.png" class="rightImg" mode=""></image>
+			<view class="right" >
+				<navigator url="" v-for="item in shop1" :key="item.id">
+					<image :src="item.img" class="rightImg" mode=""></image>
 				</navigator>
 			</view>
 		</view>
-		<index :shop="shop"></index>
-		
+		<!-- 商品 -->
+		<view class="bottom">
+			<index v-for="item in shop"
+			:key="item.id" 
+			:img="item.img" 
+			:price="item.price"
+			:name="item.name"
+			:url="item.url">
+			</index>
+		</view>
 	</view>
 </template>
 
@@ -33,20 +48,37 @@
 						id:0,
 						img:'../static/c4.png',
 						name:'白给商城1',
-						money:999
+						price:999,
+						url:'../details/details'
 					},
 					{
 						id:1,
 						img:'../static/c3.png',
 						name:'白给商城2',
-						money:1999
+						price:1999,
+						url:'../details/details'
 					},
 					{
 						id:2,
 						img:'../static/c5.png',
 						name:'白给商城3',
-						money:2999
+						price:2999,
+						url:'../details/details'
 					}
+				],
+				shop1:[
+					{
+						id:0,
+						img:'../../static/c5.png',
+						name:'白给商城1',
+						price:999
+					},
+					{
+						id:1,
+						img:'../../static/c3.png',
+						name:'白给商城2',
+						price:1999
+					},
 				]
 			}
 		},
@@ -65,11 +97,11 @@
 		font-size: 14px;
 		line-height: 24px;
 	}
-	.topImg{
+/* 	.topImg{
 		border: 1px solid #000000;
 		height: 300rpx;
 		width: 100%;
-	}
+	} */
 	.guanggao{
 		display: flex;
 		/* flex: row; */
@@ -99,10 +131,13 @@
 		width: 100%;
 		height: 170rpx;
 	}
-	index{
-		/* border: 1px solid #000000; */
-		width: 100%;
+	.bottom{
 		display: flex;
 		flex-wrap: wrap;
+	}
+	index{
+		width: 48%;
+		margin-top: 15rpx;
+		margin-left: 11rpx;
 	}
 </style>

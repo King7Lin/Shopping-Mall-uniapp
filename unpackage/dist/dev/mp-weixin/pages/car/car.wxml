@@ -1,1 +1,1 @@
-<view><view class="_p">购物车</view></view>
+<view><view class="_p">购物车</view><van-submit-bar vue-id="2964de54-1" price="{{price}}" button-text="购买" data-event-opts="{{[['^submit',[['onSubmit']]]]}}" data-com-type="wx" bind:submit="__e" bind:__l="__l" vue-slots="{{['default']}}"><van-checkbox bind:input="__e" vue-id="{{('2964de54-2')+','+('2964de54-1')}}" value="{{checked}}" data-event-opts="{{[['^input',[['__set_model',['','checked','$event',[]]]]]]}}" data-com-type="wx" bind:__l="__l" vue-slots="{{['default']}}">全选</van-checkbox></van-submit-bar></view>

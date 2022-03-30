@@ -4,7 +4,10 @@
     "pages/car/car",
     "pages/mine/mine",
     "pages/more/more",
-    "pages/find/find"
+    "pages/find/find",
+    "pages/details/details",
+    "pages/order/order",
+    "pages/setting/setting"
   ],
   "subPackages": [],
   "window": {
@@ -51,6 +54,21 @@
       }
     ]
   },
-  "usingComponents": {},
+  "usingComponents": {
+    "van-button": "/wxcomponents/vant/dist/button/index",
+    "van-search": "/wxcomponents/vant/dist/search/index",
+    "van-tree-select": "/wxcomponents/vant/dist/tree-select/index",
+    "van-action-sheet": "/wxcomponents/vant/dist/action-sheet/index",
+    "van-cell": "/wxcomponents/vant/dist/cell/index",
+    "van-popup": "/wxcomponents/vant/dist/popup/index",
+    "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index",
+    "van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
+    "van-notify": "/wxcomponents/vant/dist/notify/index",
+    "van-swipe-cell": "/wxcomponents/vant/dist/swipe-cell/index",
+    "van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
+    "van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
+    "van-image": "/wxcomponents/vant/dist/image/index",
+    "van-divider": "/wxcomponents/vant/dist/divider/index"
+  },
   "sitemapLocation": "sitemap.json"
 }

@@ -1,16 +1,23 @@
 <template>
 	<view class="book" >
-		<navigator class="row" url="" v-for="item in shop">
-			<!-- 图片 -->
-			<view class="pic" style="height: 300rpx; width: 30%;">
-				<image :src="item.img" style="width: 200rpx; height: 180rpx; margin-top: 10rpx;"></image>
-			</view>
-			<!-- 字体 -->
-			<view class="text">
-				<view class="BName">{{item.name}}</view>
-				<view class="Bmoney">￥{{item.money}}</view>
-			</view>
-		</navigator>
+		<!-- <navigator class="row" url="" v-for="item in shop"> -->
+			<van-swipe-cell right-width=" 50 " left-width=" 50 ">
+			  <van-card
+			    num="2"
+			    price="2.00"
+			    desc="描述信息"
+			    title="商品标题"
+			    class="goods-card"
+			    thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
+			  />
+			  <template #right>
+			    <van-button square text="删除" type="danger" class="delete-button" />
+			  </template>
+			  <template #left>
+			    <van-button square text="选择" type="info" class="delete-button" />
+			  </template>
+			</van-swipe-cell>
+		<!-- </navigator> -->
 	</view>
 </template>
 
@@ -29,35 +36,11 @@
 </script>
 
 <style>
-.row{
-	height: 200rpx;
-	display: flex;
-	flex-direction: row;
-	border-bottom:1px solid #000000;
-}
-.book{  
-	height: 200rpx;
-}
-.text{
-    display: flex;
-    flex-direction: column;
-	padding-top: 15rpx;
-}
-/* 书名 */
-.BName{
-  padding-top: 20rxp;
-  font-size: 40rpx;
-  font-weight: bold;
-  height: 70%;
-}
-/* 价钱 */
-.Bmoney{
-  position: relative;
-  bottom: 0;
-  color: red;
-}
-.line{
-	border-bottom: 1px solid #000000;
-	
-}
+	 .goods-card {
+	    margin: 0;
+	    background-color: white;
+	  }
+	  .delete-button{
+	    height: 100%;
+	  }
 </style>

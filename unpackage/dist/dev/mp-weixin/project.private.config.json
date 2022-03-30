@@ -23,6 +23,36 @@
           "pathName": "pages/more/more",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/details/details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/details/details",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/find/find",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
         }
       ]
     }

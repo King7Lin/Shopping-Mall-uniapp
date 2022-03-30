@@ -1,0 +1,23 @@
+
+.container{
+	margin: 10rpx;
+}
+.img{
+	margin: 20rpx;
+	/* margin-left: 50rpx; */
+}
+.top{
+	display: flex;
+	flex-direction: row;
+	background-color: #fff;
+}
+.gear{
+	position: absolute;
+	right: 20rpx;
+	top: 50rpx;
+}
+.bottom{
+	margin-top: 10rpx;
+	background-color: #fff;
+}
+

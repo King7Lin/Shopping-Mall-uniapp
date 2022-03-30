@@ -1,1 +1,1 @@
-<view><view class="_p">发现</view></view>
+<view><view class="_p">发现</view><commodity vue-id="5df3f5c0-1" bind:__l="__l"></commodity></view>

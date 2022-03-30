@@ -4,6 +4,7 @@
 		"style": {
 			"navigationBarTitleText": "uni-app"
 		}
+		
 	}    ,{
             "path" : "pages/car/car",
             "style" :                                                                                    
@@ -40,6 +41,33 @@
             }
             
         }
+        ,{
+            "path" : "pages/details/details",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/order",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/setting",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -48,7 +76,24 @@
 		"backgroundColor": "#F8F8F8",
 		"app-plus": {
 			"background": "#efeff4"
+		},
+		"usingComponents": {
+			"van-button": "/wxcomponents/vant/dist/button/index",
+			"van-search":"/wxcomponents/vant/dist/search/index",
+			"van-tree-select":"/wxcomponents/vant/dist/tree-select/index",
+			"van-action-sheet": "/wxcomponents/vant/dist/action-sheet/index",
+			"van-cell": "/wxcomponents/vant/dist/cell/index",
+			"van-popup": "/wxcomponents/vant/dist/popup/index",
+			"van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index",
+			"van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
+			"van-notify": "/wxcomponents/vant/dist/notify/index",
+			"van-swipe-cell": "/wxcomponents/vant/dist/swipe-cell/index",
+			"van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
+			"van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
+			"van-image": "/wxcomponents/vant/dist/image/index",
+			"van-divider": "/wxcomponents/vant/dist/divider/index"
 		}
+			
 	},
 	"condition" : { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)

@@ -1,13 +1,15 @@
 <template>
-	<navigator class="container" v-for="item in shop" :key='item.id' url="" >
+	<!-- <view class=""> -->
+	<navigator class="container" :url="url" >
 		<view class="top">
-			<image :src="item.img" class="img" mode=""></image>
+			<image :src="img" class="img" mode=""></image>
 		</view>
 		<view class="bottom">
-			<text class="name">{{item.name}}</text>
-			<text class="price">￥{{item.money}}</text>
+			<text class="name">{{name}}</text>
+			<text class="price">￥{{price}}</text>
 		</view>
 	</navigator>
+	<!-- </view> -->
 </template>
 
 <script>
@@ -19,7 +21,10 @@
 			};
 		},
 		props:{
-			shop:[]
+			url:'',
+			img:'',
+			name:'',
+			price:0
 		}
 	}
 </script>
@@ -27,9 +32,9 @@
 <style>
 	.container{
 		border: 1px solid #000000;
-		width: 48%;
-		margin-top: 20rpx;
-		margin-left: 10rpx;
+		width: 100%;
+		/* margin-top: 20rpx; */
+		/* margin-left: 10rpx; */
 		padding: 0;
 		height: 350rpx;
 		border-radius: 20rpx 20rpx 20rpx 20rpx;
