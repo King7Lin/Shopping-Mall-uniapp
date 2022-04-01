@@ -16,13 +16,63 @@
 		</view>
 		<view class="bottom">
 			<view class="order">
-				<van-cell
-				  is-link
-				  title="单元格"
-				  link-type="navigateTo"
-				  url="../order/order"
-				/>
+				<van-cell-group inset>
+				  <van-cell
+				    is-link
+				    title="我的足迹"
+				    link-type="navigateTo"
+				    url="../order/order"
+				  />
+				  <view class='icon'>
+				      <navigator hover-class="none" >
+				        <image src='../../static/pending_payment.png' mode="aspectFit"></image>
+				        <text>代付款</text>
+				      </navigator>
+				      <navigator  hover-class="none" >
+				        <image src='../../static/pending_delivery.png' mode="aspectFit"></image>
+				        <text>代发货</text>
+				      </navigator>
+				      <navigator  hover-class="none" >
+				        <image src='../../static/already_shipped.png' mode="aspectFit"></image>
+				        <text>已发货</text>
+				      </navigator>
+				      <navigator  hover-class="none" >
+				        <image src='../../static/completed.png' mode="aspectFit"></image>
+				        <text>已完成</text>
+				      </navigator>
+				    </view>
+				</van-cell-group>
 			</view>
+			<van-cell
+			  is-link
+			  title="我的足迹"
+			  link-type="navigateTo"
+			  url="../order/order"
+			/>
+			<van-cell
+			  is-link
+			  title="我的收藏"
+			  link-type="navigateTo"
+			  url="../order/order"
+			/>
+			<van-cell
+			  is-link
+			  title="我的地址"
+			  link-type="navigateTo"
+			  url="../order/order"
+			/>
+			<van-cell
+			  is-link
+			  title="我的卡券"
+			  link-type="navigateTo"
+			  url="../order/order"
+			/>
+			<van-cell
+			  is-link
+			  title="联系客服"
+			  link-type="navigateTo"
+			  url="../order/order"
+			/>
 		</view>
 	</view>
 </template>
@@ -71,4 +121,27 @@
 		margin-top: 10rpx;
 		background-color: #fff;
 	}
+	.icon{
+	   border-bottom:1px solid #EDEDED; 
+	   display: flex;
+	   padding: 12px 0;
+	 }
+	 .icon image{
+	   display: block;
+	   width: 30px;
+	   height: 30px;
+	   margin: 0 auto;
+	   padding-top: 10px;
+	 }
+	 .icon text{
+	   display: block;
+	   text-align: center;
+	   width: 100%;
+	   font-size: 14px;
+	   color: #333;
+	   padding-top: 10px;
+	 }
+	 .icon navigator{
+	   flex: 1 0 25%;
+	 }
 </style>

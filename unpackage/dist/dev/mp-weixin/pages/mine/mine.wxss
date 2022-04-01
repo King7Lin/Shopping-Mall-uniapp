@@ -20,4 +20,27 @@
 	margin-top: 10rpx;
 	background-color: #fff;
 }
+.icon{
+   border-bottom:1px solid #EDEDED; 
+   display: flex;
+   padding: 12px 0;
+}
+.icon image{
+   display: block;
+   width: 30px;
+   height: 30px;
+   margin: 0 auto;
+   padding-top: 10px;
+}
+.icon text{
+   display: block;
+   text-align: center;
+   width: 100%;
+   font-size: 14px;
+   color: #333;
+   padding-top: 10px;
+}
+.icon navigator{
+   flex: 1 0 25%;
+}
 

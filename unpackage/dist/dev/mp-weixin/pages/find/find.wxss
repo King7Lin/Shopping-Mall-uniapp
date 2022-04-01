@@ -1,0 +1,54 @@
+
+.content{
+    margin: 40rpx 10rpx 0rpx 50rpx;
+}
+.goods-info{
+    display: flex;
+}
+.img{
+    height: 200rpx;
+    width: 200rpx;
+}
+.goods-info-right{
+    padding: 80rpx 30rpx 0rpx;
+}
+.goods-info-right >view{
+    padding: 5rpx 0rpx;
+}
+.goods-price{
+    font-weight: 600;
+    color: red;
+}
+.small{
+    font-size: 25rpx;
+}
+van-button{
+    padding:0rpx 50rpx 0rpx 0rpx;
+}
+.sel > view{
+    margin: 15rpx 0rpx;
+}
+.tab{
+    font-weight: 600;
+    padding-right: 450rpx;
+}
+.level{
+    display: flex;
+    align-items: center;
+    padding:  5rpx 0rpx;
+}
+.level-tab{
+    font-weight: 600;
+    padding-right: 290rpx;
+}
+.level-size{
+    font-size: 20rpx;
+    color: red;
+}
+.btn{
+    padding-top: 30rpx;
+    display: flex;
+    justify-content: center;
+}
+
+
