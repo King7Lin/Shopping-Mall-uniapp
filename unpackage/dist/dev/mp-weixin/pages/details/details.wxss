@@ -31,4 +31,18 @@
   position: absolute;
   right: 0;
 }
+.ShopName {
+  margin: 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.details {
+  margin-top: 20rpx;
+}
+.text {
+  margin-bottom: 10rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
 

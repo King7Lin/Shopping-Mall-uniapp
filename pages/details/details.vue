@@ -29,7 +29,12 @@
 			  <choose name='送至'></choose>
 			  <choose name='选择'></choose>
 			  <choose name='参数'></choose>
-			  <text style="font-weight: bold;">商品详情</text>
+			  <!-- 详情 -->
+			  <view class="details">
+				  <text class="text">-----商品详情-----</text>
+				  <!-- 详情图 -->
+				  
+			  </view>
 		<!-- 底部悬浮栏 -->
 		<view class="goods-carts">
 			<uni-goods-nav 
@@ -71,6 +76,7 @@
 		},
 		methods: {
 			onClick(e) {
+				console.log(e)
 				uni.showToast({
 					title: `点击${e.content.text}`,
 					icon: 'none'
@@ -130,5 +136,19 @@
 			margin: 0 20rpx 20rpx 0;
 			position: absolute;
 			right: 0;
-		}
+	}
+	.ShopName{
+		margin: 15rpx;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.details{
+		margin-top: 20rpx;
+	}
+	.text{
+		margin-bottom: 10rpx;
+		font-weight: bold;
+		display: flex;
+		justify-content: center;
+	}
 </style>
