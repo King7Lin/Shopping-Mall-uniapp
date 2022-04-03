@@ -47,7 +47,7 @@
 			  is-link
 			  title="我的足迹"
 			  link-type="navigateTo"
-			  url="../order/order"
+			  url="../footprint/footprint"
 			/>
 			<van-cell
 			  is-link

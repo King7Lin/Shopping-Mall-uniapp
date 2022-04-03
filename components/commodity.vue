@@ -13,9 +13,9 @@
 			  <template #right>
 			    <van-button square text="删除" type="danger" class="delete-button" />
 			  </template>
-			  <template #left>
+			  <!-- <template #left>
 			    <van-button square text="选择" type="info" class="delete-button" />
-			  </template>
+			  </template> -->
 			</van-swipe-cell>
 		<!-- </navigator> -->
 	</view>

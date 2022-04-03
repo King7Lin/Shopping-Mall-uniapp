@@ -7,7 +7,8 @@
     "pages/find/find",
     "pages/details/details",
     "pages/order/order",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/footprint/footprint"
   ],
   "subPackages": [],
   "window": {
@@ -68,6 +69,8 @@
     "van-submit-bar": "/wxcomponents/vant/dist/submit-bar/index",
     "van-checkbox": "/wxcomponents/vant/dist/checkbox/index",
     "van-image": "/wxcomponents/vant/dist/image/index",
-    "van-divider": "/wxcomponents/vant/dist/divider/index"
-  }
+    "van-divider": "/wxcomponents/vant/dist/divider/index",
+    "van-card": "/wxcomponents/vant/dist/card/index"
+  },
+  "sitemapLocation": "sitemap.json"
 }
