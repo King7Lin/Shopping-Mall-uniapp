@@ -59,6 +59,12 @@
           "pathName": "pages/footprint/footprint",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/order/order",
+          "query": "",
+          "scene": null
         }
       ]
     }

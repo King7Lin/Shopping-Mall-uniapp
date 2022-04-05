@@ -128,20 +128,41 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var order = function order() {__webpack_require__.e(/*! require.ensure | components/order */ "components/order").then((function () {return resolve(__webpack_require__(/*! ../../components/order.vue */ 153));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
-    return {};
-
+    return {
+      active: 0 };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    onClick: function onClick(name, title) {
+      this.active = name.detail.index;
+      console.log(name, this.active);
+    } },
+
+  components: {
+    order: order } };exports.default = _default;
 
 /***/ })
 

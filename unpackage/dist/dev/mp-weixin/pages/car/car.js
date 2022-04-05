@@ -137,30 +137,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
+//
+//
+//
 var _default =
 {
   data: function data() {
     return {
-      shop: [
-      {
-        img: '../static/c4.png',
-        name: '白给商城',
-        money: 999,
-        type: '白给' },
-
-      {
-        img: '../static/c3.png',
-        name: '白给商城',
-        money: 1999,
-        type: '白给1' },
-
-      {
-        img: '../static/c5.png',
-        name: '白给商城',
-        money: 2999,
-        type: '白给2' }],
-
-
+      shop: [],
       price: 0 };
 
   },

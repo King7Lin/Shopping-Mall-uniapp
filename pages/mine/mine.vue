@@ -19,7 +19,7 @@
 				<van-cell-group inset>
 				  <van-cell
 				    is-link
-				    title="我的足迹"
+				    title="我的订单"
 				    link-type="navigateTo"
 				    url="../order/order"
 				  />

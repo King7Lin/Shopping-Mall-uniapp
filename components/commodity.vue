@@ -1,7 +1,7 @@
 <template>
 	<view class="book" >
 		<!-- <navigator class="row" url="" v-for="item in shop"> -->
-			<van-swipe-cell right-width=" 50 " left-width=" 50 ">
+			<van-swipe-cell right-width="40">
 			  <van-card
 			    num="2"
 			    price="2.00"
@@ -13,9 +13,9 @@
 			  <template #right>
 			    <van-button square text="删除" type="danger" class="delete-button" />
 			  </template>
-			  <!-- <template #left>
+			  <template #left>
 			    <van-button square text="选择" type="info" class="delete-button" />
-			  </template> -->
+			  </template>
 			</van-swipe-cell>
 		<!-- </navigator> -->
 	</view>
