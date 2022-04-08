@@ -2091,7 +2091,136 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
-/***/ 107:
+/***/ 11:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 113:
 /*!*********************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \*********************************************************************************************/
@@ -3268,136 +3397,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 11:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
-/***/ 120:
+/***/ 126:
 /*!**********************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
   \**********************************************************************************************************/
@@ -3405,9 +3405,9 @@ function normalizeComponent (
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 121));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 122));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 123));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 127));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 128));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 129));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3415,7 +3415,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 121:
+/***/ 127:
 /*!*********************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
   \*********************************************************************************************************/
@@ -3426,7 +3426,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
 
 /***/ }),
 
-/***/ 122:
+/***/ 128:
 /*!**************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
   \**************************************************************************************************************/
@@ -3437,7 +3437,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-go
 
 /***/ }),
 
-/***/ 123:
+/***/ 129:
 /*!**************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
   \**************************************************************************************************************/
@@ -3448,7 +3448,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-go
 
 /***/ }),
 
-/***/ 138:
+/***/ 144:
 /*!**********************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/index.js ***!
   \**********************************************************************************************/
@@ -3456,9 +3456,9 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-go
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 139));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 140));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 141));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 145));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 146));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 147));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3466,7 +3466,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 139:
+/***/ 145:
 /*!*********************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/en.json ***!
   \*********************************************************************************************/
@@ -3477,7 +3477,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"collect\",\"uni-fav.collecte
 
 /***/ }),
 
-/***/ 140:
+/***/ 146:
 /*!**************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hans.json ***!
   \**************************************************************************************************/
@@ -3488,7 +3488,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 
 /***/ }),
 
-/***/ 141:
+/***/ 147:
 /*!**************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hant.json ***!
   \**************************************************************************************************/
@@ -10057,7 +10057,7 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 89:
+/***/ 95:
 /*!************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
   \************************************************************************************************************/
@@ -10065,9 +10065,9 @@ function resolveLocaleChain(locale) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 90));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 91));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 92));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 96));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 97));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 98));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10075,7 +10075,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 9
 
 /***/ }),
 
-/***/ 90:
+/***/ 96:
 /*!***********************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
   \***********************************************************************************************************/
@@ -10086,7 +10086,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 
 /***/ }),
 
-/***/ 91:
+/***/ 97:
 /*!****************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
   \****************************************************************************************************************/
@@ -10097,7 +10097,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 
 /***/ }),
 
-/***/ 92:
+/***/ 98:
 /*!****************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
   \****************************************************************************************************************/

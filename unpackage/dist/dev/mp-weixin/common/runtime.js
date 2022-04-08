@@ -105,7 +105,7 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar":1,"components/index":1,"uni_modules/uni-icons/components/uni-icons/uni-icons":1,"uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav":1,"components/commodity":1,"uni_modules/uni-fav/components/uni-fav/uni-fav":1};
+/******/ 		var cssChunks = {"uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar":1,"components/index":1,"uni_modules/uni-icons/components/uni-icons/uni-icons":1,"components/choose":1,"uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav":1,"components/commodity":1,"uni_modules/uni-fav/components/uni-fav/uni-fav":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {

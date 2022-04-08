@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uniFav: function() {
-      return Promise.all(/*! import() | uni_modules/uni-fav/components/uni-fav/uni-fav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-fav/components/uni-fav/uni-fav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-fav/components/uni-fav/uni-fav.vue */ 133))
+      return Promise.all(/*! import() | uni_modules/uni-fav/components/uni-fav/uni-fav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-fav/components/uni-fav/uni-fav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-fav/components/uni-fav/uni-fav.vue */ 139))
     },
     uniGoodsNav: function() {
-      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 115))
+      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 121))
     }
   }
 } catch (e) {
@@ -123,6 +123,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  if (!_vm._isMounted) {
+    _vm.e0 = function($event) {
+      _vm.show = true
+    }
+  }
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -156,7 +161,56 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var choose = function choose() {__webpack_require__.e(/*! require.ensure | components/choose */ "components/choose").then((function () {return resolve(__webpack_require__(/*! ../../components/choose.vue */ 110));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var choose = function choose() {__webpack_require__.e(/*! require.ensure | components/choose */ "components/choose").then((function () {return resolve(__webpack_require__(/*! ../../components/choose.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -211,8 +265,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       options: [{
-        icon: 'headphones',
-        text: '客服' },
+        icon: 'home',
+        text: '首页' },
       {
         icon: 'cart',
         text: '购物车' }],
@@ -228,7 +282,8 @@ __webpack_require__.r(__webpack_exports__);
         color: '#fff' }],
 
 
-      checkList: false };
+      checkList: false,
+      show: false };
 
 
   },
@@ -241,7 +296,8 @@ __webpack_require__.r(__webpack_exports__);
 
     },
     buttonClick: function buttonClick(e) {
-      console.log(e);
+      console.log(e, this.$refs.prpos);
+      this.show = true;
     },
     ChangeCheck: function ChangeCheck() {
       this.checkList = !this.checkList;
@@ -250,6 +306,9 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         Notify({ type: 'danger', message: '通知内容' });
       }
+    },
+    close: function close() {
+      this.show = false;
     } },
 
   components: {
