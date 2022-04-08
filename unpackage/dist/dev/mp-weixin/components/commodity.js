@@ -146,7 +146,12 @@ var _default =
 
   },
   props: {
-    shop: [] } };exports.default = _default;
+    shop: [] },
+
+  methods: {
+    right: function right() {
+      console.log('click right button');
+    } } };exports.default = _default;
 
 /***/ }),
 

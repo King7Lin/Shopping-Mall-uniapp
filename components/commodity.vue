@@ -11,7 +11,7 @@
 			    thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
 			  />
 			  <template #right>
-			    <button  type="danger" class="delete-button" >删除</button>
+			    <button class="delete-button" @click="right">删除</button>
 			  </template>
 			  <template #left>
 			    <van-button square text="" type="info" class="delete-button">选择</van-button>
@@ -31,6 +31,11 @@
 		},
 		props:{
 			shop:[]
+		},
+		methods:{
+			right(){
+				console.log('click right button')
+			}
 		}
 	}
 </script>
@@ -45,5 +50,9 @@
 		display: flex;
 		justify-content: center;
 		text-align: center;
+		line-height: var(--button-line-height,100px);
+		font-size: var(--button-normal-font-size,14px);
+		color: #fff;
+		background-color: red;
 	  }
 </style>
