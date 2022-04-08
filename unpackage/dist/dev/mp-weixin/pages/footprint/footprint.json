@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "我的足迹",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "commodity": "/components/commodity"

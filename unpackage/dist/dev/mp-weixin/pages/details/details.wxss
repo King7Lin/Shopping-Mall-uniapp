@@ -1,6 +1,9 @@
 @charset "UTF-8";
 /* 水平间距 */
 /* 水平间距 */
+.uni-padding-wrap .page-section .page-section-spacing .swiper {
+  height: 250px;
+}
 .detail {
   display: flex;
   flex-direction: row;

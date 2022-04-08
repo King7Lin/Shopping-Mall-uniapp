@@ -16,7 +16,7 @@
 			    <button class="delete-button" @click="right">删除</button>
 			  </template>
 			  <template #left>
-			    <button class="info-button">选择</button>
+			    <button class="info-button">收藏</button>
 			  </template>
 			</van-swipe-cell>
 		

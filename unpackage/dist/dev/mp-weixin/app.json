@@ -17,7 +17,7 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "backgroundColor": "#C7C7C7"
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -36,12 +36,6 @@
         "iconPath": "static/c2.png",
         "selectedIconPath": "static/c4.png",
         "text": "更多"
-      },
-      {
-        "pagePath": "pages/find/find",
-        "iconPath": "static/c1.png",
-        "selectedIconPath": "static/c3.png",
-        "text": "发现"
       },
       {
         "pagePath": "pages/car/car",

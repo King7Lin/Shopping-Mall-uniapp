@@ -104,7 +104,7 @@ var components
 try {
   components = {
     uniSearchBar: function() {
-      return Promise.all(/*! import() | uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.vue */ 90))
+      return Promise.all(/*! import() | uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-search-bar/components/uni-search-bar/uni-search-bar.vue */ 88))
     }
   }
 } catch (e) {
@@ -159,7 +159,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var index = function index() {__webpack_require__.e(/*! require.ensure | components/index */ "components/index").then((function () {return resolve(__webpack_require__(/*! ../../components/index.vue */ 101));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var index = function index() {__webpack_require__.e(/*! require.ensure | components/index */ "components/index").then((function () {return resolve(__webpack_require__(/*! ../../components/index.vue */ 99));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
 
 
 
@@ -207,21 +209,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       shop: [
       {
         id: 0,
-        img: '../static/c4.png',
+        img: '../static/11.jpeg',
         name: '白给商城1',
         price: 999,
         url: '../details/details' },
 
       {
         id: 1,
-        img: '../static/c3.png',
+        img: '../static/22.jpeg',
         name: '白给商城2',
         price: 1999,
         url: '../details/details' },
 
       {
         id: 2,
-        img: '../static/c5.png',
+        img: '../static/33.jpeg',
         name: '白给商城3',
         price: 2999,
         url: '../details/details' }],
@@ -230,13 +232,13 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       shop1: [
       {
         id: 0,
-        img: '../../static/c5.png',
+        img: '../../static/11.jpeg',
         name: '白给商城1',
         price: 999 },
 
       {
         id: 1,
-        img: '../../static/c3.png',
+        img: '../../static/22.jpeg',
         name: '白给商城2',
         price: 1999 }] };
 

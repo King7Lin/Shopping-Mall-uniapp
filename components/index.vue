@@ -4,7 +4,7 @@
 		<view class="top">
 			<image :src="img" class="img" mode=""></image>
 		</view>
-		<view class="bottom">
+		<view class="text">
 			<text class="name">{{name}}</text>
 			<text class="price">￥{{price}}</text>
 		</view>
@@ -47,9 +47,9 @@
 		width: 100%;
 		height: 200rpx;
 		/* border: 1px solid #000000; */
-		border-radius: 20rpx 20rpx 20rpx 20rpx;
+		border-radius: 20rpx 20rpx 0rpx 0rpx;
 	}
-	.bottom{
+	.text{
 		display: flex;
 		flex-direction: column;
 	}

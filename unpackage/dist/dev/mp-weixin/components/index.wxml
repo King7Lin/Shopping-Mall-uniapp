@@ -1,1 +1,1 @@
-<navigator class="container" url="{{url}}"><view class="top"><image class="img" src="{{img}}" mode></image></view><view class="bottom"><text class="name">{{name}}</text><text class="price">{{"￥"+price}}</text></view></navigator>
+<navigator class="container" url="{{url}}"><view class="top"><image class="img" src="{{img}}" mode></image></view><view class="text"><text class="name">{{name}}</text><text class="price">{{"￥"+price}}</text></view></navigator>

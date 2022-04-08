@@ -2,14 +2,14 @@
 	"pages": [{
 		"path": "pages/index/index",
 		"style": {
-			"navigationBarTitleText": "uni-app"
+			"navigationBarTitleText": "首页"
 		}
 		
 	}    ,{
             "path" : "pages/car/car",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "购物车",
                 "enablePullDownRefresh": false
             }
             
@@ -18,7 +18,7 @@
             "path" : "pages/mine/mine",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的",
                 "enablePullDownRefresh": false
             }
             
@@ -27,7 +27,7 @@
             "path" : "pages/more/more",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "更多",
                 "enablePullDownRefresh": false
             }
             
@@ -45,7 +45,7 @@
             "path" : "pages/details/details",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "详情",
                 "enablePullDownRefresh": false
             }
             
@@ -54,7 +54,7 @@
             "path" : "pages/order/order",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "订单",
                 "enablePullDownRefresh": false
             }
             
@@ -63,7 +63,7 @@
             "path" : "pages/setting/setting",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "设置",
                 "enablePullDownRefresh": false
             }
             
@@ -72,7 +72,7 @@
             "path" : "pages/footprint/footprint",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的足迹",
                 "enablePullDownRefresh": false
             }
             
@@ -81,7 +81,7 @@
             "path" : "pages/search/search",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "搜索",
                 "enablePullDownRefresh": false
             }
             
@@ -90,7 +90,7 @@
             "path" : "pages/Collection/Collection",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的收藏",
                 "enablePullDownRefresh": false
             }
             
@@ -100,7 +100,7 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
+		"backgroundColor": "#C7C7C7",
 		"app-plus": {
 			"background": "#efeff4"
 		},
@@ -153,12 +153,6 @@
 			"selectedIconPath":"static/c4.png",
 	        "text": "更多"
 	    },
-		{
-		    "pagePath": "pages/find/find",
-		    "iconPath": "static/c1.png",
-			"selectedIconPath":"static/c3.png",
-		    "text": "发现"
-		},
 		{
 		    "pagePath": "pages/car/car",
 		    "iconPath": "static/c1.png",

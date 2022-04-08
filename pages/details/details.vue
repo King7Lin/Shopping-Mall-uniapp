@@ -6,7 +6,7 @@
 				<view class="page-section-spacing">
 					<swiper class="swiper" indicator-dots="true" autoplay="true" interval="4000" duration="500">
 						<swiper-item>
-							<image src="../../static/c1.png" mode=""></image>
+							<image src="../../static/c1.png" style="width: 100%; height: 250px;"></image>
 						</swiper-item>
 					</swiper>
 				</view>
@@ -127,6 +127,15 @@
 		methods: {
 			onClick(e) {
 				console.log(e)
+				if(e.index ===0){
+					wx.switchTab({
+						url:'../index/index'
+					})
+				}else{
+					wx.switchTab({
+						url:'../car/car'
+					})
+				}
 				uni.showToast({
 					title: `点击${e.content.text}`,
 					icon: 'none'
@@ -155,6 +164,9 @@
 </script>
 
 <style lang="scss">
+	.uni-padding-wrap .page-section .page-section-spacing .swiper{
+		height: 250px;
+	}
   .detail {
     display: flex;
     flex-direction: row;

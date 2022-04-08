@@ -1,14 +1,16 @@
 <template>
 	<view class="container">
 		<!-- 搜索框 -->				   <!--按下搜索事件-->
-		<uni-search-bar focus='true' @confirm='search'></uni-search-bar>
+		<uni-search-bar focus='true' @confirm='search' ></uni-search-bar>
 		<!-- ；轮播 -->
 		<view class="uni-padding-wrap">
 			<view class="page-section swiper">
 				<view class="page-section-spacing">
 					<swiper class="swiper" indicator-dots="true" autoplay="true" interval="4000" duration="500">
 						<swiper-item v-for="item in shop1" :key="item.id">
-							<image :src="item.img" mode="" style="height: 300rpx;"></image>
+							<navigator url="">
+								<image :src="item.img" mode="" style="height: 300rpx; margin-left: 16rpx; border-radius: 10px;"></image>
+							</navigator>
 						</swiper-item>
 					</swiper>
 				</view>
@@ -46,21 +48,21 @@
 				shop:[
 					{
 						id:0,
-						img:'../static/c4.png',
+						img:'../static/11.jpeg',
 						name:'白给商城1',
 						price:999,
 						url:'../details/details'
 					},
 					{
 						id:1,
-						img:'../static/c3.png',
+						img:'../static/22.jpeg',
 						name:'白给商城2',
 						price:1999,
 						url:'../details/details'
 					},
 					{
 						id:2,
-						img:'../static/c5.png',
+						img:'../static/33.jpeg',
 						name:'白给商城3',
 						price:2999,
 						url:'../details/details'
@@ -69,13 +71,13 @@
 				shop1:[
 					{
 						id:0,
-						img:'../../static/c5.png',
+						img:'../../static/11.jpeg',
 						name:'白给商城1',
 						price:999
 					},
 					{
 						id:1,
-						img:'../../static/c3.png',
+						img:'../../static/22.jpeg',
 						name:'白给商城2',
 						price:1999
 					},
@@ -95,9 +97,13 @@
 
 <style>
 	.container {
-		padding: 20px;
+		padding-right: 20px;
+		padding-left: 20px;
 		font-size: 14px;
 		line-height: 24px;
+	}
+	.uni-searchbar{
+		padding: 0;
 	}
 /* 	.topImg{
 		border: 1px solid #000000;
