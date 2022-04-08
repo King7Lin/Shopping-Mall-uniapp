@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
-		<!-- 搜索框 -->
-		<uni-search-bar focus='true' ></uni-search-bar>
+		<!-- 搜索框 -->				   <!--按下搜索事件-->
+		<uni-search-bar focus='true' @confirm='search'></uni-search-bar>
 		<!-- ；轮播 -->
 		<view class="uni-padding-wrap">
 			<view class="page-section swiper">
@@ -83,7 +83,9 @@
 			}
 		},
 		methods: {
-
+			search(e){
+				console.log(e)
+			}
 		},
 		components:{
 			index

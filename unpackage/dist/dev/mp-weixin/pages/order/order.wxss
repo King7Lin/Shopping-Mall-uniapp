@@ -1,6 +1,6 @@
 
 order{
-	margin-left: 10rpx;
-	padding-left: 10rpx;
+	margin: 0;
+	padding: 0;
 }
 

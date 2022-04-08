@@ -1,7 +1,7 @@
 <template>
 	<view class="book" >
 		<!-- <navigator class="row" url="" v-for="item in shop"> -->
-			<van-swipe-cell right-width="40">
+			<van-swipe-cell right-width="60" left-width="60">
 			  <van-card
 			    num="2"
 			    price="2.00"
@@ -11,10 +11,10 @@
 			    thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
 			  />
 			  <template #right>
-			    <van-button square text="删除" type="danger" class="delete-button" />
+			    <button  type="danger" class="delete-button" >删除</button>
 			  </template>
 			  <template #left>
-			    <van-button square text="选择" type="info" class="delete-button" />
+			    <van-button square text="" type="info" class="delete-button">选择</van-button>
 			  </template>
 			</van-swipe-cell>
 		<!-- </navigator> -->
@@ -42,5 +42,8 @@
 	  }
 	  .delete-button{
 	    height: 100%;
+		display: flex;
+		justify-content: center;
+		text-align: center;
 	  }
 </style>

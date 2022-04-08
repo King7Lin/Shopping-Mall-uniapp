@@ -65,6 +65,18 @@
           "pathName": "pages/order/order",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/Collection/Collection",
+          "query": "",
+          "scene": null
         }
       ]
     }

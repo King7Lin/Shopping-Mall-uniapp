@@ -1,7 +1,7 @@
 <template>
 	<view>
 			<van-empty
-			v-if="shop"
+			  v-if="shop"
 			  class="custom-image"
 			  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
 			  description="购物车为空"

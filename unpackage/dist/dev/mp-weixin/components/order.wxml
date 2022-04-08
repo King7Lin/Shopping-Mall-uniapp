@@ -1,1 +1,1 @@
-<view><text>{{'order'+active+''}}</text></view>
+<view><navigator url><van-card vue-id="58614943-1" num="2" price="2.00" desc="描述信息" title="商品标题" thumb="https://img01.yzcdn.cn/vant/ipad.jpeg" data-com-type="wx" bind:__l="__l"></van-card></navigator></view>

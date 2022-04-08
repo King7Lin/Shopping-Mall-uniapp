@@ -8,7 +8,9 @@
     "pages/details/details",
     "pages/order/order",
     "pages/setting/setting",
-    "pages/footprint/footprint"
+    "pages/footprint/footprint",
+    "pages/search/search",
+    "pages/Collection/Collection"
   ],
   "subPackages": [],
   "window": {

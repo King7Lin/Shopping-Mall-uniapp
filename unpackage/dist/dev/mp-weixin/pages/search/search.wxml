@@ -1,0 +1,1 @@
+<view><uni-search-bar vue-id="50cad900-1" focus="true" data-event-opts="{{[['^confirm',[['search']]]]}}" bind:confirm="__e" bind:__l="__l"></uni-search-bar><order vue-id="50cad900-2" bind:__l="__l"></order></view>

@@ -1,8 +1,13 @@
 <template>
 	<view class="container">
 		<van-sidebar  v-model="activeKey" >
-		  <van-sidebar-item v-for="(item,index) in shop" :title="item.name" :v-key="index"/>
+		  <van-sidebar-item v-for="(item,index) in shop" :title="item.type" :v-key="index"/>
 		</van-sidebar>
+		<view class="content">
+			<view id="">
+				
+			</view>
+		</view>
 	</view>
 </template>
 
