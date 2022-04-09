@@ -9,7 +9,6 @@
 					  	class="goods-card"
 					  	thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
 					   />
-					  
 				  </navigator>
 			  <template #right>
 			    <button class="delete-button" @click="right">{{operation}}</button>
