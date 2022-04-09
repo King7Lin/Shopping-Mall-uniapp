@@ -1,11 +1,14 @@
 <template>
 	<view class="container">
 		<van-sidebar  v-model="activeKey" >
-		  <van-sidebar-item v-for="(item,index) in shop" :title="item.type" :v-key="index"/>
+		  <van-sidebar-item v-for="(item,index) in shop" :title="item.type" :v-key="index" />
 		</van-sidebar>
-		<view class="content">
-			<view id="">
-				
+		<view class="content" >
+			<view  v-for="(item,index) in shop" :v-key="index":id="1">
+				<image :src="item.img" mode=""></image>
+				<view class="title">
+					{{item.name}}
+				</view>
 			</view>
 		</view>
 	</view>
@@ -18,19 +21,19 @@
 			return {
 				shop:[
 					{
-						img:'../static/c4.png',
+						img:'../../static/c4.png',
 						name:'白给商城',
 						money:999,
 						type:'白给'
 					},
 					{
-						img:'../static/c3.png',
+						img:'../../static/c3.png',
 						name:'白给商城',
 						money:1999,
 						type:'白给1'
 					},
 					{
-						img:'../static/c5.png',
+						img:'../../static/c5.png',
 						name:'白给商城',
 						money:2999,
 						type:'白给2'

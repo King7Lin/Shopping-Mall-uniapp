@@ -114,32 +114,29 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var Stepper = function Stepper() {__webpack_require__.e(/*! require.ensure | components/Stepper */ "components/Stepper").then((function () {return resolve(__webpack_require__(/*! ../components/Stepper.vue */ 168));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   name: "commodity",
   data: function data() {
@@ -148,12 +145,29 @@ var _default =
 
   },
   props: {
-    shop: [] },
+    // shop:{
+    // 	required:true
+    // },
+    operation: {
+      type: String,
+      required: true },
+
+    foot: {
+      type: Boolean,
+      default: false,
+      required: true } },
+
 
   methods: {
     right: function right() {
       console.log('click right button');
-    } } };exports.default = _default;
+    },
+    to: function to(e) {
+      console.log(e);
+    } },
+
+  components: {
+    Stepper: Stepper } };exports.default = _default;
 
 /***/ }),
 

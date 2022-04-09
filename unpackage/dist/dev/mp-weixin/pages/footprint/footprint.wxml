@@ -1,1 +1,1 @@
-<view><commodity vue-id="23af6840-1" bind:__l="__l"></commodity></view>
+<view><commodity vue-id="23af6840-1" operation="收藏" foot="true" bind:__l="__l"></commodity></view>

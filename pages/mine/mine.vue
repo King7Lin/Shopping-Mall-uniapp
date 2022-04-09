@@ -53,7 +53,7 @@
 			  is-link
 			  title="我的收藏"
 			  link-type="navigateTo"
-			  url="../order/order"
+			  url="../Collection/Collection"
 			/>
 			<van-cell
 			  is-link

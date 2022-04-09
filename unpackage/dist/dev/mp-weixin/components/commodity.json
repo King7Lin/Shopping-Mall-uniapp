@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "stepper": "/components/Stepper"
+  },
   "component": true
 }

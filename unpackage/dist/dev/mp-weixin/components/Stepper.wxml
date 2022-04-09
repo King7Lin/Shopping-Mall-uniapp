@@ -1,0 +1,1 @@
+<view><van-stepper vue-id="2830aa00-1" value=" 1 " bind:change="onChange" data-com-type="wx" bind:__l="__l"></van-stepper></view>

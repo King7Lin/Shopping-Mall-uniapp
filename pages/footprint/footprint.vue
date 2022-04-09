@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<commodity></commodity>
+		<commodity operation='收藏' foot='true'></commodity>
 	</view>
 </template>
 

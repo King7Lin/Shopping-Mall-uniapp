@@ -1,22 +1,18 @@
 <template>
 	<view class="book" >
-		
-			<van-swipe-cell right-width="60" left-width="60">
-				<navigator class="row" url="" >
-				  <van-card
-					num="2"
-					price="2.00"
-					desc="描述信息"
-					title="商品标题"
-					class="goods-card"
-					thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
-				  />
-			  </navigator>
+			<van-swipe-cell right-width="60">
+				  <navigator url="">
+					  <van-card
+					  	price="2.00"
+					  	desc="描述信息"
+					  	title="商品标题"
+					  	class="goods-card"
+					  	thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
+					   >
+					  </van-card>
+				  </navigator>
 			  <template #right>
-			    <button class="delete-button" @click="right">删除</button>
-			  </template>
-			  <template #left>
-			    <button class="info-button">收藏</button>
+			    <button class="delete-button" @click="right">{{operation}}</button>
 			  </template>
 			</van-swipe-cell>
 		
@@ -24,6 +20,7 @@
 </template>
 
 <script>
+	import Stepper from"../components/Stepper.vue"
 	export default {
 		name:"commodity",
 		data() {
@@ -32,12 +29,29 @@
 			};
 		},
 		props:{
-			shop:[]
+			// shop:{
+			// 	required:true
+			// },
+			operation:{
+				type:String,
+				required:true
+			},
+			foot:{
+				type:Boolean,
+				default:false,
+				required:true
+			}
 		},
 		methods:{
 			right(){
 				console.log('click right button')
+			},
+			to(e){
+				console.log(e)
 			}
+		},
+		components:{
+			Stepper
 		}
 	}
 </script>
@@ -57,14 +71,5 @@
 		color: #fff;
 		background-color: red;
 	  }
-	  .info-button{
-		  height: 100%;
-		  display: flex;
-		  justify-content: center;
-		  text-align: center;
-		  line-height: var(--button-line-height,100px);
-		  font-size: var(--button-normal-font-size,14px);
-		  color: #fff;
-		  background-color: #007AFF;
-	  }
+	  
 </style>

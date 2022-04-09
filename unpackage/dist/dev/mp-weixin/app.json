@@ -69,7 +69,7 @@
     "van-card": "/wxcomponents/vant/dist/card/index",
     "van-empty": "/wxcomponents/vant/dist/empty/index",
     "van-tabs": "/wxcomponents/vant/dist/tabs/index",
-    "van-tab": "/wxcomponents/vant/dist/tab/index"
-  },
-  "sitemapLocation": "sitemap.json"
+    "van-tab": "/wxcomponents/vant/dist/tab/index",
+    "van-stepper": "/wxcomponents/vant/dist/stepper/index"
+  }
 }

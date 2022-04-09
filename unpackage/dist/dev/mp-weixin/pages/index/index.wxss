@@ -20,12 +20,12 @@
 .left{
 		flex: 1;
 		margin: 10rpx;
-		height: 350rpx;
+		height: 359rpx;
 		border-radius: 20rpx;
 }
 .lunbo{
 		width: 100%;
-		height: 350rpx;
+		height: 359rpx;
 		border: 1px solid ;
 		border-radius: 20rpx;
 }

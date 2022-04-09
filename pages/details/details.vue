@@ -23,15 +23,22 @@
 			  <van-notify id="van-notify" />
 		  </view>
 		  <view class="ShopName">
-			  <text class="title">商品名字</text>
+			  <view class="title">商品名字</view>
+			  <van-cell title="广东包邮 - 7天无理由退货 - 48小时发货" icon="location-o" />
 		  </view>
 		  <!-- 选择 -->
-			  <van-cell is-link title="选择"  @click="show = true" />
-			  <choose name='参数'></choose>
+			  <view class="choose">
+				  <van-cell is-link title="选择"  @click="show = true" />
+				  <choose name='参数'></choose>
+			  </view>
 			  <!-- 详情 -->
 			  <view class="details">
 				  <text class="text">-----商品详情-----</text>
 				  <!-- 详情图 -->
+				  <view class="detailImg">
+					  <image src="../../static/11.jpeg" class="detailImgs" mode=""></image>
+					  <image src="../../static/22.jpeg" class="detailImgs" mode=""></image>
+				  </view>
 			  </view>
 		<!-- 底部悬浮栏 -->
 		<view class="goods-carts">
@@ -47,6 +54,7 @@
 		<view class="">
 			<van-popup
 			  :show="show"
+			  round
 			  position="bottom"
 			  closeable="true"
 			  custom-style="height: 65%"
@@ -59,30 +67,17 @@
 				</view>
 			    <view class="goods-info-right">
 			      <view class="goods-price">¥ 16.66</view>
-			      <view class="small">库存100件</view>
-			      <view class="small">选择 产品 配件 服务</view>
+			      <view class="small">已选择：</view>
+				  <van-stepper v-model="value" class='stepper'/>
 			    </view>
 			  </view>
 			  <view class="sel">
 			    <view class="tab small">规格</view>
 			    <view>
-			      <van-button color="#7B7B7B" size="mini" plain>规格1</van-button>
-			      <van-button color="#7B7B7B" size="mini" plain>规格2</van-button>
-			    </view>
-			    <view class="tab small">颜色</view>
-			    <view>
-			      <van-button color="#7B7B7B" size="mini" plain>白色</van-button>
-			      <van-button color="#7B7B7B" size="mini" plain>黑色</van-button>
-			    </view>
-			    <view class="level">
-			      <view class="tab small">数量</view>
-			      <van-stepper value="1" integer theme="round" button-size="20px"/>
-			    </view>
-			    <view>
-			      <van-button color="#7B7B7B" size="mini" plain>送货上门</van-button>
-			      <van-button color="#7B7B7B" size="mini" plain>上门安装</van-button>
+			      <van-button color="#7B7B7B" size="small " plain>规格1</van-button>
 			    </view>
 			  </view>
+			  
 			  <view class="goods-carts">
 			  	<uni-goods-nav 
 			  	:options="optionsa" 
@@ -120,7 +115,8 @@
 					    }
 					    ],
 						checkList:false,
-						show:false
+						show:false,
+						value:1
 			}
 			
 		},
@@ -164,7 +160,10 @@
 </script>
 
 <style lang="scss">
-	.uni-padding-wrap .page-section .page-section-spacing .swiper{
+	.uni-padding-wrap 
+	.page-section 
+	.page-section-spacing 
+	.swiper{
 		height: 250px;
 	}
   .detail {
@@ -204,7 +203,10 @@
 			right: 0;
 	}
 	.ShopName{
-		margin: 15rpx;
+		margin-bottom: 20rpx;
+	}
+	.ShopName>.title{
+		margin: 20rpx;
 		display: flex;
 		flex-wrap: wrap;
 	}
@@ -227,19 +229,30 @@
 	.img{
 	    height: 200rpx;
 	    width: 200rpx;
+		border: 1px solid #C7C7C7;
 	}
 	.goods-info-right{
-	    padding: 80rpx 30rpx 0rpx;
+		
+		display: flex;
+		flex-direction: column;
+		font-size: 50rpx;
+		padding-left: 20rpx;
+	    // padding: 80rpx 30rpx 0rpx;
 	}
 	.goods-info-right >view{
 	    padding: 5rpx 0rpx;
+		display: flex;
+		flex-wrap: wrap;
+		width:  460rpx;
 	}
 	.goods-price{
 	    font-weight: 600;
 	    color: red;
 	}
 	.small{
-	    font-size: 25rpx;
+	    font-size: 30rpx;
+		overflow-x: hidden;
+		// width: 100%;
 	}
 	van-button{
 	    padding:0rpx 50rpx 0rpx 0rpx;
@@ -251,23 +264,24 @@
 	    font-weight: 600;
 	    padding-right: 450rpx;
 	}
-	.level{
-	    display: flex;
-	    align-items: center;
-	    padding:  5rpx 0rpx;
+	.van-stepper{
+		position: absolute;
+		right: 0;
 	}
-	.level-tab{
-	    font-weight: 600;
-	    padding-right: 290rpx;
+	.active{
+		background-color: red;
 	}
-	.level-size{
-	    font-size: 20rpx;
-	    color: red;
+	.detailImg{
+		margin-left: 10rpx;
+		margin-right: 10rpx;
+		margin-bottom: 88rpx;
+		width: 97%;
+		height: 500rpx;
 	}
-	.btn{
-	    padding-top: 30rpx;
-	    display: flex;
-	    justify-content: center;
+	.detailImgs{
+		margin-left: 10rpx;
+		// margin-right: 10rpx;
+		width: 97%;
+		height: 100%;
 	}
-	
 </style>
