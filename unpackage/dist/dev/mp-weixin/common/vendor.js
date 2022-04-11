@@ -947,7 +947,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -2091,6 +2091,17 @@ uni$1;exports.default = _default;
 
 /***/ }),
 
+/***/ 100:
+/*!****************************************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \****************************************************************************************************************/
+/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
+
+/***/ }),
+
 /***/ 11:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -2220,7 +2231,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 111:
+/***/ 115:
 /*!*********************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \*********************************************************************************************/
@@ -3397,7 +3408,82 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 126:
+/***/ 12:
+/*!****************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/final/wxcomponents/vant/notify/notify.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = Notify;var _color = __webpack_require__(/*! ../common/color */ 13);
+var defaultOptions = {
+  selector: '#van-notify',
+  type: 'danger',
+  message: '',
+  background: '',
+  duration: 3000,
+  zIndex: 110,
+  top: 0,
+  color: _color.WHITE,
+  safeAreaInsetTop: false,
+  onClick: function onClick() {},
+  onOpened: function onOpened() {},
+  onClose: function onClose() {} };
+
+function parseOptions(message) {
+  if (message == null) {
+    return {};
+  }
+  return typeof message === 'string' ? { message: message } : message;
+}
+function getContext() {
+  var pages = getCurrentPages();
+  return pages[pages.length - 1];
+}
+function Notify(options) {
+  options = Object.assign(Object.assign({}, defaultOptions), parseOptions(options));
+  var context = options.context || getContext();
+  var notify = context.selectComponent(options.selector);
+  delete options.context;
+  delete options.selector;
+  if (notify) {
+    notify.setData(options);
+    notify.show();
+    return notify;
+  }
+  console.warn('未找到 van-notify 节点，请确认 selector 及 context 是否正确');
+}
+Notify.clear = function (options) {
+  options = Object.assign(Object.assign({}, defaultOptions), parseOptions(options));
+  var context = options.context || getContext();
+  var notify = context.selectComponent(options.selector);
+  if (notify) {
+    notify.hide();
+  }
+};
+
+/***/ }),
+
+/***/ 13:
+/*!***************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/final/wxcomponents/vant/common/color.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.GRAY_DARK = exports.GRAY = exports.ORANGE = exports.GREEN = exports.WHITE = exports.BLUE = exports.RED = void 0;var RED = '#ee0a24';exports.RED = RED;
+var BLUE = '#1989fa';exports.BLUE = BLUE;
+var WHITE = '#fff';exports.WHITE = WHITE;
+var GREEN = '#07c160';exports.GREEN = GREEN;
+var ORANGE = '#ff976a';exports.ORANGE = ORANGE;
+var GRAY = '#323233';exports.GRAY = GRAY;
+var GRAY_DARK = '#969799';exports.GRAY_DARK = GRAY_DARK;
+
+/***/ }),
+
+/***/ 130:
 /*!**********************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/index.js ***!
   \**********************************************************************************************/
@@ -3405,9 +3491,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 127));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 128));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 129));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 131));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 132));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 133));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3415,7 +3501,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 127:
+/***/ 131:
 /*!*********************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/en.json ***!
   \*********************************************************************************************/
@@ -3426,7 +3512,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"collect\",\"uni-fav.collecte
 
 /***/ }),
 
-/***/ 128:
+/***/ 132:
 /*!**************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hans.json ***!
   \**************************************************************************************************/
@@ -3437,7 +3523,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 
 /***/ }),
 
-/***/ 129:
+/***/ 133:
 /*!**************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hant.json ***!
   \**************************************************************************************************/
@@ -3448,7 +3534,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 
 /***/ }),
 
-/***/ 137:
+/***/ 141:
 /*!**********************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
   \**********************************************************************************************************/
@@ -3456,9 +3542,9 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 138));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 139));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 140));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 142));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 143));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 144));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3466,7 +3552,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 138:
+/***/ 142:
 /*!*********************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
   \*********************************************************************************************************/
@@ -3477,7 +3563,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
 
 /***/ }),
 
-/***/ 139:
+/***/ 143:
 /*!**************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
   \**************************************************************************************************************/
@@ -3488,7 +3574,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-go
 
 /***/ }),
 
-/***/ 140:
+/***/ 144:
 /*!**************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
   \**************************************************************************************************************/
@@ -9057,7 +9143,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -9078,14 +9164,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -9171,7 +9257,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"白给商城","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10057,7 +10143,7 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 93:
+/***/ 97:
 /*!************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
   \************************************************************************************************************/
@@ -10065,9 +10151,9 @@ function resolveLocaleChain(locale) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 94));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 95));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 96));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 98));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 99));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 100));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -10075,7 +10161,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 9
 
 /***/ }),
 
-/***/ 94:
+/***/ 98:
 /*!***********************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
   \***********************************************************************************************************/
@@ -10086,7 +10172,7 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 
 /***/ }),
 
-/***/ 95:
+/***/ 99:
 /*!****************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
   \****************************************************************************************************************/
@@ -10094,17 +10180,6 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 /***/ (function(module) {
 
 module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"请输入搜索内容\"}");
-
-/***/ }),
-
-/***/ 96:
-/*!****************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
-  \****************************************************************************************************************/
-/*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-bar.placeholder\":\"請輸入搜索內容\"}");
 
 /***/ })
 

@@ -1,0 +1,35 @@
+
+.container{
+	display: flex;
+	width: 100%;
+}
+.left{
+	flex: 1;
+	background-color: #fafafa;
+}
+.checkbox{
+	text-align: center;
+	margin-left: 10rpx;
+	line-height: var(--button-line-height,100px);
+}
+.right{
+	flex: 10;
+}
+.van-button{
+margin-right: 10rpx;
+}
+.goods-card {
+   margin: 0;
+   background-color: white;
+}
+.delete-button{
+   height: 100%;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		line-height: var(--button-line-height,120px);
+		font-size: var(--button-normal-font-size,14px);
+		color: #fff;
+		background-color: red;
+}
+

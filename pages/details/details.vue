@@ -21,8 +21,6 @@
 			@click="ChangeCheck" 
 			/>
 			  <van-notify id="van-notify" />
-		  </view>
-		  <view class="ShopName">
 			  <view class="title">商品名字</view>
 			  <van-cell title="广东包邮 - 7天无理由退货 - 48小时发货" icon="location-o" />
 		  </view>
@@ -144,9 +142,9 @@
 			ChangeCheck(){
 				this.checkList = !this.checkList
 				if(this.checkList){
-					Notify({ type: 'success', message: '通知内容' });
+					this.$notify({ type: "success", message: "收藏成功" });
 				}else{
-					Notify({ type: 'danger', message: '通知内容' });
+					this.$notify({ type: "danger", message: "取消收藏" });
 				}
 			},
 			close(){
@@ -168,9 +166,14 @@
 	}
   .detail {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin-bottom: 15rpx;
     margin-top: 15rpx;
-    margin-bottom: 0rpx;
+	background-color: #fff;
+  }
+  // 收藏
+  .uni-fav{
+	  margin-top: 15rpx;
   }
   .detail .title {
     font-size: 40rpx;

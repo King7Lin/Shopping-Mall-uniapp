@@ -9,9 +9,13 @@
 }
 .detail {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin-bottom: 15rpx;
   margin-top: 15rpx;
-  margin-bottom: 0rpx;
+  background-color: #fff;
+}
+.uni-fav {
+  margin-top: 15rpx;
 }
 .detail .title {
   font-size: 40rpx;

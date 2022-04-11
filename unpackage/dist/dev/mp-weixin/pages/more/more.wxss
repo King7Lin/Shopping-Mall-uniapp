@@ -4,6 +4,13 @@
 	height: 100vh;
 	margin: 15rpx;
 }
+.top{
+	position: absolute;
+	top: 0;
+}
+.body{
+	margin-top: 100rpx;
+}
 .classification{
 	flex: 1;
 	display: flex;

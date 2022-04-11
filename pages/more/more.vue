@@ -1,13 +1,20 @@
 <template>
 	<view class="container">
-		<van-sidebar  v-model="activeKey" >
-		  <van-sidebar-item v-for="(item,index) in shop" :title="item.type" :v-key="index" />
-		</van-sidebar>
-		<view class="content" >
-			<view  v-for="(item,index) in shop" :v-key="index":id="1">
-				<image :src="item.img" mode=""></image>
-				<view class="title">
-					{{item.name}}
+		<view class="top">
+			<uni-search-bar focus='true' @click='search' ></uni-search-bar>
+		</view>
+		<view class="body">
+			<view class="left">
+				<van-sidebar  v-model="activeKey" >
+				  <van-sidebar-item v-for="(item,index) in shop" :title="item.type" :v-key="index" />
+				</van-sidebar>
+			</view>
+			<view class="right" >
+				<view  v-for="(item,index) in shop" :v-key="index":id="1">
+					<image :src="item.img" mode=""></image>
+					<view class="title">
+						{{item.name}}
+					</view>
 				</view>
 			</view>
 		</view>
@@ -57,6 +64,13 @@
 		height: 100vh;
 		margin: 15rpx;
 		
+	}
+	.top{
+		position: absolute;
+		top: 0;
+	}
+	.body{
+		margin-top: 100rpx;
 	}
 	.classification{
 		flex: 1;

@@ -16,7 +16,7 @@
 <style lang="scss">
 	/*每个页面公共css */
 	@import '@/uni_modules/uni-scss/index.scss';
-	@import "/wxcomponents/vant/dist/common/index.wxss";
+	@import "/wxcomponents/vant/common/index.wxss";
 	/* #ifndef APP-NVUE */
 	@import '@/static/customicons.css';
 	// 设置整个项目的背景色
