@@ -17,16 +17,18 @@
 .uni-fav {
   margin-top: 15rpx;
 }
-.detail .title {
+.title {
   font-size: 40rpx;
   margin: 10rpx;
   color: black;
   text-align: justify;
+  margin-left: 20rpx;
 }
-.detail .price {
+.price {
   color: red;
   font-size: 40rpx;
   margin: 10rpx;
+  margin-left: 20rpx;
 }
 .goods-carts {
   display: flex;

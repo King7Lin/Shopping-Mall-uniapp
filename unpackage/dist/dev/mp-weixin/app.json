@@ -10,7 +10,8 @@
     "pages/setting/setting",
     "pages/footprint/footprint",
     "pages/search/search",
-    "pages/Collection/Collection"
+    "pages/Collection/Collection",
+    "pages/addres/addres"
   ],
   "subPackages": [],
   "window": {
@@ -70,8 +71,8 @@
     "van-empty": "/wxcomponents/vant/empty/index",
     "van-tabs": "/wxcomponents/vant/tabs/index",
     "van-tab": "/wxcomponents/vant/tab/index",
+    "van-icon": "/wxcomponents/vant/icon/index",
     "van-stepper": "/wxcomponents/vant/stepper/index",
     "van-notice-bar": "/wxcomponents/vant/notice-bar/index"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

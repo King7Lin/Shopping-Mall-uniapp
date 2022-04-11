@@ -59,7 +59,7 @@
 			  is-link
 			  title="我的地址"
 			  link-type="navigateTo"
-			  url="../order/order"
+			  url="../addres/addres"
 			/>
 			<van-cell
 			  is-link

@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view class="top">
-			<uni-search-bar focus='true' @click='search' ></uni-search-bar>
+			-
 		</view>
 		<view class="body">
 			<view class="left">

@@ -95,6 +95,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/addres/addres",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -123,6 +132,7 @@
 			"van-empty": "/wxcomponents/vant/empty/index",
 			"van-tabs": "/wxcomponents/vant/tabs/index",
 			"van-tab": "/wxcomponents/vant/tab/index",
+			"van-icon": "/wxcomponents/vant/icon/index",
 			"van-stepper": "/wxcomponents/vant/stepper/index",
 			"van-notice-bar": "/wxcomponents/vant/notice-bar/index"
 		}

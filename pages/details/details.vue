@@ -13,7 +13,7 @@
 			</view>
 		</view>
 		  <view class="detail" >
-		    <text class="price">￥999</text>
+		    <view class="title">商品名字</view>
 			<!-- 收藏 -->
 			<uni-fav 
 			:checked="checkList"
@@ -21,7 +21,8 @@
 			@click="ChangeCheck" 
 			/>
 			  <van-notify id="van-notify" />
-			  <view class="title">商品名字</view>
+			  
+			  <text class="price">￥999</text>
 			  <van-cell title="广东包邮 - 7天无理由退货 - 48小时发货" icon="location-o" />
 		  </view>
 		  <!-- 选择 -->
@@ -163,6 +164,7 @@
 	.page-section-spacing 
 	.swiper{
 		height: 250px;
+		
 	}
   .detail {
     display: flex;
@@ -175,16 +177,22 @@
   .uni-fav{
 	  margin-top: 15rpx;
   }
-  .detail .title {
+   .title {
     font-size: 40rpx;
     margin: 10rpx;
     color: black;
     text-align: justify;
+	margin-left: 20rpx;
   }
-  .detail .price {
+  // .title 
+  // .price{
+	 //  margin-left: 20rpx;
+  // }
+   .price {
     color: red;
     font-size: 40rpx;
     margin: 10rpx;
+	margin-left: 20rpx;
   }
  .goods-carts {
  		/* #ifndef APP-NVUE */
