@@ -1,8 +1,8 @@
 <template>
 	<view class="container">
-		<view class="top">
+		<!-- <view class="top">
 			-
-		</view>
+		</view> -->
 		<view class="body">
 			<view class="left">
 				<van-sidebar  v-model="activeKey" >
@@ -10,12 +10,12 @@
 				</van-sidebar>
 			</view>
 			<view class="right" >
-				<view  v-for="(item,index) in shop" :v-key="index":id="1">
+				<!-- <view  v-for="(item,index) in shop" :v-key="index":id="1">
 					<image :src="item.img" mode=""></image>
 					<view class="title">
 						{{item.name}}
 					</view>
-				</view>
+				</view> -->
 			</view>
 		</view>
 	</view>
@@ -65,10 +65,10 @@
 		margin: 15rpx;
 		
 	}
-	.top{
+	/* .top{
 		position: absolute;
 		top: 0;
-	}
+	} */
 	.body{
 		margin-top: 100rpx;
 	}
