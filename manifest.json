@@ -54,6 +54,8 @@
             "urlCheck" : false,
             "postcss" : true
         },
-        "usingComponents" : true
+		"cloudfunctionRoot":"cloudfunctions/",
+        "usingComponents" : true,
+        "permission" : {}
     }
 }

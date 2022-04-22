@@ -96,10 +96,18 @@
             
         }
         ,{
-            "path" : "pages/addres/addres",
+            "path" : "pages/address/address",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的地址",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/address/addAddress",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "添加地址",
                 "enablePullDownRefresh": false
             }
             
@@ -134,6 +142,7 @@
 			"van-tab": "/wxcomponents/vant/tab/index",
 			"van-icon": "/wxcomponents/vant/icon/index",
 			"van-stepper": "/wxcomponents/vant/stepper/index",
+			"van-share-sheet": "/wxcomponents/vant/share-sheet/index",
 			"van-notice-bar": "/wxcomponents/vant/notice-bar/index"
 		}
 			

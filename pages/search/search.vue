@@ -1,12 +1,12 @@
 <template>
 	<view>
 		<uni-search-bar focus='true' @confirm='search'></uni-search-bar>
-		<order></order>
+		<commodity operation='收藏'></commodity>
 	</view>
 </template>
 
 <script>
-	import order from "../../components/order.vue"
+	import commodity from "../../components/commodity.vue"
 	export default {
 		data() {
 			return {
@@ -19,7 +19,7 @@
 			}
 		},
 		components:{
-			order
+			commodity
 		},
 		onLoad(){
 			

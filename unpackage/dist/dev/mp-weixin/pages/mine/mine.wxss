@@ -43,4 +43,8 @@
 .icon navigator{
    flex: 1 0 25%;
 }
+button{
+	 padding: 0;
+	 margin: 0;
+}
 

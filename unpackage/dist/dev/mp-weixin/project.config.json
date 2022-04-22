@@ -8,33 +8,32 @@
     "urlCheck": false,
     "postcss": true,
     "es6": true,
-    "enhance": true,
+    "coverView": true,
+    "lazyloadPlaceholderEnable": false,
     "preloadBackgroundData": false,
     "minified": true,
-    "coverView": true,
     "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
     "uglifyFileName": false,
-    "checkInvalidKey": true,
     "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "lazyloadPlaceholderEnable": false,
+    "enhance": true,
     "useMultiFrameRuntime": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useStaticServer": true,
+    "showES6CompileOption": false,
+    "checkInvalidKey": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
     "disableUseStrict": false,
-    "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "useStaticServer": true
+    "useCompilerPlugins": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.23.2",
+  "libVersion": "2.23.4",
   "appid": "wx91f7f09db7d3da2d",
   "projectname": "白给商城",
   "condition": {
@@ -62,6 +61,7 @@
       ]
     }
   },
+  "cloudfunctionRoot": "cloudfunctions/",
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

@@ -59,7 +59,7 @@
 			  is-link
 			  title="我的地址"
 			  link-type="navigateTo"
-			  url="../addres/addres"
+			  url="../address/address"
 			/>
 			<van-cell
 			  is-link
@@ -67,12 +67,11 @@
 			  link-type="navigateTo"
 			  url="../order/order"
 			/>
-			<van-cell
-			  is-link
-			  title="联系客服"
-			  link-type="navigateTo"
-			  url="../order/order"
-			/>
+			<button open-type="contact">
+				<van-cell
+				  title="联系客服"
+				/>
+			</button>
 		</view>
 	</view>
 </template>
@@ -143,5 +142,9 @@
 	 }
 	 .icon navigator{
 	   flex: 1 0 25%;
+	 }
+	 button{
+		 padding: 0;
+		 margin: 0;
 	 }
 </style>

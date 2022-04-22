@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "首页",
   "usingComponents": {
-    "index": "/components/index"
+    "index": "/components/index",
+    "my-swiper": "/components/mySwiper"
   }
 }

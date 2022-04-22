@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/details/details"],{
 
 /***/ 52:
-/*!**************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/main.js?{"page":"pages%2Fdetails%2Fdetails"} ***!
-  \**************************************************************************************/
+/*!******************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/main.js?{"page":"pages%2Fdetails%2Fdetails"} ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_details.default);
 /***/ }),
 
 /***/ 53:
-/*!*******************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/pages/details/details.vue ***!
-  \*******************************************************************/
+/*!***********************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages/details/details.vue ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -58,9 +58,9 @@ component.options.__file = "pages/details/details.vue"
 /***/ }),
 
 /***/ 54:
-/*!**************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/pages/details/details.vue?vue&type=template&id=39cbb4e8& ***!
-  \**************************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages/details/details.vue?vue&type=template&id=39cbb4e8& ***!
+  \******************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -80,9 +80,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 55:
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/final/pages/details/details.vue?vue&type=template&id=39cbb4e8& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/FinalWork/pages/details/details.vue?vue&type=template&id=39cbb4e8& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -95,11 +95,14 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uniSwiperDot: function() {
+      return __webpack_require__.e(/*! import() | uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot */ "uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.vue */ 122))
+    },
     uniFav: function() {
-      return Promise.all(/*! import() | uni_modules/uni-fav/components/uni-fav/uni-fav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-fav/components/uni-fav/uni-fav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-fav/components/uni-fav/uni-fav.vue */ 120))
+      return Promise.all(/*! import() | uni_modules/uni-fav/components/uni-fav/uni-fav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-fav/components/uni-fav/uni-fav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-fav/components/uni-fav/uni-fav.vue */ 129))
     },
     uniGoodsNav: function() {
-      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 131))
+      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 140))
     }
   }
 } catch (e) {
@@ -127,6 +130,14 @@ var render = function() {
     _vm.e0 = function($event) {
       _vm.show = true
     }
+
+    _vm.e1 = function($event) {
+      _vm.showAddres = true
+    }
+
+    _vm.e2 = function($event) {
+      _vm.showShare = true
+    }
   }
 }
 var recyclableRender = false
@@ -138,9 +149,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 56:
-/*!********************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/pages/details/details.vue?vue&type=script&lang=js& ***!
-  \********************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages/details/details.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -154,110 +165,147 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 57:
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/final/pages/details/details.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/FinalWork/pages/details/details.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var choose = function choose() {__webpack_require__.e(/*! require.ensure | components/choose */ "components/choose").then((function () {return resolve(__webpack_require__(/*! ../../components/choose.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default =
 {
   data: function data() {
     return {
+      share: [
+      [
+      { name: '微信', icon: 'wechat' },
+      { name: '朋友圈', icon: 'wechat-moments' },
+      { name: '微博', icon: 'weibo' },
+      { name: 'QQ', icon: 'qq' }],
+
+      [
+      { name: '复制链接', icon: 'link' },
+      { name: '分享海报', icon: 'poster' },
+      { name: '二维码', icon: 'qrcode' },
+      { name: '小程序码', icon: 'weapp-qrcode' }]],
+
+
       options: [{
         icon: 'home',
         text: '首页' },
@@ -278,19 +326,53 @@ __webpack_require__.r(__webpack_exports__);
 
       checkList: false,
       show: false,
-      value: 1 };
+      value: 1,
+      showAddres: false,
+      showShare: false,
+      detailImg: [],
+      shop: [],
+      specifications: [],
+      current: 0 };
+
 
 
   },
+  onLoad: function onLoad(option) {var _this = this;
+    // console.log(option)
+    // console.log(option.shop_id)
+    // console.log(this)
+    uni.request({
+      url: "http://127.0.0.1:3007/all/selectDetails?shop_id=".concat(option.shop_id),
+      success: function success(res) {var _res$data =
+        res.data,detailImg = _res$data.detailImg,shop = _res$data.shop,specifications = _res$data.specifications;
+        _this.detailImg = detailImg;
+        _this.shop = shop[0][0];
+        _this.specifications = specifications;
+        // console.log(this.detailImg)
+        // console.log(this.shop)
+        console.log(_this.specifications);
+      } });
+
+    // console.log(option)
+  },
   methods: {
+    // 轮播
+    clickItem: function clickItem(e) {
+      console.log(e);
+    },
+    change: function change(e) {
+      this.current = e.detail.current;
+    },
+
+    // 主页购物车跳转
     onClick: function onClick(e) {
       console.log(e);
       if (e.index === 0) {
-        wx.switchTab({
+        uni.switchTab({
           url: '../index/index' });
 
       } else {
-        wx.switchTab({
+        uni.switchTab({
           url: '../car/car' });
 
       }
@@ -299,10 +381,13 @@ __webpack_require__.r(__webpack_exports__);
         icon: 'none' });
 
     },
+
+    // 加入购物车、立即购买
     buttonClick: function buttonClick(e) {
       console.log(e, this.$refs.prpos);
       this.show = true;
     },
+    // 收藏
     ChangeCheck: function ChangeCheck() {
       this.checkList = !this.checkList;
       if (this.checkList) {
@@ -311,20 +396,26 @@ __webpack_require__.r(__webpack_exports__);
         this.$notify({ type: "danger", message: "取消收藏" });
       }
     },
+
+    // prpos关闭
     close: function close() {
       this.show = false;
-    } },
+      this.showAddres = false;
+      this.showShare = false;
+    },
 
-  components: {
-    choose: choose } };exports.default = _default;
+    // 分享
+    onSelect: function onSelect() {
+      this.showShare = false;
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
 /***/ 58:
-/*!*****************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/pages/details/details.vue?vue&type=style&index=0&lang=scss& ***!
-  \*****************************************************************************************************/
+/*!*********************************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages/details/details.vue?vue&type=style&index=0&lang=scss& ***!
+  \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -338,9 +429,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 59:
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/final/pages/details/details.vue?vue&type=style&index=0&lang=scss& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--8-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--8-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-2!./node_modules/postcss-loader/src??ref--8-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/sass-loader/dist/cjs.js??ref--8-oneOf-1-4!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--8-oneOf-1-5!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/FinalWork/pages/details/details.vue?vue&type=style&index=0&lang=scss& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

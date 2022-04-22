@@ -1,23 +1,36 @@
 <template>
 	<view class="container">
-		<!-- <view class="top">
-			-
-		</view> -->
-		<view class="body">
-			<view class="left">
-				<van-sidebar  v-model="activeKey" >
-				  <van-sidebar-item v-for="(item,index) in shop" :title="item.type" :v-key="index" />
-				</van-sidebar>
-			</view>
-			<view class="right" >
-				<!-- <view  v-for="(item,index) in shop" :v-key="index":id="1">
-					<image :src="item.img" mode=""></image>
-					<view class="title">
-						{{item.name}}
-					</view>
-				</view> -->
-			</view>
-		</view>
+		<van-tree-select 
+			height="100vh" 
+			:items="shops" 
+			:main-active-index.sync="activeKey"
+			:active-id.sync="activeId"
+			@click-nav="onNavClick" 
+			>
+		  <template #content>
+			  <!-- 商品列表 -->
+			  
+					<view class="shop" v-for="(item,index) in shops" :key="index"  v-if="activeKey === index">
+						<view class="left">
+							<image class="shop-img" :src="item.img" mode="widthFix"></image>
+						</view>
+						<view class="right">
+							<view class="title">
+								{{item.name}}
+							</view>
+							<view class="green-tab">
+								<van-icon name="hot" />
+								<text>先用后付</text>
+							</view>
+							<view class="r-bottom">
+								<text class="price">¥{{item.price}}</text>
+								<text class="sales">销量{{item.sales}}</text>
+							</view>
+						</view>
+					
+				</view>	
+		  </template>
+		</van-tree-select>
 	</view>
 </template>
 
@@ -26,31 +39,40 @@
 	export default {
 		data() {
 			return {
-				shop:[
+				activeKey:0,
+				
+				shops:[
 					{
-						img:'../../static/c4.png',
-						name:'白给商城',
-						money:999,
-						type:'白给'
-					},
-					{
+						text:'家用电器',
 						img:'../../static/c3.png',
-						name:'白给商城',
-						money:1999,
-						type:'白给1'
+						name:'白给商城1',
+						price:999,
+						sales:5412		
 					},
 					{
+						text:'个人清洁',
+						img:'../../static/c4.png',
+						name:'白给商城2',
+						price:1999,
+						sales:8746
+							
+					},
+					{
+						text:'零食专区',
 						img:'../../static/c5.png',
-						name:'白给商城',
-						money:2999,
-						type:'白给2'
-					}
+						name:'白给商城3',
+						price:2999,
+						sales:1235
+					},
 				],
-				activeKey:0
+				
 			}
 		},
 		methods: {
-			
+			onNavClick(e){
+				
+				this.activeKey=e.detail.index
+			}
 		},
 		components:{
 
@@ -59,16 +81,52 @@
 </script>
 
 <style>
-	.container{
+	.shop{
+		display: flex;
+		margin: 10px;
+		width: 250px;
+	}
+	.shop-img{
+		width: 90px;
+		height: 90px;
+		border-radius: 2%;
+	}
+	.right{
+		margin-left: 10px;
+	}
+	.title{
+		font-weight: 550;
+		font-size: small;
+	}
+	.green-tab{
+		margin-top: 25px;
+		color: green;
+		font-size: 15px;
+	}
+	.r-bottom{
+		display: flex;
+		align-items: center;
+		margin-top: 9px;
+	}
+	.price{
+		font-size: 17px;
+		color: red;
+	}
+	.sales{
+		color: rgb(131, 130, 130);
+		     margin-left: 30rpx;
+		     font-size: 28rpx;
+	}
+	/* .container{
 		display: flex;
 		height: 100vh;
 		margin: 15rpx;
 		
 	}
-	/* .top{
+	.top{
 		position: absolute;
 		top: 0;
-	} */
+	}
 	.body{
 		margin-top: 100rpx;
 	}
@@ -82,12 +140,12 @@
 		font-size: 36rpx;
 		font-weight: bold;
 		padding-left: 20rpx;
-		/* margin-top: 20rpx; */
-		/* text-align: center; */
+		margin-top: 20rpx; 
+		text-align: center;
 		justify-content: center;
 	}
 	.left{
-		/* flex: 7; */
+		flex: 7;
 		border-right: 1px solid #909399;
-	}
+	} */
 </style>

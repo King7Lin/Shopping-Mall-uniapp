@@ -1,9 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/footprint/footprint"],{
 
 /***/ 74:
-/*!******************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/main.js?{"page":"pages%2Ffootprint%2Ffootprint"} ***!
-  \******************************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/main.js?{"page":"pages%2Ffootprint%2Ffootprint"} ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17,9 +17,9 @@ createPage(_footprint.default);
 /***/ }),
 
 /***/ 75:
-/*!***********************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/pages/footprint/footprint.vue ***!
-  \***********************************************************************/
+/*!***************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages/footprint/footprint.vue ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -56,9 +56,9 @@ component.options.__file = "pages/footprint/footprint.vue"
 /***/ }),
 
 /***/ 76:
-/*!******************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/pages/footprint/footprint.vue?vue&type=template&id=60cb6cf4& ***!
-  \******************************************************************************************************/
+/*!**********************************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages/footprint/footprint.vue?vue&type=template&id=60cb6cf4& ***!
+  \**********************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -78,9 +78,9 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 77:
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/final/pages/footprint/footprint.vue?vue&type=template&id=60cb6cf4& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/FinalWork/pages/footprint/footprint.vue?vue&type=template&id=60cb6cf4& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -105,9 +105,9 @@ render._withStripped = true
 /***/ }),
 
 /***/ 78:
-/*!************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/final/pages/footprint/footprint.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages/footprint/footprint.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -121,14 +121,14 @@ __webpack_require__.r(__webpack_exports__);
 /***/ }),
 
 /***/ 79:
-/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/final/pages/footprint/footprint.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!C:/Users/19783/Desktop/白给商城/FinalWork/pages/footprint/footprint.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 147));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 156));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 

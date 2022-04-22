@@ -2,8 +2,8 @@
   "navigationBarTitleText": "详情",
   "enablePullDownRefresh": false,
   "usingComponents": {
+    "uni-swiper-dot": "/uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot",
     "uni-fav": "/uni_modules/uni-fav/components/uni-fav/uni-fav",
-    "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav",
-    "choose": "/components/choose"
+    "uni-goods-nav": "/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav"
   }
 }
