@@ -1,7 +1,15 @@
 <template>
 	<view>
 		<uni-search-bar focus='true' @confirm='search'></uni-search-bar>
-		<commodity operation='收藏'></commodity>
+		<commodity 
+		v-for="(item,index) in shop"
+		:key='index'
+		operation='收藏'
+		:title='item.title'
+		:price='item.price'
+		:img='item.img'
+		:shop_id='item.shop_id'
+		></commodity>
 	</view>
 </template>
 
@@ -10,12 +18,19 @@
 	export default {
 		data() {
 			return {
-				
+				shop:[]
 			}
 		},
 		methods: {
 			search(e){
 				console.log(e)
+				uni.request({
+					url:`http://127.0.0.1:3007/all/search?title=${e.value}`,
+					success: (res) => {
+						this.shop = res.data
+						console.log(this.shop)
+					}
+				})
 			}
 		},
 		components:{

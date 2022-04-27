@@ -138,7 +138,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var index = function index() {__webpack_require__.e(/*! require.ensure | components/index */ "components/index").then((function () {return resolve(__webpack_require__(/*! ../../components/index.vue */ 93));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var mySwiper = function mySwiper() {__webpack_require__.e(/*! require.ensure | components/mySwiper */ "components/mySwiper").then((function () {return resolve(__webpack_require__(/*! ../../components/mySwiper.vue */ 100));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var index = function index() {__webpack_require__.e(/*! require.ensure | components/index */ "components/index").then((function () {return resolve(__webpack_require__(/*! ../../components/index.vue */ 106));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var mySwiper = function mySwiper() {__webpack_require__.e(/*! require.ensure | components/mySwiper */ "components/mySwiper").then((function () {return resolve(__webpack_require__(/*! ../../components/mySwiper.vue */ 113));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -234,7 +234,7 @@ __webpack_require__.r(__webpack_exports__);
 
   created: function created() {var _this = this;
     uni.request({
-      url: 'http://127.0.0.1:3007/all/selectShop?star=0&end=5',
+      url: 'http://127.0.0.1:3007/all/selectShop',
       success: function success(res) {var _res$data =
         res.data,activity = _res$data.activity,advertisement = _res$data.advertisement,shop = _res$data.shop;
 

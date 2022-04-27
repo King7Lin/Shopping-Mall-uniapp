@@ -94,7 +94,7 @@
 		},
 		created(){
 			uni.request({
-				url:'http://127.0.0.1:3007/all/selectShop?star=0&end=5',
+				url:'http://127.0.0.1:3007/all/selectShop',
 				success:(res)=>{
 					let { activity,advertisement,shop } = res.data
 					
@@ -303,6 +303,7 @@
 		border-radius: 20rpx 20rpx 0 0;
 		display: flex;
 		flex-wrap: wrap;
+		margin-bottom: 30rpx;
 	}
 	index{
 		border-radius: 30rpx 30rpx 30rpx 30rpx;

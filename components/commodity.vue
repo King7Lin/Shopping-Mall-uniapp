@@ -1,13 +1,12 @@
 <template>
 	<view class="book" >
 			<van-swipe-cell right-width="60">
-				  <navigator url="">
+				  <navigator @click="to">
 					  <van-card
-					  	price="2.00"
-					  	desc="描述信息"
-					  	title="商品标题"
+					  	:price="price"
+					  	:title="title"
 					  	class="goods-card"
-					  	thumb="https://img01.yzcdn.cn/vant/cat.jpeg"
+					  	:thumb="img"
 					   />
 				  </navigator>
 			  <template #right>
@@ -27,25 +26,27 @@
 			};
 		},
 		props:{
-			// shop:{
-			// 	required:true
-			// },
+			shop_id:0,
+			url:'',
+			img:'',
+			title:'',
+			price:0,
 			operation:{
 				type:String,
-				required:true
-			},
-			foot:{
-				type:Boolean,
-				default:false,
 				required:true
 			}
 		},
 		methods:{
 			right(){
 				console.log('click right button')
+				// uni.request({
+				// 	url:`http://127.0.0.1:3007/all/insertCollection`
+				// })
 			},
 			to(e){
-				console.log(e)
+				uni.navigateTo({
+					url:'../details/details?shop_id= '+this.shop_id
+				})
 			}
 		},
 		components:{
