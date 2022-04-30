@@ -32,4 +32,26 @@ margin-right: 10rpx;
 		color: #fff;
 		background-color: red;
 }
+.delete-button{
+   height: 100%;
+ 		display: flex;
+ 		justify-content: center;
+ 		text-align: center;
+ 		line-height: var(--button-line-height,100px);
+ 		font-size: var(--button-normal-font-size,14px);
+ 		color: #fff;
+ 		background-color: red;
+}
+.num{
+	 display: flex;
+	 position: absolute;
+	 right: 0;
+	 bottom: 0;
+}
+.reduce,.add{
+	 margin: 10rpx;
+}
+.text{
+	 line-height: 80rpx;
+}
 

@@ -73,7 +73,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
 //
 //
 //
@@ -116,10 +116,11 @@ var _default =
 {
   data: function data() {
     return {
-      city: '选择城市',
+      city: '',
       name: '',
-      tel: '',
-      text: '' };
+      number: '',
+      text: '',
+      detail: '' };
 
 
   },
@@ -132,7 +133,61 @@ var _default =
     //详细地址
     bindTextAreaBlur: function bindTextAreaBlur(e) {
       console.log(e.detail.value);
-    } } };exports.default = _default;
+    },
+    formSubmit: function formSubmit() {
+      var number = parseInt(this.number);
+      var isTel = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
+      var isMobile = /^1[3|4|5|7|8][0-9]{9}$/;
+
+      if (!isMobile.test(number)) {
+        return uni.showToast({
+          title: '手机号格式错误',
+          icon: 'error' });
+
+      }
+      if (this.name == '' || this.city == '选择城市' || this.detail == '') {
+        return uni.showToast({
+          title: '请填写完整信息',
+          icon: 'error' });
+
+      }
+      console.log(this.name);
+      console.log(this.city + this.detail);
+      uni.request({
+        url: "http://127.0.0.1:3007/all/insertAddress",
+        data: {
+          user_id: '1',
+          number: number,
+          address: this.city + this.detail,
+          name: this.name },
+
+        method: 'post',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' },
+
+        success: function success(res) {
+          console.log(res);
+          if (res.data.status == 1) {
+            uni.showToast({
+              title: '保存失败',
+              icon: 'error' });
+
+          } else {
+            uni.showToast({
+              title: '保存成功' });
+
+            uni.navigateBack({
+              url: './address' });
+
+          }
+        } });
+
+    } },
+
+  mounted: function mounted() {
+
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

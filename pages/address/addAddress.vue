@@ -4,12 +4,12 @@
 			<form @submit="formSubmit">
 				<view class=" flex-container">
 					<view class="title">收货人</view>
-					<input class="uni-input" name="name" placeholder="请输入收货人名字" />
+					<input class="uni-input" name="name" v-model="name" placeholder="请输入收货人名字" />
 				</view>
 				<view class="line"></view>
 				<view class=" flex-container">
 					<view class="title">手机号</view>
-					<input class="uni-input" maxlength="11" type="number" name="tel" placeholder="请输入收货人手机号" />
+					<input class="uni-input" maxlength="11" type="number" name="tel" v-model="number" placeholder="请输入收货人手机号" />
 				</view>
 				<view class="line"></view>
 				
@@ -25,7 +25,7 @@
 				<view class="line"></view>
 				<view class="flex-container">
 					<view class="title">详细地址</view>	
-					<textarea name="text" class="text" placeholder="街道,门牌号等" @blur="bindTextAreaBlur" />		
+					<textarea name="text" class="text" v-model="detail" placeholder="街道,门牌号等" @blur="bindTextAreaBlur" />		
 				</view>
 				<view class="line"></view>
 				<view class="btn">
@@ -41,10 +41,11 @@
 	export default {
 		data(){
 			  return {	
-				 city:'选择城市',
+				 city:'',
 			     name:'',
-				 tel:'',
+				 number:'',
 				 text:'',
+				 detail:''
 				 
 			    };
 		},
@@ -57,7 +58,59 @@
 			//详细地址
 			 bindTextAreaBlur(e) {
 			             console.log(e.detail.value)
-			         }
+			},
+			formSubmit(){
+				let number = parseInt(this.number)
+				let isTel = /^([0-9]{3,4}-)?[0-9]{7,8}$/;
+				let isMobile = /^1[3|4|5|7|8][0-9]{9}$/;
+				
+				if(!isMobile.test(number)){
+				   return uni.showToast({
+				   	title:'手机号格式错误',
+					icon:'error'
+				   })
+				} 
+				if(this.name == '' || this.city =='选择城市' || this.detail == ''){
+					return uni.showToast({
+						title:'请填写完整信息',
+						icon:'error'
+					})
+				}
+				console.log(this.name)
+				console.log(this.city + this.detail)
+				uni.request({
+					url:`http://127.0.0.1:3007/all/insertAddress`,
+					data:{
+						user_id:'1',
+						number,
+						address:this.city + this.detail,
+						name:this.name
+					},
+					method:'post',
+					header:{
+						'content-type':'application/x-www-form-urlencoded'
+					},
+					success: (res) => {
+						console.log(res)
+						if(res.data.status==1){
+							uni.showToast({
+								title:'保存失败',
+								icon:'error'
+							})
+						}else{
+							uni.showToast({
+								title:'保存成功'
+							})
+							uni.navigateBack({
+								url:'./address'
+							})
+						}
+					}
+				})
+			}
+		},
+		mounted() {
+			
 		}
 	}
 </script>

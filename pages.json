@@ -112,6 +112,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/settlement/settlement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

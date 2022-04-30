@@ -96,13 +96,13 @@ var components
 try {
   components = {
     uniSwiperDot: function() {
-      return __webpack_require__.e(/*! import() | uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot */ "uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.vue */ 135))
+      return __webpack_require__.e(/*! import() | uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot */ "uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot").then(__webpack_require__.bind(null, /*! @/uni_modules/uni-swiper-dot/components/uni-swiper-dot/uni-swiper-dot.vue */ 148))
     },
     uniFav: function() {
-      return Promise.all(/*! import() | uni_modules/uni-fav/components/uni-fav/uni-fav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-fav/components/uni-fav/uni-fav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-fav/components/uni-fav/uni-fav.vue */ 142))
+      return Promise.all(/*! import() | uni_modules/uni-fav/components/uni-fav/uni-fav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-fav/components/uni-fav/uni-fav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-fav/components/uni-fav/uni-fav.vue */ 155))
     },
     uniGoodsNav: function() {
-      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 153))
+      return Promise.all(/*! import() | uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-goods-nav/components/uni-goods-nav/uni-goods-nav.vue */ 166))
     }
   }
 } catch (e) {
@@ -332,18 +332,19 @@ var _default =
       detailImg: [],
       shop: [],
       specifications: [],
-      current: 0 };
-
+      current: 0,
+      shop_id: 0 };
 
 
   },
-  onLoad: function onLoad(option) {var _this = this;
-    // console.log(option)
-    // console.log(option.shop_id)
-    // console.log(this)
+  onShow: function onShow() {var _this = this;
+    uni.showLoading({
+      title: '正在加载中' });
+
     uni.request({
-      url: "http://127.0.0.1:3007/all/selectDetails?shop_id=".concat(option.shop_id),
+      url: 'http://127.0.0.1:3007/all/selectDetails?shop_id=' + this.shop_id,
       success: function success(res) {var _res$data =
+
         res.data,detailImg = _res$data.detailImg,shop = _res$data.shop,specifications = _res$data.specifications;
         _this.detailImg = detailImg;
         _this.shop = shop[0][0];
@@ -353,7 +354,17 @@ var _default =
         console.log(_this.specifications);
       } });
 
-    // console.log(option)
+    uni.request({
+      url: 'http://127.0.0.1:3007/all/insertfootprint?user_id=1&shop_id=' + this.shop_id,
+      success: function success(res) {
+        uni.hideLoading();
+        console.log(res);
+      } });
+
+  },
+  onLoad: function onLoad(option) {
+    console.log(option.shop_id.split());
+    this.shop_id = option.shop_id;
   },
   methods: {
     // 轮播

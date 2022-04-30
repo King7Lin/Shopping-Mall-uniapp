@@ -70,6 +70,27 @@
           "pathName": "pages/Collection/Collection",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/address/address",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/address/addAddress",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/settlement/settlement",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

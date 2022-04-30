@@ -1,1 +1,1 @@
-<view><commodity vue-id="76c54540-1" operation="删除" foot="false" bind:__l="__l"></commodity></view>
+<view><van-notice-bar vue-id="76c54540-1" left-icon="volume-o" scrollable="{{true}}" text="右滑可以删除收藏。" data-com-type="wx" bind:__l="__l"></van-notice-bar><block wx:for="{{shop}}" wx:for-item="item" wx:for-index="index" wx:key="index"><commodity vue-id="{{'76c54540-2-'+index}}" title="{{item[0].title}}" price="{{item[0].price}}" img="{{item[0].img}}" shop_id="{{item[0].shop_id}}" operation="删除" bind:__l="__l"></commodity></block></view>

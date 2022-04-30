@@ -97,15 +97,6 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  if (!_vm._isMounted) {
-    _vm.e0 = function($event) {
-      _vm.value--
-    }
-
-    _vm.e1 = function($event) {
-      _vm.value++
-    }
-  }
 }
 var recyclableRender = false
 var staticRenderFns = []
@@ -139,63 +130,162 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
       shop: [],
-      price: 0,
       value: 1,
       checkedAll: false,
       checked: true,
-      result: [] };
+      result: [],
+      num: 1,
+      price: 0 };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    onSubmit: function onSubmit(e) {
+      console.log(e);
+
+      // uni.navigateTo({
+      // 	url:'../settlement/settlement'
+      // })
+    },
+    reduce: function reduce(e) {
+      console.log(e);
+      e[0].checked = false;
+      // if(e[0].checked ==false){
+
+      // 	if(e[0].num>1){
+      // 		e[0].num--
+      // 		// this.show(e)
+      // 	}else{
+      // 		e[0].num=1
+      // 	}
+      // 	this.price = this.price
+      // }else{
+      // 	if(e[0].num>1){
+      // 		e[0].num--
+      // 		this.show(e)
+      // 	}else{
+      // 		e[0].num=1
+      // 	}
+      // }
+
+
+
+      // this.show(e)
+    },
+    add: function add(e) {
+      if (e[0].checked == false) {
+        e[0].num++;
+        this.price = this.price;
+      } else {
+        e[0].num++;
+        // e[0].checked = true
+        this.show(e);
+      }
+
+    },
+    to: function to(e) {
+      console.log(e);
+      uni.navigateTo({
+        url: '../details/details?shop_id=' + e });
+
+    },
+    show: function show(e) {
+      // e[0].checked == false?e[0].checked=true:e[0].checked=false
+      // console.log(this.price)
+      if (e[0].checked == false) {
+        e[0].checked = true;
+        this.price += e[0].price * 100 * e[0].num;
+      } else {
+        e[0].checked = false;
+        this.price -= e[0].price * 100 * e[0].num;
+      }
+    } },
+
+  components: {
+    commodity: commodity },
+
+  // computed:{
+  // 	all(){
+  // 		let price = 0
+
+  // 		this.shop.forEach((value)=>{
+  // 			console.log(value[0])
+  // 			if(value[0].checked == true) {
+  // 				console.log(value[0])
+  // 				price +=value[0].price
+  // 			}
+  // 		})
+  // 		return price
+  // 	}
+  // },
+  created: function created() {var _this = this;
+    uni.request({
+      url: 'http://127.0.0.1:3007/all/selectcart?user_id=1',
+      success: function success(res) {
+        console.log(res);
+        _this.shop = res.data;
+
+        _this.shop.forEach(function (value) {
+          // console.log(value)
+          value[0].checked = false;
+        });
+        // console.log(this.shop)
+      } });
+
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

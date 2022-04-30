@@ -12,7 +12,8 @@
     "pages/search/search",
     "pages/Collection/Collection",
     "pages/address/address",
-    "pages/address/addAddress"
+    "pages/address/addAddress",
+    "pages/settlement/settlement"
   ],
   "subPackages": [],
   "window": {

@@ -1,5 +1,6 @@
 <template>
 	<view class="book" >
+		<slot></slot>
 			<van-swipe-cell right-width="60">
 				  <navigator @click="to">
 					  <van-card
@@ -27,7 +28,6 @@
 		},
 		props:{
 			shop_id:0,
-			url:'',
 			img:'',
 			title:'',
 			price:0,
@@ -45,7 +45,7 @@
 			},
 			to(e){
 				uni.navigateTo({
-					url:'../details/details?shop_id= '+this.shop_id
+					url:'../details/details?shop_id='+this.shop_id
 				})
 			}
 		},

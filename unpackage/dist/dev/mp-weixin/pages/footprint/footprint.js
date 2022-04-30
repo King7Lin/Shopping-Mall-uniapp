@@ -128,7 +128,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 169));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
 
 
 
@@ -138,15 +147,27 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 {
   data: function data() {
-    return {};
-
+    return {
+      shop: [] };
 
   },
   methods: {},
 
 
   components: {
-    commodity: commodity } };exports.default = _default;
+    commodity: commodity },
+
+  created: function created() {var _this = this;
+    uni.request({
+      url: 'http://127.0.0.1:3007/all/selectfootprint?user_id=1',
+      success: function success(res) {
+        // console.log(res)
+        _this.shop.push(res.data);
+        console.log(_this.shop);
+      } });
+
+  } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

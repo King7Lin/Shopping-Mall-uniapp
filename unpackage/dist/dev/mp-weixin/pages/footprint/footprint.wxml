@@ -1,1 +1,1 @@
-<view><commodity vue-id="23af6840-1" operation="收藏" foot="true" bind:__l="__l"></commodity></view>
+<view><van-notice-bar vue-id="23af6840-1" left-icon="volume-o" scrollable="{{true}}" text="右滑可以收藏商品。" data-com-type="wx" bind:__l="__l"></van-notice-bar><block wx:for="{{shop[0]}}" wx:for-item="item" wx:for-index="index" wx:key="index"><commodity vue-id="{{'23af6840-2-'+index}}" operation="收藏" shop_id="{{item[0].shop_id}}" title="{{item[0].title}}" price="{{item[0].price}}" img="{{item[0].img}}" bind:__l="__l"></commodity></block></view>

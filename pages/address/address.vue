@@ -3,17 +3,16 @@
 		<scroll-view class="scroll" scroll-y="true">
 		  <!--wx:for="{{addressList}}"-->
 		  <view>
-			<view class="product-name-wrap" v-for="item in addressList">
+			<view class="product-name-wrap" v-for="(item,index) in addressList" :key='index'>
 			  <view class="ui-list-item-info">{{item.name}}
-				<text class="blank"></text> {{item.mobile}}
+				<text class="blank"></text> {{item.number}}
 			  </view>
 			  <view class="ui-list-item-address">
-				{{item.address}} {{item.addressName}} <p>{{item.area}}</p>
+				{{item.address}}
 			  </view>
 			  <!--默认和删除地址-->
 			  <view class="ui-list-item-time">
 					  <checkbox :checked="item.default" class="weui-agree__checkbox-check" aria-labelledby="js_agree_txt js_agree_link" />
-					 
 					  <span class="weui-agree__text"><text aria-hidden="true" id="js_agree_txt">默认</text></span>
 					  <p class="ui-list-item-del" @click="delAddress">删除</p>
 					</view>
@@ -22,7 +21,7 @@
 		  </view>
 		</scroll-view>
 		<view class="add-address" @click="addAddress">
-			<image class="add-img"  v-if="img" :src="img" mode="aspectFit"></image>新增地址
+			新增地址
 		</view>
 		
 	</view>
@@ -33,39 +32,20 @@
 		data() {
 			return {
 				img:'../../static/add.png',
-				source: 0,
-				addressList: [
-					{
-						name: '刘晓晓',
-						mobile: '18666666666',
-						addressName: '贵族皇仕牛排(东城店)',
-						address: '北京市东城区',
-						area: 'B区',
-						default: true
-					},{
-						name: '刘大大',
-						mobile: '18667766666',
-						addressName: '龙回1区12号楼',
-						address: '山东省济南市历城区',
-						area: '西单元302',
-						default: false,
-					}
-				]
+				// source: 0,
+				addressList: []
 			}
 		},
-		onLoad(option){
-			console.log(option.source);
-			this.source = option.source;
+		created() {
+			uni.request({
+				url:'http://127.0.0.1:3007/all/selectAddress?user_id=1',
+				success: (res) => {
+					this.addressList = res.data
+					console.log(this.addressList)
+				}
+			})
 		},
 		methods: {
-			//选择地址
-			checkAddress(item){
-				if(this.source == 1){
-					//this.$api.prePage()获取上一页实例，在App.vue定义
-					this.$api.prePage().addressData = item;
-					uni.navigateBack()
-				}
-			},
 			addAddress(type, item){
 				uni.navigateTo({
 					url: './addAddress'

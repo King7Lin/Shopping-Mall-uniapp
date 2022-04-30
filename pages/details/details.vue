@@ -158,18 +158,19 @@
 						detailImg:[],
 						shop:[],
 						specifications:[],
-						current:0
-						
+						current:0,
+						shop_id:0
 			}
 			
 		},
-		onLoad(option) {
-			// console.log(option)
-			// console.log(option.shop_id)
-			// console.log(this)
+		onShow() {
+			uni.showLoading({
+				title:'正在加载中',
+			})
 			uni.request({
-				url:`http://127.0.0.1:3007/all/selectDetails?shop_id=${option.shop_id}`,
+				url:'http://127.0.0.1:3007/all/selectDetails?shop_id='+this.shop_id,
 				success: (res) => {
+					
 					let { detailImg,shop,specifications } = res.data
 					this.detailImg = detailImg
 					this.shop = shop[0][0]
@@ -179,7 +180,17 @@
 					console.log(this.specifications)
 				}
 			})
-			// console.log(option)
+			uni.request({
+				url:'http://127.0.0.1:3007/all/insertfootprint?user_id=1&shop_id='+this.shop_id,
+				success: (res) => {
+					uni.hideLoading()
+					console.log(res)
+				}
+			})
+		},
+		onLoad(option) {
+			console.log(option.shop_id.split())
+			this.shop_id = option.shop_id
 		},
 		methods: {
 			// 轮播
