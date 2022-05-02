@@ -2295,7 +2295,7 @@ var GRAY_DARK = '#969799';exports.GRAY_DARK = GRAY_DARK;
 
 /***/ }),
 
-/***/ 138:
+/***/ 131:
 /*!*************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \*************************************************************************************************/
@@ -3472,7 +3472,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 
-/***/ 160:
+/***/ 153:
 /*!**************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/index.js ***!
   \**************************************************************************************************/
@@ -3480,9 +3480,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 161));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 162));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 163));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 154));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 155));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 156));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3490,7 +3490,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 161:
+/***/ 154:
 /*!*************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/en.json ***!
   \*************************************************************************************************/
@@ -3501,7 +3501,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"collect\",\"uni-fav.collecte
 
 /***/ }),
 
-/***/ 162:
+/***/ 155:
 /*!******************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hans.json ***!
   \******************************************************************************************************/
@@ -3512,7 +3512,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 
 /***/ }),
 
-/***/ 163:
+/***/ 156:
 /*!******************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hant.json ***!
   \******************************************************************************************************/
@@ -3523,7 +3523,7 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 
 /***/ }),
 
-/***/ 171:
+/***/ 164:
 /*!**************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
   \**************************************************************************************************************/
@@ -3531,9 +3531,9 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 172));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 173));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 174));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 165));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 166));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 167));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3541,7 +3541,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 172:
+/***/ 165:
 /*!*************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
   \*************************************************************************************************************/
@@ -3552,7 +3552,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
 
 /***/ }),
 
-/***/ 173:
+/***/ 166:
 /*!******************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
   \******************************************************************************************************************/
@@ -3563,7 +3563,7 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-go
 
 /***/ }),
 
-/***/ 174:
+/***/ 167:
 /*!******************************************************************************************************************!*\
   !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
   \******************************************************************************************************************/

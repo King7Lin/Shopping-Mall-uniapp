@@ -36,8 +36,8 @@
 						</view>
 					</view>
 					<!-- 底部结算栏 -->
-				<van-submit-bar :price="price" button-text="购买" @submit="onSubmit">
-				  <van-checkbox v-model="checkedAll">全选</van-checkbox>
+				<van-submit-bar :price="one_checked" button-text="购买" @submit="onSubmit">
+				  <van-checkbox  @change='Allchecked'>全选</van-checkbox>
 				</van-submit-bar>
 			</form>
 			
@@ -67,35 +67,33 @@
 				// 	url:'../settlement/settlement'
 				// })
 			},
+			// 减少
 			reduce(e){
 				console.log(e)
 				e[0].checked = false
-				// if(e[0].checked ==false){
+				if(e[0].checked ==false){
 					
-				// 	if(e[0].num>1){
-				// 		e[0].num--
-				// 		// this.show(e)
-				// 	}else{
-				// 		e[0].num=1
-				// 	}
-				// 	this.price = this.price
-				// }else{
-				// 	if(e[0].num>1){
-				// 		e[0].num--
-				// 		this.show(e)
-				// 	}else{
-				// 		e[0].num=1
-				// 	}
-				// }
-				
-				
-				
-				// this.show(e)
+					if(e[0].num>1){
+						e[0].num--
+						// this.show(e)
+					}else{
+						e[0].num=1
+					}
+					this.price = this.price
+				}else{
+					if(e[0].num>1){
+						e[0].num--
+						this.show(e)
+					}else{
+						e[0].num=1
+					}
+				}
 			},
+			// 增加
 			add(e){
 				if(e[0].checked == false){
 					e[0].num++
-					this.price = this.price
+					// this.price = this.price
 				}else{
 					e[0].num++
 					// e[0].checked = true
@@ -109,9 +107,9 @@
 					url:'../details/details?shop_id='+e
 				})
 			},
+			// 价格
 			show(e){
 				// e[0].checked == false?e[0].checked=true:e[0].checked=false
-				// console.log(this.price)
 				if(e[0].checked == false){
 					e[0].checked=true
 					this.price += e[0].price * 100 * e[0].num
@@ -119,25 +117,49 @@
 					e[0].checked=false
 					this.price -= e[0].price * 100 * e[0].num
 				}
+				console.log(e)
+			},
+			// 全选
+			Allchecked(e){
+				if(e.detail == false){
+					e.detail = true
+					this.checkedAll = true
+					this.shop.forEach((value)=>{
+						value[0].checked = true
+					})
+					console.log('false',this.shop)
+					console.log(e)
+				}else{
+					e.detail = false
+					this.checkedAll = false
+					this.shop.forEach((value)=> {
+						value[0].checked = false
+					})
+					console.log('true',this.shop)
+					console.log(e)
+				}
+				
 			}
 		},
 		components:{
 			commodity
 		},
-		// computed:{
-		// 	all(){
-		// 		let price = 0
+		computed:{
+			one_checked(){
+				// let price = 0
 
-		// 		this.shop.forEach((value)=>{
-		// 			console.log(value[0])
-		// 			if(value[0].checked == true) {
-		// 				console.log(value[0])
-		// 				price +=value[0].price
-		// 			}
-		// 		})
-		// 		return price
-		// 	}
-		// },
+				return this.shop.reduce((sum,value)=>{
+					if(value[0].checked == true){
+						sum += value[0].price * value[0].num *100
+					}
+					return sum
+				},0)
+				// return price
+			},
+			// checkedAll(){
+			// 	return this.shop.forEach(value=> value[0].checked == true)
+			// }
+		},
 		created() {
 			uni.request({
 				url:'http://127.0.0.1:3007/all/selectcart?user_id=1',
@@ -145,10 +167,10 @@
 					console.log(res)
 					this.shop = res.data
 					
-					this.shop.forEach((value)=>{
-						// console.log(value)
-						value[0].checked = false
-					})
+					// this.shop.forEach((value)=>{
+					// 	// console.log(value)
+					// 	value[0].checked = false
+					// })
 					// console.log(this.shop)
 				}
 			})

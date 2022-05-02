@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 175));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -199,35 +199,33 @@ __webpack_require__.r(__webpack_exports__);
       // 	url:'../settlement/settlement'
       // })
     },
+    // 减少
     reduce: function reduce(e) {
       console.log(e);
       e[0].checked = false;
-      // if(e[0].checked ==false){
+      if (e[0].checked == false) {
 
-      // 	if(e[0].num>1){
-      // 		e[0].num--
-      // 		// this.show(e)
-      // 	}else{
-      // 		e[0].num=1
-      // 	}
-      // 	this.price = this.price
-      // }else{
-      // 	if(e[0].num>1){
-      // 		e[0].num--
-      // 		this.show(e)
-      // 	}else{
-      // 		e[0].num=1
-      // 	}
-      // }
-
-
-
-      // this.show(e)
+        if (e[0].num > 1) {
+          e[0].num--;
+          // this.show(e)
+        } else {
+          e[0].num = 1;
+        }
+        this.price = this.price;
+      } else {
+        if (e[0].num > 1) {
+          e[0].num--;
+          this.show(e);
+        } else {
+          e[0].num = 1;
+        }
+      }
     },
+    // 增加
     add: function add(e) {
       if (e[0].checked == false) {
         e[0].num++;
-        this.price = this.price;
+        // this.price = this.price
       } else {
         e[0].num++;
         // e[0].checked = true
@@ -241,9 +239,9 @@ __webpack_require__.r(__webpack_exports__);
         url: '../details/details?shop_id=' + e });
 
     },
+    // 价格
     show: function show(e) {
       // e[0].checked == false?e[0].checked=true:e[0].checked=false
-      // console.log(this.price)
       if (e[0].checked == false) {
         e[0].checked = true;
         this.price += e[0].price * 100 * e[0].num;
@@ -251,25 +249,49 @@ __webpack_require__.r(__webpack_exports__);
         e[0].checked = false;
         this.price -= e[0].price * 100 * e[0].num;
       }
+      console.log(e);
+    },
+    // 全选
+    Allchecked: function Allchecked(e) {
+      if (e.detail == false) {
+        e.detail = true;
+        this.checkedAll = true;
+        this.shop.forEach(function (value) {
+          value[0].checked = true;
+        });
+        console.log('false', this.shop);
+        console.log(e);
+      } else {
+        e.detail = false;
+        this.checkedAll = false;
+        this.shop.forEach(function (value) {
+          value[0].checked = false;
+        });
+        console.log('true', this.shop);
+        console.log(e);
+      }
+
     } },
 
   components: {
     commodity: commodity },
 
-  // computed:{
-  // 	all(){
-  // 		let price = 0
+  computed: {
+    one_checked: function one_checked() {
+      // let price = 0
 
-  // 		this.shop.forEach((value)=>{
-  // 			console.log(value[0])
-  // 			if(value[0].checked == true) {
-  // 				console.log(value[0])
-  // 				price +=value[0].price
-  // 			}
-  // 		})
-  // 		return price
-  // 	}
-  // },
+      return this.shop.reduce(function (sum, value) {
+        if (value[0].checked == true) {
+          sum += value[0].price * value[0].num * 100;
+        }
+        return sum;
+      }, 0);
+      // return price
+    }
+    // checkedAll(){
+    // 	return this.shop.forEach(value=> value[0].checked == true)
+    // }
+  },
   created: function created() {var _this = this;
     uni.request({
       url: 'http://127.0.0.1:3007/all/selectcart?user_id=1',
@@ -277,10 +299,10 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
         _this.shop = res.data;
 
-        _this.shop.forEach(function (value) {
-          // console.log(value)
-          value[0].checked = false;
-        });
+        // this.shop.forEach((value)=>{
+        // 	// console.log(value)
+        // 	value[0].checked = false
+        // })
         // console.log(this.shop)
       } });
 
