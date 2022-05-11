@@ -145,11 +145,17 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
-
+    return {
+      price: 0 };
 
   },
-  methods: {} };exports.default = _default;
+  methods: {},
+
+
+  onLoad: function onLoad(option) {
+    console.log(option);
+    this.price = option.price;
+  } };exports.default = _default;
 
 /***/ })
 

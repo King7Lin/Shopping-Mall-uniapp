@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 175));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -185,13 +185,13 @@ __webpack_require__.r(__webpack_exports__);
       shop: [],
       value: 1,
       checkedAll: false,
-      checked: true,
+      checked: false,
       result: [],
       num: 1,
       price: 0 };
 
   },
-  methods: {
+  methods: _defineProperty({
     onSubmit: function onSubmit(e) {
       console.log(e);
 
@@ -253,25 +253,45 @@ __webpack_require__.r(__webpack_exports__);
     },
     // 全选
     Allchecked: function Allchecked(e) {
-      if (e.detail == false) {
-        e.detail = true;
-        this.checkedAll = true;
+      if (this.checked == false) {
+        this.checked = true;
         this.shop.forEach(function (value) {
           value[0].checked = true;
         });
-        console.log('false', this.shop);
-        console.log(e);
+
       } else {
-        e.detail = false;
-        this.checkedAll = false;
+        this.checked = false;
         this.shop.forEach(function (value) {
           value[0].checked = false;
         });
-        console.log('true', this.shop);
-        console.log(e);
-      }
 
-    } },
+      }
+      console.log(this.checked);
+      // this.show()
+    } }, "onSubmit", function onSubmit(
+  e) {
+    console.log(e);
+    var shop_id = [];
+    this.shop.forEach(function (value) {
+      // console.log(value)
+      if (value[0].checked == true) {
+        shop_id.push([value[0].shop_id, value[0].num]);
+      }
+    });
+    console.log(shop_id);
+    if (shop_id.length < 1) {
+      uni.showToast({
+        title: '请选择商品',
+        icon: 'error' });
+
+    } else {
+
+      uni.navigateTo({
+        url: '../settlement/settlement?shop=' + shop_id + '&price=' + this.price });
+
+    }
+
+  }),
 
   components: {
     commodity: commodity },
@@ -287,23 +307,14 @@ __webpack_require__.r(__webpack_exports__);
         return sum;
       }, 0);
       // return price
-    }
-    // checkedAll(){
-    // 	return this.shop.forEach(value=> value[0].checked == true)
-    // }
-  },
+    } },
+
   created: function created() {var _this = this;
     uni.request({
       url: 'http://127.0.0.1:3007/all/selectcart?user_id=1',
       success: function success(res) {
         console.log(res);
         _this.shop = res.data;
-
-        // this.shop.forEach((value)=>{
-        // 	// console.log(value)
-        // 	value[0].checked = false
-        // })
-        // console.log(this.shop)
       } });
 
   } };exports.default = _default;

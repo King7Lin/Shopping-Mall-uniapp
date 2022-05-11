@@ -2,7 +2,7 @@
 // #ifndef VUE3
 import Vue from 'vue'
 import App from './App'
-import Notify from './wxcomponents/vant/notify/notify';
+import Notify from './wxcomponents//vant/notify/notify.js';
  
 Vue.prototype.$notify = Notify
 Vue.config.productionTip = false

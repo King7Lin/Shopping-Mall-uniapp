@@ -30,4 +30,17 @@
 		color: #333;
 		padding: 10px;
 	}
+	//设置圆角
+	checkbox.round .wx-checkbox-input,
+	checkbox.round .uni-checkbox-input {
+		border-radius: 100upx;
+	}
+	
+	//设置背景色
+	checkbox.red[checked] .wx-checkbox-input,
+	checkbox.red.checked .uni-checkbox-input{
+		background-color: #e54d42 !important;
+		border-color: #e54d42 !important;
+		color: #ffffff !important;
+	}
 </style>

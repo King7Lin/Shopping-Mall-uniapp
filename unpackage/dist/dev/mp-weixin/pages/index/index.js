@@ -230,6 +230,12 @@ __webpack_require__.r(__webpack_exports__);
       wx.navigateTo({
         url: '../search/search' });
 
+    },
+    navToDetailPage: function navToDetailPage(e) {
+      console.log(e);
+      uni.navigateTo({
+        url: '../details/details?shop_id=' + e.shop_id });
+
     } },
 
   created: function created() {var _this = this;

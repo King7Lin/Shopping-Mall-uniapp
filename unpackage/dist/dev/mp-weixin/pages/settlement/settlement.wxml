@@ -1,1 +1,1 @@
-<view><view class="address"></view><view class="shop"></view><view class="pay"><van-submit-bar vue-id="0c4e5a20-1" price="{{99999}}" button-text="提交订单" data-event-opts="{{[['^submit',[['onSubmit']]]]}}" data-com-type="wx" bind:submit="__e" bind:__l="__l"></van-submit-bar></view></view>
+<view><view class="address"></view><view class="shop"></view><view class="pay"><van-submit-bar vue-id="0c4e5a20-1" price="{{price}}" button-text="给钱" data-event-opts="{{[['^submit',[['onSubmit']]]]}}" data-com-type="wx" bind:submit="__e" bind:__l="__l"></van-submit-bar></view></view>

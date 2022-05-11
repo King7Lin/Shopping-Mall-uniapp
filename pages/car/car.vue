@@ -11,7 +11,7 @@
 				<view class="container" v-for="(item,index) in shop" :key='index'>
 						<view class="left" >
 							<label>
-								<checkbox @click="show(item)" v-model="item[0].checked" :checked="item[0].checked" class="checkbox"/><text></text>
+								<checkbox class="round red" @click="show(item)" v-model="item[0].checked" :checked="item[0].checked"/><text></text>
 							</label>
 						</view>
 						<view class="right">
@@ -36,8 +36,8 @@
 						</view>
 					</view>
 					<!-- 底部结算栏 -->
-				<van-submit-bar :price="one_checked" button-text="购买" @submit="onSubmit">
-				  <van-checkbox  @change='Allchecked'>全选</van-checkbox>
+				<van-submit-bar :price="one_checked" button-text="提交订单" @submit="onSubmit">
+				  <checkbox class="round red" :checked="checked" @click='Allchecked'>全选</checkbox>
 				</van-submit-bar>
 			</form>
 			
@@ -53,7 +53,7 @@
 				shop:[],
 				value:1,
 				checkedAll:false,
-				checked:true,
+				checked:false,
 				result: [],
 				num:1,
 				price:0
@@ -121,22 +121,42 @@
 			},
 			// 全选
 			Allchecked(e){
-				if(e.detail == false){
-					e.detail = true
-					this.checkedAll = true
+				if(this.checked == false){
+					this.checked = true
 					this.shop.forEach((value)=>{
 						value[0].checked = true
 					})
-					console.log('false',this.shop)
-					console.log(e)
+					
 				}else{
-					e.detail = false
-					this.checkedAll = false
-					this.shop.forEach((value)=> {
+					this.checked = false
+					this.shop.forEach((value)=>{
 						value[0].checked = false
 					})
-					console.log('true',this.shop)
-					console.log(e)
+					
+				}
+				console.log(this.checked)
+				// this.show()
+			},
+			onSubmit(e){
+				console.log(e)
+				let shop_id = []
+				this.shop.forEach((value)=>{
+					// console.log(value)
+					if(value[0].checked == true){
+						shop_id.push([value[0].shop_id,value[0].num])
+					}	
+				})
+				console.log(shop_id)
+				if(shop_id.length < 1){
+					uni.showToast({
+						title:'请选择商品',
+						icon:'error'
+					})
+				}else{
+					
+					uni.navigateTo({
+						url:'../settlement/settlement?shop=' + shop_id + '&price='+ this.price
+					})
 				}
 				
 			}
@@ -156,9 +176,6 @@
 				},0)
 				// return price
 			},
-			// checkedAll(){
-			// 	return this.shop.forEach(value=> value[0].checked == true)
-			// }
 		},
 		created() {
 			uni.request({
@@ -166,12 +183,6 @@
 				success: (res) => {
 					console.log(res)
 					this.shop = res.data
-					
-					// this.shop.forEach((value)=>{
-					// 	// console.log(value)
-					// 	value[0].checked = false
-					// })
-					// console.log(this.shop)
 				}
 			})
 		},
@@ -187,7 +198,7 @@
 		flex: 1;
 		background-color: #fafafa;
 	}
-	.checkbox{
+	.red{
 		text-align: center;
 		margin-left: 10rpx;
 		line-height: var(--button-line-height,100px);

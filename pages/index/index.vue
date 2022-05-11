@@ -38,8 +38,8 @@
 		<view class="newShop">
 			<van-cell title="最新上架" is-link value="查看更多" is-link/>
 			<view class="newShops">
-				<view class="shops" v-for="(item,index) in shop" :key='index'>
-					<navigator :url="item.url"><image :src="item.img" mode=""></image></navigator>
+				<view class="shops" v-for="(item,index) in shop" :key='index' @click="navToDetailPage(item)">
+					<image :src="item.img" mode=""></image>
 					<text class="shopTitle">{{item.name}}</text>
 					<text class="shopPrice">￥{{item.price}}</text>
 				</view>
@@ -89,6 +89,12 @@
 			toseach(){
 				wx.navigateTo({
 					url:'../search/search'
+				})
+			},
+			navToDetailPage(e){
+				console.log(e)
+				uni.navigateTo({
+					url:'../details/details?shop_id='+e.shop_id
 				})
 			}
 		},

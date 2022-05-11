@@ -175,8 +175,6 @@
 					this.detailImg = detailImg
 					this.shop = shop[0][0]
 					this.specifications = specifications
-					// console.log(this.detailImg)
-					// console.log(this.shop)
 					console.log(this.specifications)
 				}
 			})

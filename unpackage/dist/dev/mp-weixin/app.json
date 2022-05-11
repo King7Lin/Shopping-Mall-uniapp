@@ -78,6 +78,5 @@
     "van-stepper": "/wxcomponents/vant/stepper/index",
     "van-share-sheet": "/wxcomponents/vant/share-sheet/index",
     "van-notice-bar": "/wxcomponents/vant/notice-bar/index"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }
