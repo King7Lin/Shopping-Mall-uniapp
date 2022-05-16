@@ -324,7 +324,7 @@ var promiseInterceptor = {
 
 
 var SYNC_API_RE =
-/^\$|Window$|WindowStyle$|sendHostEvent|sendNativeEvent|restoreGlobal|getCurrentSubNVue|getMenuButtonBoundingClientRect|^report|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64|getLocale|setLocale/;
+/^\$|Window$|WindowStyle$|sendHostEvent|sendNativeEvent|restoreGlobal|requireGlobal|getCurrentSubNVue|getMenuButtonBoundingClientRect|^report|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64|getLocale|setLocale/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -589,6 +589,14 @@ var getSystemInfo = {
   } };
 
 
+var showActionSheet = {
+  args: function args(fromArgs) {
+    if (typeof fromArgs === 'object') {
+      fromArgs.alertText = fromArgs.title;
+    }
+  } };
+
+
 // import navigateTo from 'uni-helpers/navigate-to'
 
 var protocols = {
@@ -596,7 +604,8 @@ var protocols = {
   // navigateTo,  // 由于在微信开发者工具的页面参数，会显示__id__参数，因此暂时关闭mp-weixin对于navigateTo的AOP
   previewImage: previewImage,
   getSystemInfo: getSystemInfo,
-  getSystemInfoSync: getSystemInfo };
+  getSystemInfoSync: getSystemInfo,
+  showActionSheet: showActionSheet };
 
 var todos = [
 'vibrate',
@@ -2221,9 +2230,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 12:
-/*!********************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/wxcomponents/vant/notify/notify.js ***!
-  \********************************************************************************/
+/*!******************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/wxcomponents/vant/notify/notify.js ***!
+  \******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2278,9 +2287,9 @@ Notify.clear = function (options) {
 /***/ }),
 
 /***/ 13:
-/*!*******************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/wxcomponents/vant/common/color.js ***!
-  \*******************************************************************************/
+/*!*****************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/wxcomponents/vant/common/color.js ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2296,9 +2305,9 @@ var GRAY_DARK = '#969799';exports.GRAY_DARK = GRAY_DARK;
 /***/ }),
 
 /***/ 138:
-/*!*************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \*************************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3473,9 +3482,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 160:
-/*!**************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/index.js ***!
-  \**************************************************************************************************/
+/*!************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/index.js ***!
+  \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3491,9 +3500,9 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 /***/ }),
 
 /***/ 161:
-/*!*************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/en.json ***!
-  \*************************************************************************************************/
+/*!***********************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/en.json ***!
+  \***********************************************************************************************/
 /*! exports provided: uni-fav.collect, uni-fav.collected, default */
 /***/ (function(module) {
 
@@ -3502,9 +3511,9 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"collect\",\"uni-fav.collecte
 /***/ }),
 
 /***/ 162:
-/*!******************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hans.json ***!
-  \******************************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hans.json ***!
+  \****************************************************************************************************/
 /*! exports provided: uni-fav.collect, uni-fav.collected, default */
 /***/ (function(module) {
 
@@ -3513,9 +3522,9 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 /***/ }),
 
 /***/ 163:
-/*!******************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hant.json ***!
-  \******************************************************************************************************/
+/*!****************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-fav/components/uni-fav/i18n/zh-Hant.json ***!
+  \****************************************************************************************************/
 /*! exports provided: uni-fav.collect, uni-fav.collected, default */
 /***/ (function(module) {
 
@@ -3524,9 +3533,9 @@ module.exports = JSON.parse("{\"uni-fav.collect\":\"收藏\",\"uni-fav.collected
 /***/ }),
 
 /***/ 171:
-/*!**************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
-  \**************************************************************************************************************/
+/*!************************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/index.js ***!
+  \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3542,9 +3551,9 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 /***/ }),
 
 /***/ 172:
-/*!*************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
-  \*************************************************************************************************************/
+/*!***********************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/en.json ***!
+  \***********************************************************************************************************/
 /*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
 /***/ (function(module) {
 
@@ -3553,9 +3562,9 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"shop\",\"uni-good
 /***/ }),
 
 /***/ 173:
-/*!******************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
-  \******************************************************************************************************************/
+/*!****************************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hans.json ***!
+  \****************************************************************************************************************/
 /*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
 /***/ (function(module) {
 
@@ -3564,9 +3573,9 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店铺\",\"uni-go
 /***/ }),
 
 /***/ 174:
-/*!******************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
-  \******************************************************************************************************************/
+/*!****************************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-goods-nav/components/uni-goods-nav/i18n/zh-Hant.json ***!
+  \****************************************************************************************************************/
 /*! exports provided: uni-goods-nav.options.shop, uni-goods-nav.options.cart, uni-goods-nav.buttonGroup.addToCart, uni-goods-nav.buttonGroup.buyNow, default */
 /***/ (function(module) {
 
@@ -3575,9 +3584,9 @@ module.exports = JSON.parse("{\"uni-goods-nav.options.shop\":\"店鋪\",\"uni-go
 /***/ }),
 
 /***/ 187:
-/*!****************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
-  \****************************************************************************************************************/
+/*!**************************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/index.js ***!
+  \**************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3593,9 +3602,9 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 /***/ }),
 
 /***/ 188:
-/*!***************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
-  \***************************************************************************************************************/
+/*!*************************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/en.json ***!
+  \*************************************************************************************************************/
 /*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
 /***/ (function(module) {
 
@@ -3604,9 +3613,9 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 /***/ }),
 
 /***/ 189:
-/*!********************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
-  \********************************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hans.json ***!
+  \******************************************************************************************************************/
 /*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
 /***/ (function(module) {
 
@@ -3615,9 +3624,9 @@ module.exports = JSON.parse("{\"uni-search-bar.cancel\":\"cancel\",\"uni-search-
 /***/ }),
 
 /***/ 190:
-/*!********************************************************************************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
-  \********************************************************************************************************************/
+/*!******************************************************************************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/uni_modules/uni-search-bar/components/uni-search-bar/i18n/zh-Hant.json ***!
+  \******************************************************************************************************************/
 /*! exports provided: uni-search-bar.cancel, uni-search-bar.placeholder, default */
 /***/ (function(module) {
 
@@ -3667,7 +3676,7 @@ module.exports = g;
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/*!
  * Vue.js v2.6.11
- * (c) 2014-2021 Evan You
+ * (c) 2014-2022 Evan You
  * Released under the MIT License.
  */
 /*  */
@@ -7747,10 +7756,10 @@ function updateChildComponent (
     // keep a copy of raw propsData
     vm.$options.propsData = propsData;
   }
-
+  
   // fixed by xxxxxx update properties(mp runtime)
   vm._$updateProperties && vm._$updateProperties(vm);
-
+  
   // update listeners
   listeners = listeners || emptyObject;
   var oldListeners = vm.$options._parentListeners;
@@ -8276,12 +8285,12 @@ function initProps (vm, propsOptions) {
       defineReactive$$1(props, key, value, function () {
         if (!isRoot && !isUpdatingChildComponent) {
           {
-            if(vm.mpHost === 'mp-baidu' || vm.mpHost === 'mp-kuaishou'){//百度、快手 observer 在 setData callback 之后触发，直接忽略该 warn
+            if(vm.mpHost === 'mp-baidu' || vm.mpHost === 'mp-kuaishou' || vm.mpHost === 'mp-xhs'){//百度、快手、小红书 observer 在 setData callback 之后触发，直接忽略该 warn
                 return
             }
             //fixed by xxxxxx __next_tick_pending,uni://form-field 时不告警
             if(
-                key === 'value' &&
+                key === 'value' && 
                 Array.isArray(vm.$options.behaviors) &&
                 vm.$options.behaviors.indexOf('uni://form-field') !== -1
               ){
@@ -8293,7 +8302,7 @@ function initProps (vm, propsOptions) {
             var $parent = vm.$parent;
             while($parent){
               if($parent.__next_tick_pending){
-                return
+                return  
               }
               $parent = $parent.$parent;
             }
@@ -8621,10 +8630,10 @@ function initMixin (Vue) {
     initEvents(vm);
     initRender(vm);
     callHook(vm, 'beforeCreate');
-    !vm._$fallback && initInjections(vm); // resolve injections before data/props
+    !vm._$fallback && initInjections(vm); // resolve injections before data/props  
     initState(vm);
     !vm._$fallback && initProvide(vm); // resolve provide after data/props
-    !vm._$fallback && callHook(vm, 'created');
+    !vm._$fallback && callHook(vm, 'created');      
 
     /* istanbul ignore if */
     if ( true && config.performance && mark) {
@@ -9123,7 +9132,6 @@ function _diff(current, pre, path, result) {
                 var currentType = type(currentValue);
                 var preType = type(preValue);
                 if (currentType != ARRAYTYPE && currentType != OBJECTTYPE) {
-                    // NOTE 此处将 != 修改为 !==。涉及地方太多恐怕测试不到，如果出现数据对比问题，将其修改回来。
                     if (currentValue !== pre[key]) {
                         setResult(result, (path == '' ? '' : path + ".") + key, currentValue);
                     }
@@ -9350,7 +9358,7 @@ function mountComponent$1(
       }
     }
   }
-
+  
   !vm._$fallback && callHook(vm, 'beforeMount');
 
   var updateComponent = function () {
@@ -9483,10 +9491,9 @@ function internalMixin(Vue) {
 
   Vue.prototype.$emit = function(event) {
     if (this.$scope && event) {
-      (this.$scope['_triggerEvent'] || this.$scope['triggerEvent'])
-        .call(this.$scope, event, {
-          __args__: toArray(arguments, 1)
-        })
+      (this.$scope['_triggerEvent'] || this.$scope['triggerEvent']).call(this.$scope, event, {
+        __args__: toArray(arguments, 1)
+      });
     }
     return oldEmit.apply(this, arguments)
   };
@@ -9551,7 +9558,7 @@ function internalMixin(Vue) {
       target = this;
     }
     // 解决动态属性添加
-    Vue.set(target, key, value)
+    Vue.set(target, key, value);
   };
 
   Vue.prototype.__set_sync = function(target, key, value) {
@@ -9559,7 +9566,7 @@ function internalMixin(Vue) {
       target = this;
     }
     // 解决动态属性添加
-    Vue.set(target, key, value)
+    Vue.set(target, key, value);
   };
 
   Vue.prototype.__get_orig = function(item) {
@@ -9692,7 +9699,7 @@ Vue.prototype.__patch__ = patch;
 // public mount method
 Vue.prototype.$mount = function(
     el ,
-    hydrating
+    hydrating 
 ) {
     return mountComponent$1(this, el, hydrating)
 };
@@ -10173,9 +10180,9 @@ function resolveLocaleChain(locale) {
 /***/ }),
 
 /***/ 5:
-/*!********************************************************!*\
-  !*** C:/Users/19783/Desktop/白给商城/FinalWork/pages.json ***!
-  \********************************************************/
+/*!******************************************************!*\
+  !*** C:/Users/lin/Desktop/白给商城/FinalWork/pages.json ***!
+  \******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 

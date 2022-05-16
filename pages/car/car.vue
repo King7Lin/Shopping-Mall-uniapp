@@ -153,10 +153,34 @@
 						icon:'error'
 					})
 				}else{
-					
-					uni.navigateTo({
-						url:'../settlement/settlement?shop=' + shop_id + '&price='+ this.price
+					console.log(shop_id)
+					uni.request({
+						url:'http://127.0.0.1:3007/all/insertOrder',
+						method:'post',
+						header:{
+							'content-type':'application/x-www-form-urlencoded'
+						},
+						data:{
+							user_id:1,							
+							shop_id
+						},
+						success: (res) => {
+							console.log(res)
+							let {id} = res.data
+							console.log(id)
+							if(res.data.status==1){
+								uni.showToast({
+									title:'操作失败',
+									icon:'error'
+								})
+							}else{
+								uni.navigateTo({
+									url:'../settlement/settlement?id=' + id
+								})
+							}
+						}
 					})
+					
 				}
 				
 			}

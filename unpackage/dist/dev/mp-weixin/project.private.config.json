@@ -1,100 +1,108 @@
 {
-  "setting": {
-    "compileHotReLoad": true
-  },
-  "condition": {
-    "miniprogram": {
-      "list": [
-        {
-          "name": "",
-          "pathName": "pages/car/car",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/more/more",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/details/details",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/mine/mine",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/details/details",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/find/find",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/mine/mine",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/footprint/footprint",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/order/order",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/search/search",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/Collection/Collection",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/address/address",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/address/addAddress",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "",
-          "pathName": "pages/settlement/settlement",
-          "query": "",
-          "launchMode": "default",
-          "scene": null
+    "setting": {
+        "compileHotReLoad": true,
+        "urlCheck": false
+    },
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "",
+                    "pathName": "pages/car/car",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/more/more",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/details/details",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/mine/mine",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/details/details",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/find/find",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/mine/mine",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/footprint/footprint",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/order/order",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/search/search",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/Collection/Collection",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/address/address",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/address/addAddress",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/settlement/settlement",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/settlement/settlement",
+                    "query": "shop=8%2C1%2C3%2C2&price=199800",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
         }
-      ]
-    }
-  },
-  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
-  "projectname": "白给商城"
+    },
+    "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+    "projectname": "白给商城"
 }
