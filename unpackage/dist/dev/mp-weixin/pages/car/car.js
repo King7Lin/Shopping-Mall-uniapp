@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 126));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var commodity = function commodity() {__webpack_require__.e(/*! require.ensure | components/commodity */ "components/commodity").then((function () {return resolve(__webpack_require__(/*! ../../components/commodity.vue */ 128));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -269,13 +269,15 @@ __webpack_require__.r(__webpack_exports__);
       console.log(this.checked);
       // this.show()
     } }, "onSubmit", function onSubmit(
-  e) {
+  e) {var _this = this;
     console.log(e);
     var shop_id = [];
+    var shop = [];
     this.shop.forEach(function (value) {
       // console.log(value)
       if (value[0].checked == true) {
         shop_id.push([value[0].shop_id, value[0].num]);
+        shop.push({ shop: value[0], id: 1 });
       }
     });
     console.log(shop_id);
@@ -300,6 +302,15 @@ __webpack_require__.r(__webpack_exports__);
           console.log(res);var
           id = res.data.id;
           console.log(id);
+          var shop = [];
+          _this.shop.forEach(function (value) {
+            // console.log(value)
+            if (value[0].checked == true) {
+              shop.push(value[0]);
+            }
+          });
+          var shop1 = JSON.stringify(shop);
+          console.log(shop);
           if (res.data.status == 1) {
             uni.showToast({
               title: '操作失败',
@@ -307,12 +318,15 @@ __webpack_require__.r(__webpack_exports__);
 
           } else {
             uni.navigateTo({
-              url: '../settlement/settlement?id=' + id });
+              url: '../settlement/settlement?id=' + id + '&shop=' + shop1 });
 
           }
         } });
 
-
+      // uni.navigateTo({
+      // 	url:'../settlement/settlement?shop=' + shop
+      // })
+      console.log(shop);
     }
 
   }),
@@ -333,12 +347,12 @@ __webpack_require__.r(__webpack_exports__);
       // return price
     } },
 
-  created: function created() {var _this = this;
+  created: function created() {var _this2 = this;
     uni.request({
       url: 'http://127.0.0.1:3007/all/selectcart?user_id=1',
       success: function success(res) {
         console.log(res);
-        _this.shop = res.data;
+        _this2.shop = res.data;
       } });
 
   } };exports.default = _default;

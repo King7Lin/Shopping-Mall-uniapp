@@ -2,5 +2,13 @@
 order{
 	margin: 0;
 	padding: 0;
+	/* border-bottom: 1px solid gray; */
+}
+.van-tabs{
+	height: 100vh;
+}
+.van-card {
+	margin: 10rpx 0;
+	border-bottom: 1rpx solid gray;
 }
 

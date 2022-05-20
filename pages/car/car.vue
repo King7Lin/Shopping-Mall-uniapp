@@ -140,10 +140,12 @@
 			onSubmit(e){
 				console.log(e)
 				let shop_id = []
+				let shop=[]
 				this.shop.forEach((value)=>{
 					// console.log(value)
 					if(value[0].checked == true){
 						shop_id.push([value[0].shop_id,value[0].num])
+						shop.push({shop:value[0],id:1})
 					}	
 				})
 				console.log(shop_id)
@@ -168,6 +170,15 @@
 							console.log(res)
 							let {id} = res.data
 							console.log(id)
+							let shop=[]
+							this.shop.forEach((value)=>{
+								// console.log(value)
+								if(value[0].checked == true){
+									shop.push(value[0])
+								}	
+							})
+							let shop1 = JSON.stringify(shop)
+							console.log(shop)
 							if(res.data.status==1){
 								uni.showToast({
 									title:'操作失败',
@@ -175,12 +186,15 @@
 								})
 							}else{
 								uni.navigateTo({
-									url:'../settlement/settlement?id=' + id
+									url:'../settlement/settlement?id=' + id + '&shop=' + shop1
 								})
 							}
 						}
 					})
-					
+					// uni.navigateTo({
+					// 	url:'../settlement/settlement?shop=' + shop
+					// })
+					console.log(shop)
 				}
 				
 			}

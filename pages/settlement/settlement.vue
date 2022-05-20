@@ -1,16 +1,21 @@
 <template>
 	<view>
 		<view class="address">
-			
+			<van-cell-group>
+			  <van-cell title="姓名" value="电话" label="地址" is-link  />
+			</van-cell-group>
 		</view>
 		<view class="shop">
 			<van-card
 			  v-for="item in shop"
-			  :key="item[0].id"
+			  :key="item.id"
+			  :title='item.title'
+			  :thumb='item.img'
+			  :num='item.num'
 			/>
 		</view>
 		<view class="pay">
-			<van-submit-bar :price="price" button-text="给钱" @clickt="pay" />
+			<van-submit-bar :price="money" button-text="给钱" @clickt="pay" />
 		</view>
 	</view>
 </template>
@@ -31,24 +36,43 @@
 		},
 		onLoad(option) {
 			console.log(option)
-			// this.id = option.id.split(',')
-			this.id = '47,48'
-			uni.request({
-				url:'http://127.0.0.1:3007/all/ReadyPay?id=' + this.id,
-				success: (res) => {
-					console.log(res)
-					let {data} = res
-					for(let i=0;i<data.length;i++){
-						this.shop[i]=data[0]
-					}
-				}
-			})
+			this.id = option.id
+			this.shop = JSON.parse(option.shop)
+			console.log(this.shop.title)
 			console.log(this.shop)
 			this.price = option.price
+		},
+		computed:{
+			money(){
+				let num = 0
+				if(this.shop.length>=1){
+					this.shop.forEach(value=>{
+						num += value.num*value.price *100
+					})
+				}else{
+					num = this.shop.num * this.shop.price * 100
+				}
+				
+				return num
+			}
 		}
 	}
 </script>
 
 <style>
-
+page{
+	margin: 2px 0 ;
+}
+.address{
+	margin-bottom: 10px;
+	border-bottom: 1px solid gray;
+}
+.van-card{
+	border-bottom: 1px solid gray;
+	/* border-top: 1px solid gray; */
+	margin-bottom: 5px;
+}
+/* .shop{
+	border: 1px solid gray;
+} */
 </style>

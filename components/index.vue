@@ -31,7 +31,7 @@
 			to(){
 				console.log(this.shop_id)
 				uni.navigateTo({
-					url:'../details/details?shop_id= '+this.shop_id
+					url:'../details/details?shop_id='+this.shop_id
 				})
 			}
 		}

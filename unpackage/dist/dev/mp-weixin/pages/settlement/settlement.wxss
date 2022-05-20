@@ -1,0 +1,17 @@
+
+page{
+	margin: 2px 0 ;
+}
+.address{
+	margin-bottom: 10px;
+	border-bottom: 1px solid gray;
+}
+.van-card{
+	border-bottom: 1px solid gray;
+	/* border-top: 1px solid gray; */
+	margin-bottom: 5px;
+}
+/* .shop{
+	border: 1px solid gray;
+} */
+
