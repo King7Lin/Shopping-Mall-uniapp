@@ -1,83 +1,82 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/car/car",
-        "pages/mine/mine",
-        "pages/more/more",
-        "pages/find/find",
-        "pages/details/details",
-        "pages/order/order",
-        "pages/setting/setting",
-        "pages/footprint/footprint",
-        "pages/search/search",
-        "pages/Collection/Collection",
-        "pages/address/address",
-        "pages/address/addAddress",
-        "pages/settlement/settlement"
-    ],
-    "subPackages": [],
-    "window": {
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "uni-app",
-        "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#C7C7C7"
-    },
-    "tabBar": {
-        "color": "#7A7E83",
-        "selectedColor": "#3cc51f",
-        "borderStyle": "black",
-        "backgroundColor": "#ffffff",
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "iconPath": "static/tab-home.png",
-                "selectedIconPath": "static/tab-home-current.png",
-                "text": "首页"
-            },
-            {
-                "pagePath": "pages/more/more",
-                "iconPath": "static/tab-cate.png",
-                "selectedIconPath": "static/tab-cate-current.png",
-                "text": "更多"
-            },
-            {
-                "pagePath": "pages/car/car",
-                "iconPath": "static/cart.png",
-                "selectedIconPath": "static/tab-cart-current.png",
-                "text": "购物车"
-            },
-            {
-                "pagePath": "pages/mine/mine",
-                "iconPath": "static/tab-my.png",
-                "selectedIconPath": "static/tab-my-current.png",
-                "text": "我的"
-            }
-        ]
-    },
-    "permission": {},
-    "usingComponents": {
-        "van-button": "/wxcomponents/vant/button/index",
-        "van-search": "/wxcomponents/vant/search/index",
-        "van-tree-select": "/wxcomponents/vant/tree-select/index",
-        "van-action-sheet": "/wxcomponents/vant/action-sheet/index",
-        "van-cell": "/wxcomponents/vant/cell/index",
-        "van-popup": "/wxcomponents/vant/popup/index",
-        "van-sidebar-item": "/wxcomponents/vant/sidebar-item/index",
-        "van-sidebar": "/wxcomponents/vant/sidebar/index",
-        "van-notify": "/wxcomponents/vant/notify/index",
-        "van-swipe-cell": "/wxcomponents/vant/swipe-cell/index",
-        "van-submit-bar": "/wxcomponents/vant/submit-bar/index",
-        "van-checkbox": "/wxcomponents/vant/checkbox/index",
-        "van-image": "/wxcomponents/vant/image/index",
-        "van-divider": "/wxcomponents/vant/divider/index",
-        "van-card": "/wxcomponents/vant/card/index",
-        "van-empty": "/wxcomponents/vant/empty/index",
-        "van-tabs": "/wxcomponents/vant/tabs/index",
-        "van-tab": "/wxcomponents/vant/tab/index",
-        "van-icon": "/wxcomponents/vant/icon/index",
-        "van-stepper": "/wxcomponents/vant/stepper/index",
-        "van-share-sheet": "/wxcomponents/vant/share-sheet/index",
-        "van-notice-bar": "/wxcomponents/vant/notice-bar/index"
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/index/index",
+    "pages/car/car",
+    "pages/mine/mine",
+    "pages/more/more",
+    "pages/find/find",
+    "pages/details/details",
+    "pages/order/order",
+    "pages/setting/setting",
+    "pages/footprint/footprint",
+    "pages/search/search",
+    "pages/Collection/Collection",
+    "pages/address/address",
+    "pages/address/addAddress",
+    "pages/settlement/settlement"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#C7C7C7"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tab-home.png",
+        "selectedIconPath": "static/tab-home-current.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/more/more",
+        "iconPath": "static/tab-cate.png",
+        "selectedIconPath": "static/tab-cate-current.png",
+        "text": "更多"
+      },
+      {
+        "pagePath": "pages/car/car",
+        "iconPath": "static/cart.png",
+        "selectedIconPath": "static/tab-cart-current.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "static/tab-my.png",
+        "selectedIconPath": "static/tab-my-current.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {},
+  "usingComponents": {
+    "van-button": "/wxcomponents/vant/button/index",
+    "van-search": "/wxcomponents/vant/search/index",
+    "van-tree-select": "/wxcomponents/vant/tree-select/index",
+    "van-action-sheet": "/wxcomponents/vant/action-sheet/index",
+    "van-cell": "/wxcomponents/vant/cell/index",
+    "van-popup": "/wxcomponents/vant/popup/index",
+    "van-sidebar-item": "/wxcomponents/vant/sidebar-item/index",
+    "van-sidebar": "/wxcomponents/vant/sidebar/index",
+    "van-notify": "/wxcomponents/vant/notify/index",
+    "van-swipe-cell": "/wxcomponents/vant/swipe-cell/index",
+    "van-submit-bar": "/wxcomponents/vant/submit-bar/index",
+    "van-checkbox": "/wxcomponents/vant/checkbox/index",
+    "van-image": "/wxcomponents/vant/image/index",
+    "van-divider": "/wxcomponents/vant/divider/index",
+    "van-card": "/wxcomponents/vant/card/index",
+    "van-empty": "/wxcomponents/vant/empty/index",
+    "van-tabs": "/wxcomponents/vant/tabs/index",
+    "van-tab": "/wxcomponents/vant/tab/index",
+    "van-icon": "/wxcomponents/vant/icon/index",
+    "van-stepper": "/wxcomponents/vant/stepper/index",
+    "van-share-sheet": "/wxcomponents/vant/share-sheet/index",
+    "van-notice-bar": "/wxcomponents/vant/notice-bar/index"
+  }
 }

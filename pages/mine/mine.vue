@@ -65,7 +65,7 @@
 			  is-link
 			  title="我的卡券"
 			  link-type="navigateTo"
-			  url="../order/order"
+			  url=""
 			/>
 			<button open-type="contact">
 				<van-cell
