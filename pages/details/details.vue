@@ -29,7 +29,7 @@
 		  </view>
 		  <!-- 选择 -->
 			  <view class="choose">
-				  <van-cell is-link title="选择"  @click="show = true" />
+				  <van-cell is-link title="选择" :value='desc' @click="show = true" />
 				  <van-cell is-link title="送至"  @click="showAddres = true" />
 				  <van-cell is-link title="点击分享" @click="showShare = true" />
 				  <van-share-sheet
@@ -75,19 +75,25 @@
 				</view>
 			    <view class="goods-info-right">
 			      <view class="goods-price">¥ 16.66</view>
-			      <view class="small">已选择：</view>
-				  <van-stepper v-model="value" class='stepper'/>
+			      <view class="small">已选择：{{ALLchoose}}</view>
+				  <van-stepper v-model="stevalue" class='stepper' @change='Stevalue'/>
 			    </view>
 			  </view>
-			  <view class="sel" v-for="(item,index) in specifications" :key='index'>
-			    <view class="tab small">{{item[0]}}</view>
-				  <view v-model="radio" v-for="(items,index1) in item[1]" :key='index1' class="speci">
-				  	<label class="radio">
-						<radio value="r1" />{{items}}
-					</label>
-				</view>
+
+			 <view class="sel">
+			  	<view class="sel-type" v-for="(item,index) in specifications" :key='index'>
+			  			<view class="sel-title">
+			  				{{item.title}}
+			  			</view>
+			  		<uni-data-checkbox 
+			  			selectedColor="red" 
+			  			mode="tag" 
+			  			v-model="value" 
+			  			:localdata="item.select" 
+			  			@change="selchange">
+			  		</uni-data-checkbox>
+			  	</view>
 			  </view>
-			  
 			  <view class="goods-carts">
 			  	<uni-goods-nav 
 			  	:options="optionsa" 
@@ -109,28 +115,44 @@
 			  custom-style="height: 65%"
 			  @close="close"
 			>
+			<view class="content">
+				<view class="address-title">
+					<text>选择地址</text>
+				</view>
+					<radio-group name="addinf" @change="radioChange">
+						<label  v-for="(item,index) in address" :key="index">
+							<view class="address-content">
+								<view class="address-flex">
+									<uni-icons type="location-filled" size="30"></uni-icons>
+									<view>
+										<view>{{item.name}}</view>
+										<view>{{item.site}}</view>
+										<view>{{item.phone}}</view>
+									</view>									
+								</view>
+								<radio color="#007AFF" :value="item.name" :checked="index === current" />
+							</view>
+						</label>
+					</radio-group>
+			</view>
 			</van-popup>
 		</view>
 	</view>
 </template>
 
 <script>
+	import Notify from'../../wxcomponents/vant/notify/notify'
 	export default {
 		data() {
 			return {
+				address:getApp().globalData.address,
 				share: [
 				        [
 				          { name: '微信', icon: 'wechat' },
 				          { name: '朋友圈', icon: 'wechat-moments' },
 				          { name: '微博', icon: 'weibo' },
 				          { name: 'QQ', icon: 'qq' },
-				        ],
-				        [
-				          { name: '复制链接', icon: 'link' },
-				          { name: '分享海报', icon: 'poster' },
-				          { name: '二维码', icon: 'qrcode' },
-				          { name: '小程序码', icon: 'weapp-qrcode' },
-				        ],
+				        ]
 				      ],
 				options: [{
 							icon: 'home',
@@ -152,43 +174,50 @@
 					    ],
 						checkList:false,
 						show:false,
-						value:1,
 						showAddres:false,
 						showShare:false,
 						detailImg:[],
 						shop:[],
 						specifications:[],
 						current:0,
-						shop_id:0
+						Fchoose:[],
+						stevalue:1,
+						desc:''
 			}
-			
 		},
-		onShow() {
-			uni.showLoading({
-				title:'正在加载中',
-			})
+		 onLoad(option) {
+			// let a= await this.$address()
+			console.log('$address',getApp().globalData)
 			uni.request({
-				url:'http://127.0.0.1:3007/all/selectDetails?shop_id='+this.shop_id,
+				// url:`http://127.0.0.1:3007/all/selectDetails?shop_id=${option.shop_id}`,
+				url:`http://127.0.0.1:3007/all/selectDetails?shop_id=3&user_id=1`,
 				success: (res) => {
-					
 					let { detailImg,shop,specifications } = res.data
+					this.checkList = res.data.check
 					this.detailImg = detailImg
 					this.shop = shop[0][0]
-					this.specifications = specifications
-					console.log(this.specifications)
+					
+					// 规格
+					for(let i = 0;i<specifications.length;i++){
+						let a = specifications[i][1]
+						let select = []
+						for(let j = 0;j<specifications[i][1].length;j++){
+							select.push({
+								value:i+','+j,
+								text:a[j]
+							})
+						}
+						// console.log('select',select)
+						this.specifications[i] = {
+							title:specifications[i][0],
+							select:select
+						}
+					}
+					// console.log(this.specifications)
 				}
 			})
-			uni.request({
-				url:'http://127.0.0.1:3007/all/insertfootprint?user_id=1&shop_id='+this.shop_id,
-				success: (res) => {
-					uni.hideLoading()
-					console.log(res)
-				}
-			})
-		},
-		onLoad(option) {
-			console.log(option.shop_id.split())
-			this.shop_id = option.shop_id
+			console.log('address')
+			// console.log(option)
 		},
 		methods: {
 			// 轮播
@@ -219,16 +248,114 @@
 			
 			// 加入购物车、立即购买
 			buttonClick(e) {
-				console.log(e,this.$refs.prpos)
-				  this.show = true	
+				// console.log(e.index,this.$refs.prpos)
+				// console.log(this.desc,this.specifications.length)
+				
+				let a = 0
+				this.desc.split('').forEach((value)=>{
+					if(value === '，'){
+						a ++
+					}
+				})
+				// console.log(a)
+				if(this.desc ==='' || a !== this.specifications.length){
+					// uni.showToast({
+					// 	title:'请选择规格',
+					// 	icon:'error'
+					// })
+					this.$notify({ type: "danger", message: "请选择规格" });
+					 this.show = true	
+				}else{
+					if(e.index == 0){
+						uni.request({
+							url:'http://127.0.0.1:3007/all/insertCart',
+							method:'POST',
+							header:{
+							'content-type':'application/x-www-form-urlencoded'
+							},
+							data:{
+								user_id:1,
+								shop_id:this.shop.shop_id,
+								desc:this.desc,
+								num:this.stevalue
+							},
+							success: (res) => {
+								console.log(res)
+								if(res.data.status !== 1){
+									// uni.showToast({
+									// 	title:'加入成功',
+									// 	icon:'success'
+									// })
+									this.$notify({ type: "success", message: "加入购物车成功" });
+									this.show = false;
+								}else{
+									this.$notify({ type: "danger", message: "加入购物车失败,请联系客服" });
+								}
+							}
+						})
+					}else{
+						console.log(this.stevalue)
+						this.shop.desc = this.desc
+						let shop1 ='[' + JSON.stringify(this.shop) + ']'
+						console.log(shop1)
+						uni.request({
+							url:'http://127.0.0.1:3007/all/insertOrder',
+							method:'POST',
+							header:{
+							'content-type':'application/x-www-form-urlencoded'
+							},
+							data:{
+								user_id:1,
+								shop_id:[3,this.stevalue],
+								desc:this.desc
+							},
+							success: (res) => {
+								console.log(res)
+								if(res.data.status !== 1){
+									this.$notify({ type: "success", message: "操作成功" });
+									setTimeout(()=>{
+										uni.navigateTo({
+											url:'../settlement/settlement?id=' + res.data.id + '&shop=' + shop1
+										})
+									},1000)
+								}else{
+									this.$notify({ type: "success", message: "操作失败" });
+								}
+							}
+						})
+						
+					}
+				}
+				 
 			},
 			// 收藏
 			ChangeCheck(){
 				this.checkList = !this.checkList
 				if(this.checkList){
-					this.$notify({ type: "success", message: "收藏成功" });
+					uni.request({
+						url:'http://127.0.0.1:3007/all/insertCollection?user_id=1&shop_id='+this.shop.shop_id,
+						success: (res) => {
+							console.log(res)
+							if(res.data.status !== 1){
+								this.$notify({ type: "success", message: "收藏成功" });
+							}else{
+								this.$notify({ type: "danger", message: "操作失败，请联系客服" });
+							}
+						}
+					})
+					
 				}else{
-					this.$notify({ type: "danger", message: "取消收藏" });
+					uni.request({
+						url:'http://127.0.0.1:3007/all/deleteCollection?user_id=1&shop_id='+this.shop.shop_id,
+						success: (res) => {
+							console.log(res)
+							if(res.data.status !== 1){
+								this.$notify({ type: "warning", message: "取消收藏成功" });
+							}else{
+								this.$notify({ type: "danger", message: "操作失败，请联系客服" });
+							}
+						}
+					})
 				}
 			},
 			
@@ -242,6 +369,72 @@
 			// 分享
 			onSelect(){
 				this.showShare = false
+			},
+			//送至-复选框
+			// change(e){
+			// 	console.log('e',e);
+				
+			// },
+			//商品选择
+			 selchange(e){
+				 console.log('selchange',e)
+				 let a = e.detail.data.value.split(',')
+				 // console.log('a',a)
+				if(this.Fchoose.length<1){
+					this.Fchoose.push({
+						value:a,
+						text:e.detail.data.text
+					})
+					console.log('外层')
+				}else{
+					let num = 999
+					let choose = false
+					 this.Fchoose.forEach((value,index)=>{
+						 if(index>this.specifications.length-1) return
+						 if(value.value[0] === a[0]){
+							 console.log(value,value.value[0],a[0])
+							 value.value = a
+							 value.text = e.detail.data.text
+							 console.log(index)
+							 num = index
+						 }
+					 })
+					 if(num === 999){
+						 this.Fchoose.push({
+						 	value:a,
+						 	text:e.detail.data.text
+						 })
+					 }
+				}
+				
+				 console.log('fchoose',this.Fchoose)
+			 },
+			 //地址radio
+			radioChange(evt) {
+				console.log(evt)
+			    for (let i = 0; i < this.address.length; i++) {
+			        if (this.address[i].value === evt.detail.value) {
+							this.current = i;
+								break;
+			        }
+			    }
+			},
+			// 步进器
+			Stevalue(e){
+				console.log(e)
+				this.stevalue = e.detail
+				this.shop.num = e.detail
+				// console.log(this.shop)
+			}
+		},
+		computed:{
+			ALLchoose(){
+				let text =''
+				this.Fchoose.forEach(value=>{
+					text += value.text+'，'
+				})
+				this.desc = text
+				return text
 			}
 		}
 	}
@@ -255,14 +448,6 @@
 	{
 		height: 550rpx;
 	}
-	
-	// .uni-padding-wrap 
-	// .page-section 
-	// .page-section-spacing 
-	// .swiper{
-	// 	height: 250px;
-		
-	// }
   .detail {
     display: flex;
     flex-direction: column;
@@ -329,8 +514,9 @@
 	}
 	// prpos弹出框
 	.content{
-	    margin: 40rpx 10rpx 0rpx 50rpx;
+	    margin: 40rpx 20rpx 0rpx 20rpx;
 		overflow-y: scroll;
+		height: 100%;
 	}
 	.goods-info{
 	    display: flex;
@@ -397,6 +583,25 @@
 	// 规格
 	.speci{
 		display: flex;
+		flex-direction: row;
 		flex-wrap: wrap;
+	}
+	//送至
+	.address-title{
+		text-align: center;
+	}
+	.address-content{
+		margin-top: 25rpx;
+		display: flex;
+		justify-content: space-between;
+	}
+	.address-flex{
+		display: flex;
+		font-size: 14px;
+	}
+	//商品选项
+	.sel-title{
+		font-weight: bold;
+		margin: 10px 0px;
 	}
 </style>

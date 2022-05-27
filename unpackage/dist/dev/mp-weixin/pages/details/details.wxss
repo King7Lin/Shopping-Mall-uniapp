@@ -59,8 +59,9 @@
   justify-content: center;
 }
 .content {
-  margin: 40rpx 10rpx 0rpx 50rpx;
+  margin: 40rpx 20rpx 0rpx 20rpx;
   overflow-y: scroll;
+  height: 100%;
 }
 .goods-info {
   display: flex;
@@ -121,6 +122,23 @@ van-button {
 }
 .speci {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+}
+.address-title {
+  text-align: center;
+}
+.address-content {
+  margin-top: 25rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.address-flex {
+  display: flex;
+  font-size: 14px;
+}
+.sel-title {
+  font-weight: bold;
+  margin: 10px 0px;
 }
 

@@ -20,6 +20,7 @@
 									  <van-card
 									  	:price="item[0].price"
 									  	:title="item[0].title"
+										:desc='item[0].desc'
 									  	class="goods-card"
 									  	:thumb="item[0].img"
 									   />
@@ -141,11 +142,13 @@
 				console.log(e)
 				let shop_id = []
 				let shop=[]
+				let desc =[]
 				this.shop.forEach((value)=>{
 					// console.log(value)
 					if(value[0].checked == true){
 						shop_id.push([value[0].shop_id,value[0].num])
 						shop.push({shop:value[0],id:1})
+						desc.push(value[0].desc)
 					}	
 				})
 				console.log(shop_id)
@@ -163,8 +166,9 @@
 							'content-type':'application/x-www-form-urlencoded'
 						},
 						data:{
-							user_id:1,							
-							shop_id
+							user_id:1,
+							shop_id,
+							desc
 						},
 						success: (res) => {
 							console.log(res)

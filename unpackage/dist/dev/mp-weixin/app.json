@@ -64,7 +64,6 @@
     "van-popup": "/wxcomponents/vant/popup/index",
     "van-sidebar-item": "/wxcomponents/vant/sidebar-item/index",
     "van-sidebar": "/wxcomponents/vant/sidebar/index",
-    "van-notify": "/wxcomponents/vant/notify/index",
     "van-swipe-cell": "/wxcomponents/vant/swipe-cell/index",
     "van-submit-bar": "/wxcomponents/vant/submit-bar/index",
     "van-checkbox": "/wxcomponents/vant/checkbox/index",
@@ -77,6 +76,7 @@
     "van-icon": "/wxcomponents/vant/icon/index",
     "van-stepper": "/wxcomponents/vant/stepper/index",
     "van-share-sheet": "/wxcomponents/vant/share-sheet/index",
+    "van-notify": "/wxcomponents/vant/notify/index",
     "van-notice-bar": "/wxcomponents/vant/notice-bar/index"
   }
 }

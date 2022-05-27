@@ -11,6 +11,7 @@
 			  :key="item.id"
 			  :title='item.title'
 			  :thumb='item.img'
+			  :desc='item.desc'
 			  :num='item.num'
 			/>
 		</view>
@@ -40,7 +41,7 @@
 			this.shop = JSON.parse(option.shop)
 			console.log(this.shop.title)
 			console.log(this.shop)
-			this.price = option.price
+			// this.price = option.price
 		},
 		computed:{
 			money(){
