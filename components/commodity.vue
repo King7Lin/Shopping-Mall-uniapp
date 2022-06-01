@@ -18,7 +18,6 @@
 </template>
 
 <script>
-	import Stepper from"../components/Stepper.vue"
 	export default {
 		name:"commodity",
 		data() {
@@ -31,6 +30,7 @@
 			img:'',
 			title:'',
 			price:0,
+			do:'',
 			operation:{
 				type:String,
 				required:true
@@ -38,10 +38,16 @@
 		},
 		methods:{
 			right(){
-				console.log('click right button')
-				// uni.request({
-				// 	url:`http://127.0.0.1:3007/all/insertCollection`
-				// })
+				let user_id = getApp().globalData.user_id
+				// console.log('http://127.0.0.1:3007/all/' + this.do +'?user_id='++'&shop_id=' + this.shop_id)
+				uni.request({
+					url:'http://127.0.0.1:3007/all/' + this.do +'?user_id='+user_id+'&shop_id=' + this.shop_id,
+					success: (res) => {
+						console.log(res)
+						this.$emit('transfer',res.data)
+					}
+				})
+				
 			},
 			to(e){
 				uni.navigateTo({
@@ -49,9 +55,6 @@
 				})
 			}
 		},
-		components:{
-			Stepper
-		}
 	}
 </script>
 

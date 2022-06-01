@@ -1,16 +1,12 @@
 <template>
 	<view class="container">
 		<view class="top">
-			<!-- image -->
-			<van-image
-			  round
-			  width="4rem"
-			  height="4rem"
-			  src="https://img.yzcdn.cn/vant/cat.jpeg"
-			  class="img"
-			/>
-			<!-- name -->
-			
+			<view class='img'>
+				<open-data type="userAvatarUrl"></open-data>
+			</view>
+			<view class='text'>
+				<open-data type="userNickName"></open-data>
+			</view>
 			<!-- setting -->
 			<uni-icons type="gear" size="30" class="gear" @click="toSetting"></uni-icons>
 		</view>
@@ -77,7 +73,6 @@
 </template>
 
 <script>
-	import choose from "../../components/choose.vue"
 	export default {
 		data() {
 			return {
@@ -92,7 +87,7 @@
 			}
 		},
 		components:{
-			choose
+			
 		}
 	}
 </script>
@@ -103,8 +98,15 @@
 		
 	}
 	.img{
-		margin: 20rpx;
-		/* margin-left: 50rpx; */
+		margin-left: 20rpx;
+	  width: 70px;
+	  height: 70px;
+	  overflow: hidden;
+	  border-radius: 50%;
+	}
+	.text{
+		margin-left: 40rpx;
+		margin-top: 40rpx;
 	}
 	.top{
 		display: flex;

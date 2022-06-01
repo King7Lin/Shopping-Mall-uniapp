@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
 		<!-- 小程序头部兼容 -->
+		<van-notify id="van-notify" />
 		<!-- #ifdef MP -->
 		<view class="mp-search-box">
 			<input class="ser-input" type="text" @click="toseach" placeholder="搜索" />
@@ -36,25 +37,13 @@
 		
 		<!-- 最新上架 -->
 		<view class="newShop">
-			<van-cell title="最新上架" is-link value="查看更多" is-link/>
+			<van-cell title="最新上架" />
 			<view class="newShops">
 				<view class="shops" v-for="(item,index) in shop[0]" :key='index' @click="navToDetailPage(item)">
 					<image :src="item.img" mode=""></image>
 					<text class="shopTitle">{{item.name}}</text>
 					<text class="shopPrice">￥{{item.price}}</text>
 				</view>
-			</view>
-		</view>
-		
-		<!-- 广告 -->
-		<view class="guanggao">
-			<navigator class="left">
-				<mySwiper :shop="shop[0]" :shopNum='false'></mySwiper>
-			</navigator>
-			<view class="right" >
-				<navigator url="" v-for="item in shop1" :key="item.id">
-					<image :src="item.img" class="rightImg" mode=""></image>
-				</navigator>
 			</view>
 		</view>
 		
@@ -99,26 +88,37 @@
 					url:'../details/details?shop_id='+e.shop_id
 				})
 			},
-			onReachBottom(){
+			// 上拉
+			 onReachBottom(){
 				console.log('11')
 				this.star+=6
 				this.end+=6
 				console.log(this.star,this.end)
-				uni.request({
+				 uni.request({
 					url:'http://127.0.0.1:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
 					success:(res)=>{
 						let { shop } = res.data
-						console.log(shop)
+						console.log(shop.length)
 						let shop1 = this.shop[0].concat(shop[0])
-						console.log('shop1',shop1)
+						// console.log('shop1',shop1)
 						this.shop[0] = shop1
-						console.log('shop',this.shop[0])
+						// console.log('shop',this.shop[0])
 					}
 				})
 				
 			}
 		},
 		created(){
+			let app = getApp()
+			let token = uni.getStorageSync('token_key')
+			
+			console.log('token',token)
+			if(app.globalData.login == false || app.globalData.user_id == 0 || token == undefined || token ==''){
+				uni.redirectTo({
+					url:'../login/login'
+				})
+			}
+			console.log(getApp().globalData)
 			uni.request({
 				url:'http://127.0.0.1:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
 				success:(res)=>{
@@ -127,7 +127,7 @@
 					this.activity = activity[0]
 					this.advertisement = advertisement[0]
 					this.shop.push(shop[0])
-					console.log(res)
+					// console.log(res)
 					console.log(this.shop)
 					console.log(this.activity)
 					console.log(this.advertisement)

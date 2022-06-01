@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "购物车",
-  "enablePullDownRefresh": false,
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "commodity": "/components/commodity"
   }

@@ -16,7 +16,7 @@
   margin-top: 15rpx;
 }
 .title {
-  font-size: 40rpx;
+  font-size: 32rpx;
   margin: 10rpx;
   color: black;
   text-align: justify;
@@ -24,6 +24,7 @@
 }
 .price {
   color: red;
+  flex: 3;
   font-size: 40rpx;
   margin: 10rpx;
   margin-left: 20rpx;
@@ -38,8 +39,6 @@
 }
 .favBtn {
   margin: 0 20rpx 20rpx 0;
-  position: absolute;
-  right: 0;
 }
 .ShopName {
   margin-bottom: 20rpx;
@@ -135,10 +134,28 @@ van-button {
 }
 .address-flex {
   display: flex;
-  font-size: 14px;
+  font-size: 16px;
 }
 .sel-title {
   font-weight: bold;
   margin: 10px 0px;
+}
+.number {
+  position: relative;
+  top: -35rpx;
+  left: 370rpx;
+  color: gray;
+}
+.add-address {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 150px;
+  height: 35px;
+  border: 1px #000 solid;
+  line-height: 35px;
+  text-align: center;
+  color: #000;
+  border-radius: 5rpx;
+  display: block;
 }
 

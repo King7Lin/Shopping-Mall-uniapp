@@ -14,4 +14,41 @@ page{
 /* .shop{
 	border: 1px solid gray;
 } */
+.content{
+	    margin: 40rpx 20rpx 0rpx 20rpx;
+		overflow-y: scroll;
+		height: 100%;
+}
+.address-title{
+		text-align: center;
+}
+.address-content{
+		margin-top: 25rpx;
+		display: flex;
+		justify-content: space-between;
+}
+.address-flex{
+		display: flex;
+		font-size: 16px;
+}
+.name{
+}
+.number{
+		position: relative;
+		top: -35rpx;
+		left: 370rpx;
+		color: gray;
+}
+.add-address {
+	  margin: 0 auto;
+	  margin-top: 30px;
+	  width: 150px;
+	  height: 35px;
+	  border: 1px #000 solid;
+	  line-height: 35px;
+	  text-align: center;
+	  color: #000;
+	  border-radius: 5rpx;
+	  display: block;
+}
 

@@ -1,5 +1,7 @@
 <template>
 	<view>
+		<van-notify id="van-notify" />
+		<van-notice-bar left-icon="volume-o"  scrollable text="右滑可以收藏商品。"  />
 		<uni-search-bar focus='true' @confirm='search'></uni-search-bar>
 		<van-empty description="搜索为空" v-if="shop.length<1" />
 		<commodity 
@@ -11,6 +13,8 @@
 		:price='item.price'
 		:img='item.img'
 		:shop_id='item.shop_id'
+		do='insertCollection'
+		@transfer="Refresh"
 		></commodity>
 	</view>
 </template>
@@ -40,6 +44,16 @@
 						console.log(this.shop)
 					}
 				})
+			},
+			Refresh(e){
+				if(e.status == 1){
+					this.$notify({ type: "danger", message: "添加失败，请联系客服" });
+				}else if(e.status == 2){
+					this.$notify({ type: "warning", message: "已存在" });
+				}else{
+					this.$notify({ type: "success", message: "添加成功" });
+				}
+				
 			}
 		},
 		components:{

@@ -99,6 +99,20 @@
                     "query": "shop=8%2C1%2C3%2C2&price=199800",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/login/login",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "",
+                    "pathName": "pages/setting/setting",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

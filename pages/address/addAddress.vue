@@ -41,7 +41,7 @@
 	export default {
 		data(){
 			  return {	
-				 city:'',
+				 city:'请选择地区',
 			     name:'',
 				 number:'',
 				 text:'',
@@ -78,12 +78,13 @@
 				}
 				console.log(this.name)
 				console.log(this.city + this.detail)
+				let user_id = getApp().globalData.user_id
 				uni.request({
 					url:`http://127.0.0.1:3007/all/insertAddress`,
 					data:{
-						user_id:'1',
+						user_id,
 						number,
-						address:this.city + this.detail,
+						address:this.city + ','+ this.detail,
 						name:this.name
 					},
 					method:'post',

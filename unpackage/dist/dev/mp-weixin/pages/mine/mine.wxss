@@ -3,8 +3,15 @@
 	margin: 10rpx;
 }
 .img{
-	margin: 20rpx;
-	/* margin-left: 50rpx; */
+	margin-left: 20rpx;
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.text{
+	margin-left: 40rpx;
+	margin-top: 40rpx;
 }
 .top{
 	display: flex;

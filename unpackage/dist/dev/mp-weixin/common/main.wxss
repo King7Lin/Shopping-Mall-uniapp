@@ -2429,4 +2429,8 @@ checkbox.red.checked .uni-checkbox-input {
   border-color: #e54d42 !important;
   color: #ffffff !important;
 }
+.van-card__title {
+  overflow-y: hidden;
+  height: 130rpx;
+}
 

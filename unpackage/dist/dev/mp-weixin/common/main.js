@@ -94,28 +94,26 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
 {
-  onLaunch: function onLaunch() {var _this = this;
+  globalData: {
+    login: false,
+    user_id: 0 },
+
+
+  onLaunch: function onLaunch() {
     // this.globalData = {}
-    uni.request({
-      url: 'http://127.0.0.1:3007/all/selectAddress?user_id=1',
-      success: function success(res) {
-        // console.log(res)
-        _this.globalData.address = res.data;
-      } });
 
     console.warn('当前组件仅支持 uni_modules 目录结构 ，请升级 HBuilderX 到 3.1.0 版本以上！');
     console.log('App Launch');
   },
   onShow: function onShow() {
     console.log('App Show');
-
   },
   onHide: function onHide() {
     console.log('App Hide');
-  } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+  },
+  methods: {} };exports.default = _default;
 
 /***/ }),
 /* 9 */

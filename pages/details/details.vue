@@ -7,7 +7,7 @@
 							:info="detailImg"
 							:current="current" 
 							>
-				<swiper class="swiper-box" @change="change" :current="swiperDotIndex">
+				<swiper class="swiper-box" @change="changeImg" :current="swiperDotIndex">
 					<swiper-item v-for="(item, index) in detailImg" :key="index">
 						<image :src="item" mode="" style="width: 100%; height: 100%;"></image>
 					</swiper-item>
@@ -16,21 +16,26 @@
 		</view>
 		  <view class="detail" >
 		    <view class="title">{{shop.title}}</view>
-			<!-- 收藏 -->
-			<uni-fav 
-			:checked="checkList"
-			class="favBtn" 
-			@click="ChangeCheck" 
-			/>
+			<view class="" style="display: flex;">
+				<!-- 价格 -->
+				<text class="price">￥{{shop.price}}</text>
+				<!-- 收藏 -->
+				<uni-fav
+				:checked="checkList"
+				class="favBtn" 
+				@click="ChangeCheck" 
+				/>
+				
+			</view>
 			  <van-notify id="van-notify" />
 			  
-			  <text class="price">￥{{shop.price}}</text>
+			 
 			  <van-cell title="广东包邮 - 7天无理由退货 - 48小时发货" icon="location-o" />
 		  </view>
 		  <!-- 选择 -->
 			  <view class="choose">
 				  <van-cell is-link title="选择" :value='desc' @click="show = true" />
-				  <van-cell is-link title="送至"  @click="showAddres = true" />
+				  <van-cell is-link title="送至" :value='Daddress.address' @click="showAddres = true" />
 				  <van-cell is-link title="点击分享" @click="showShare = true" />
 				  <van-share-sheet
 					:show='showShare'
@@ -71,10 +76,10 @@
 			<view class="content">
 			  <view class="goods-info">
 			    <view >
-					<image class="img" src="../../static/c1.png"></image>
+					<image class="img" :src="detailImg[0]"></image>
 				</view>
 			    <view class="goods-info-right">
-			      <view class="goods-price">¥ 16.66</view>
+			      <view class="goods-price">￥{{shop.price}}</view>
 			      <view class="small">已选择：{{ALLchoose}}</view>
 				  <van-stepper v-model="stevalue" class='stepper' @change='Stevalue'/>
 			    </view>
@@ -123,16 +128,19 @@
 						<label  v-for="(item,index) in address" :key="index">
 							<view class="address-content">
 								<view class="address-flex">
-									<uni-icons type="location-filled" size="30"></uni-icons>
+									<uni-icons type="location-filled" size="30" style='line-height: 100rpx;'></uni-icons>
 									<view>
-										<view>{{item.name}}</view>
-										<view>{{item.site}}</view>
-										<view>{{item.phone}}</view>
+										<view class="name">{{item.name}}</view>
+										<view class="number">{{item.number}}</view>
+										<view class="address">{{item.address}}</view>
 									</view>									
 								</view>
-								<radio color="#007AFF" :value="item.name" :checked="index === current" />
+								<radio color="#007AFF" :value="item.id" :checked="address_check" />
 							</view>
 						</label>
+						<view class="add-address" @click="addAddress">
+							新增地址
+						</view>
 					</radio-group>
 			</view>
 			</van-popup>
@@ -145,7 +153,8 @@
 	export default {
 		data() {
 			return {
-				address:getApp().globalData.address,
+				user_id:getApp().globalData.user_id,
+				address:null,
 				share: [
 				        [
 				          { name: '微信', icon: 'wechat' },
@@ -179,18 +188,20 @@
 						detailImg:[],
 						shop:[],
 						specifications:[],
-						current:0,
 						Fchoose:[],
 						stevalue:1,
-						desc:''
+						desc:'',
+						Daddress:'',
+						current:0
 			}
 		},
 		 onLoad(option) {
 			// let a= await this.$address()
-			console.log('$address',getApp().globalData)
+			// console.log('$address',getApp().globalData)
+			// 详情
 			uni.request({
-				// url:`http://127.0.0.1:3007/all/selectDetails?shop_id=${option.shop_id}`,
-				url:`http://127.0.0.1:3007/all/selectDetails?shop_id=3&user_id=1`,
+				url:`http://127.0.0.1:3007/all/selectDetails?shop_id=${option.shop_id}&user_id=${this.user_id}`,
+				// url:`http://127.0.0.1:3007/all/selectDetails?shop_id=3&user_id=1`,
 				success: (res) => {
 					let { detailImg,shop,specifications } = res.data
 					this.checkList = res.data.check
@@ -216,7 +227,23 @@
 					// console.log(this.specifications)
 				}
 			})
-			console.log('address')
+			// 地址
+			uni.request({
+				url:'http://127.0.0.1:3007/all/selectAddress?user_id=' + this.user_id,
+				success: (res) => {
+					console.log(res)
+					this.address = res.data
+					
+					this.address.forEach(value=>{
+						// console.log(value)
+						if(value.address_default == 1){
+							this.Daddress = value
+						}
+					})
+					console.log(this.Daddress)
+				}
+			})
+			// console.log('address')
 			// console.log(option)
 		},
 		methods: {
@@ -224,7 +251,8 @@
 			clickItem(e){
 				console.log(e)
 			},
-			change(e){
+			changeImg(e){
+				console.log(e.detail.current)
 				this.current = e.detail.current
 			},
 			
@@ -248,9 +276,6 @@
 			
 			// 加入购物车、立即购买
 			buttonClick(e) {
-				// console.log(e.index,this.$refs.prpos)
-				// console.log(this.desc,this.specifications.length)
-				
 				let a = 0
 				this.desc.split('').forEach((value)=>{
 					if(value === '，'){
@@ -259,13 +284,10 @@
 				})
 				// console.log(a)
 				if(this.desc ==='' || a !== this.specifications.length){
-					// uni.showToast({
-					// 	title:'请选择规格',
-					// 	icon:'error'
-					// })
 					this.$notify({ type: "danger", message: "请选择规格" });
 					 this.show = true	
 				}else{
+					// 加入购物车
 					if(e.index == 0){
 						uni.request({
 							url:'http://127.0.0.1:3007/all/insertCart',
@@ -274,7 +296,7 @@
 							'content-type':'application/x-www-form-urlencoded'
 							},
 							data:{
-								user_id:1,
+								user_id:this.user_id,
 								shop_id:this.shop.shop_id,
 								desc:this.desc,
 								num:this.stevalue
@@ -282,10 +304,6 @@
 							success: (res) => {
 								console.log(res)
 								if(res.data.status !== 1){
-									// uni.showToast({
-									// 	title:'加入成功',
-									// 	icon:'success'
-									// })
 									this.$notify({ type: "success", message: "加入购物车成功" });
 									this.show = false;
 								}else{
@@ -294,8 +312,10 @@
 							}
 						})
 					}else{
+						// 立即购买
 						console.log(this.stevalue)
 						this.shop.desc = this.desc
+						this.shop.num = this.stevalue
 						let shop1 ='[' + JSON.stringify(this.shop) + ']'
 						console.log(shop1)
 						uni.request({
@@ -305,7 +325,7 @@
 							'content-type':'application/x-www-form-urlencoded'
 							},
 							data:{
-								user_id:1,
+								user_id:this.user_id,
 								shop_id:[3,this.stevalue],
 								desc:this.desc
 							},
@@ -315,7 +335,7 @@
 									this.$notify({ type: "success", message: "操作成功" });
 									setTimeout(()=>{
 										uni.navigateTo({
-											url:'../settlement/settlement?id=' + res.data.id + '&shop=' + shop1
+											url:'../settlement/settlement?id=' + res.data.id + '&shop=' + shop1 + '&address_id=' + this.Daddress.id
 										})
 									},1000)
 								}else{
@@ -333,7 +353,7 @@
 				this.checkList = !this.checkList
 				if(this.checkList){
 					uni.request({
-						url:'http://127.0.0.1:3007/all/insertCollection?user_id=1&shop_id='+this.shop.shop_id,
+						url:'http://127.0.0.1:3007/all/insertCollection?user_id='+this.user_id+'&shop_id='+this.shop.shop_id,
 						success: (res) => {
 							console.log(res)
 							if(res.data.status !== 1){
@@ -346,7 +366,7 @@
 					
 				}else{
 					uni.request({
-						url:'http://127.0.0.1:3007/all/deleteCollection?user_id=1&shop_id='+this.shop.shop_id,
+						url:'http://127.0.0.1:3007/all/deleteCollection?user_id='+this.user_id+'&shop_id='+this.shop.shop_id,
 						success: (res) => {
 							console.log(res)
 							if(res.data.status !== 1){
@@ -370,11 +390,6 @@
 			onSelect(){
 				this.showShare = false
 			},
-			//送至-复选框
-			// change(e){
-			// 	console.log('e',e);
-				
-			// },
 			//商品选择
 			 selchange(e){
 				 console.log('selchange',e)
@@ -410,14 +425,15 @@
 				 console.log('fchoose',this.Fchoose)
 			 },
 			 //地址radio
-			radioChange(evt) {
-				console.log(evt)
-			    for (let i = 0; i < this.address.length; i++) {
-			        if (this.address[i].value === evt.detail.value) {
-							this.current = i;
-								break;
-			        }
-			    }
+			radioChange(e) {
+				console.log(e)
+			    this.address.forEach(value=>{
+					console.log(value.id)
+					if(parseInt(e.detail.value) === value.id){
+						this.Daddress = value
+					}
+				})
+				console.log(this.Daddress)
 			},
 			// 步进器
 			Stevalue(e){
@@ -425,7 +441,13 @@
 				this.stevalue = e.detail
 				this.shop.num = e.detail
 				// console.log(this.shop)
-			}
+			},
+			addAddress(){
+				console.log('address')
+				uni.navigateTo({
+					url: '../address/addAddress'
+				})
+			},
 		},
 		computed:{
 			ALLchoose(){
@@ -435,6 +457,17 @@
 				})
 				this.desc = text
 				return text
+			},
+			address_check(){
+				let num = 0
+				if(this.address){
+					this.address.forEach((value,index)=>{
+						if(value.address_default === 1){
+							num = index
+						}
+					})
+				}
+				return num
 			}
 		}
 	}
@@ -460,7 +493,7 @@
 	  margin-top: 15rpx;
   }
    .title {
-    font-size: 40rpx;
+    font-size: 32rpx;
     margin: 10rpx;
     color: black;
     text-align: justify;
@@ -472,6 +505,7 @@
   // }
    .price {
     color: red;
+	flex: 3;
     font-size: 40rpx;
     margin: 10rpx;
 	margin-left: 20rpx;
@@ -492,8 +526,9 @@
  	}
 	.favBtn {
 			margin: 0 20rpx 20rpx 0;
-			position: absolute;
-			right: 0;
+			// position: absolute;
+			// right: 0;
+			// top: 675rpx;
 	}
 	.ShopName{
 		margin-bottom: 20rpx;
@@ -597,11 +632,32 @@
 	}
 	.address-flex{
 		display: flex;
-		font-size: 14px;
+		font-size: 16px;
 	}
 	//商品选项
 	.sel-title{
 		font-weight: bold;
 		margin: 10px 0px;
+	}
+	.name{
+		
+	}
+	.number{
+		position: relative;
+		top: -35rpx;
+		left: 370rpx;
+		color: gray;
+	}
+	.add-address {
+	  margin: 0 auto;
+	  margin-top: 30px;
+	  width: 150px;
+	  height: 35px;
+	  border: 1px #000 solid;
+	  line-height: 35px;
+	  text-align: center;
+	  color: #000;
+	  border-radius: 5rpx;
+	  display: block;
 	}
 </style>

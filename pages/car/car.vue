@@ -1,5 +1,6 @@
 <template>
 	<view>
+		<van-notify id="van-notify" />
 			<van-notice-bar left-icon="volume-o"  scrollable text="右滑可以删除购物车中的商品。"  />
 			<van-empty
 			  v-if="shop.length==0"
@@ -26,7 +27,7 @@
 									   />
 								  </view>
 							  <template #right>
-							    <button class="delete-button" @click="right">删除</button>
+							    <button class="delete-button" @click="right(item[0],index)">删除</button>
 							  </template>
 							  <view class="num">
 							  	<button type="primary" size="mini" class="reduce" @click="reduce(item)">-1</button>
@@ -47,7 +48,6 @@
 
 <script>
 	import commodity from "../../components/commodity.vue"
-	
 	export default {
 		data() {
 			return {
@@ -57,17 +57,11 @@
 				checked:false,
 				result: [],
 				num:1,
-				price:0
+				price:0,
+				user_id:getApp().globalData.user_id
 			}
 		},
 		methods: {
-			onSubmit(e){
-				console.log(e)
-				
-				// uni.navigateTo({
-				// 	url:'../settlement/settlement'
-				// })
-			},
 			// 减少
 			reduce(e){
 				console.log(e)
@@ -138,6 +132,37 @@
 				console.log(this.checked)
 				// this.show()
 			},
+			// 删除
+			right(e,index){
+				const self = this
+				console.log(self)
+				console.log(e)
+				uni.request({
+					url:'http://127.0.0.1:3007/all/deleteCart?user_id='+ this.user_id +'&shop_id='+e.shop_id,
+					success: (res) => {
+						console.log(res)
+						if(res.data.status ==1 ){
+							this.$notify({ type: "danger", message: "删除失败,请联系客服" });
+						}else{
+							this.shop.splice(index,1)
+							console.log(this.shop,index)
+							this.$notify({ type: "success", message: "删除成功" });
+							self.getshop()
+							
+							// const pages = getCurrentPages()
+							// console.log(pages)
+							// const curPage = pages[pages.length-1]
+							// console.log(e,pages,curPage)
+							// setTimeout(()=>{
+							// 	uni.switchTab({
+							// 		url:curPage.$page.fullPath
+							// 	})
+							// },500)
+						}
+					}
+				})
+			},
+			// 提交订单
 			onSubmit(e){
 				console.log(e)
 				let shop_id = []
@@ -166,7 +191,7 @@
 							'content-type':'application/x-www-form-urlencoded'
 						},
 						data:{
-							user_id:1,
+							user_id:this.user_id,
 							shop_id,
 							desc
 						},
@@ -201,6 +226,15 @@
 					console.log(shop)
 				}
 				
+			},
+			getshop(){
+				uni.request({
+					url:'http://127.0.0.1:3007/all/selectcart?user_id=' + this.user_id,
+					success: (res) => {
+						console.log(res)
+						this.shop = res.data
+					}
+				})
 			}
 		},
 		components:{
@@ -219,15 +253,22 @@
 				// return price
 			},
 		},
-		created() {
-			uni.request({
-				url:'http://127.0.0.1:3007/all/selectcart?user_id=1',
-				success: (res) => {
-					console.log(res)
-					this.shop = res.data
-				}
-			})
+		async mounted() {
+			console.log('mounted')
+			await this.getshop()
 		},
+		async onTabItemTap(e) {
+			 console.log('onTabItemTap')
+		    await this.getshop()
+		},
+		async onShow() {
+			console.log('onShow')
+			await this.getshop()
+		},
+		onPullDownRefresh (){
+			console.log('onPullDownRefresh')
+			this.getshop()
+		}
 	}
 </script>
 

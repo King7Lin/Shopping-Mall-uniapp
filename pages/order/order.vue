@@ -47,8 +47,9 @@
 			}
 		},
 		created() {
+			let user_id = getApp().globalData.user_id
 			uni.request({
-				url:'http://127.0.0.1:3007/all/SelectOrder?user_id=1',
+				url:'http://127.0.0.1:3007/all/SelectOrder?user_id=' + user_id,
 				success: (res) => {
 					console.log(res)
 					this.shop = res.data

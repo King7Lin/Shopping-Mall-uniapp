@@ -5,7 +5,7 @@
 			<image :src="img" class="img" mode=""></image>
 		</view>
 		<view class="text">
-			<text class="name">{{title}}</text>
+			<view class="name">{{title}}</view>
 			<text class="price">￥{{price}}</text>
 		</view>
 	</view>
@@ -45,7 +45,7 @@
 		/* margin-top: 20rpx; */
 		/* margin-left: 10rpx; */
 		padding: 0;
-		height: 450rpx;
+		height: 470rpx;
 		/* border-radius: 20rpx 20rpx 20rpx 20rpx; */
 		
 	}
@@ -70,7 +70,15 @@
 	.name{
 		font-weight: bold;
 		padding-left: 20rpx;
-		padding-bottom: 50rpx;
+		line-height: 40rpx;
+		/* display: -webkit-box; */
+		overflow-y: hidden;
+		/* text-overflow:ellipsis; */
+		/* white-space: nowrap; */
+		/* -webkit-line-clamp: 3; */
+		/* word-wrap:break-word  !important; */
+		/* -webkit-box-orient: vertical; */
+		height: 115rpx;
 	}
 	.price{
 		padding-left: 20rpx;
