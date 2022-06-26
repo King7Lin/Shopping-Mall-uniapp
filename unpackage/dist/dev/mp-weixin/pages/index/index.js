@@ -239,9 +239,9 @@ __webpack_require__.r(__webpack_exports__);
         success: function success(res) {var
           shop = res.data.shop;
           console.log(shop.length);
-          var shop1 = _this.shop[0].concat(shop[0]);
+          _this.shop[0] = _this.shop[0].concat(shop[0]);
           // console.log('shop1',shop1)
-          _this.shop[0] = shop1;
+          // this.shop[0] = shop1
           // console.log('shop',this.shop[0])
         } });
 

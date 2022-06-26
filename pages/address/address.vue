@@ -131,6 +131,7 @@
 		color: #848484;
 	}
 	.address{
+		width: 78%;
 		padding-left: 20rpx;
 		padding-bottom: 20rpx;
 		border-bottom: 1px solid #666;

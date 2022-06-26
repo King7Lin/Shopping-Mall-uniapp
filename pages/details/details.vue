@@ -243,6 +243,12 @@
 					console.log(this.Daddress)
 				}
 			})
+			uni.request({
+				url:'http://127.0.0.1:3007/all/insertfootprint?user_id=' + this.user_id +'&shop_id=' + option.shop_id,
+				success: (res) => {
+					console.log(res)
+				}
+			}) 
 			// console.log('address')
 			// console.log(option)
 		},

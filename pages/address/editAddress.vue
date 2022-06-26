@@ -84,7 +84,7 @@
 							}else{
 								this.$notify({ type: "primary", message: "保存成功" });
 								setTimeout(()=>{
-									uni.navigateTo({
+									uni.reLaunch({
 										url:'./address'
 									})
 								},500)

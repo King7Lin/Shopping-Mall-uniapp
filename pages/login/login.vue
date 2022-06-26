@@ -120,16 +120,18 @@
 							'content-type':'application/x-www-form-urlencoded'
 						},
 						success: (res) => {
+							console.log(res)
 							if(res.data.status === 0 ){
 								this.$notify({ type: "success", message: "注册成功" });
 								const pages = getCurrentPages()
 								console.log(pages)
 								const curPage = pages[pages.length-1]
-								console.log(e,pages,curPage)
+								// console.log(e,pages,curPage)
 								setTimeout(()=>{
 									uni.redirectTo({
 										url:curPage.$page.fullPath
 									})
+									// this.register = false
 								},500)
 							}
 						},

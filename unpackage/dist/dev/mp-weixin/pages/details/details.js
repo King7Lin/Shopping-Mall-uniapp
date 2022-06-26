@@ -488,15 +488,21 @@ var _default = { data: function data() {return { user_id: getApp().globalData.us
           _this.specifications[i] = { title: specifications[i][0], select: select };} // console.log(this.specifications)
       } }); // 地址
     uni.request({ url: 'http://127.0.0.1:3007/all/selectAddress?user_id=' + this.user_id, success: function success(res) {console.log(res);_this.address = res.data;_this.address.forEach(function (value) {// console.log(value)
-          if (value.address_default == 1) {_this.Daddress = value;}});console.log(_this.Daddress);} }); // console.log('address')
+          if (value.address_default == 1) {_this.Daddress = value;}});console.log(_this.Daddress);} });uni.request({ url: 'http://127.0.0.1:3007/all/insertfootprint?user_id=' + this.user_id + '&shop_id=' + option.shop_id, success: function success(res) {console.log(res);} }); // console.log('address')
     // console.log(option)
   }, methods: { // 轮播
     clickItem: function clickItem(e) {console.log(e);}, changeImg: function changeImg(e) {console.log(e.detail.current);this.current = e.detail.current;}, // 主页购物车跳转
     onClick: function onClick(e) {console.log(e);if (e.index === 0) {uni.switchTab({ url: '../index/index' });} else {uni.switchTab({ url: '../car/car' });}uni.showToast({ title: "\u70B9\u51FB".concat(e.content.text), icon: 'none' });}, // 加入购物车、立即购买
     buttonClick: function buttonClick(e) {var _this2 = this;var a = 0;this.desc.split('').forEach(function (value) {if (value === '，') {a++;}}); // console.log(a)
       if (this.desc === '' || a !== this.specifications.length) {this.$notify({ type: "danger", message: "请选择规格" });this.show = true;} else {// 加入购物车
-        if (e.index == 0) {uni.request({ url: 'http://127.0.0.1:3007/all/insertCart', method: 'POST', header: { 'content-type': 'application/x-www-form-urlencoded' }, data: { user_id: this.user_id, shop_id: this.shop.shop_id, desc: this.desc, num: this.stevalue }, success: function success(res) {console.log(res);if (res.data.status !== 1) {_this2.$notify({ type: "success", message: "加入购物车成功" });_this2.show = false;} else {_this2.$notify({ type: "danger", message: "加入购物车失败,请联系客服" });}} });} else {// 立即购买
-          console.log(this.stevalue);this.shop.desc = this.desc;this.shop.num = this.stevalue;var shop1 = '[' + JSON.stringify(this.shop) + ']';
+        if (e.index == 0) {uni.request({ url: 'http://127.0.0.1:3007/all/insertCart', method: 'POST', header: { 'content-type': 'application/x-www-form-urlencoded' }, data: { user_id: this.user_id, shop_id: this.shop.shop_id, desc: this.desc, num: this.stevalue }, success: function success(res) {console.log(res);if (res.data.status !== 1) {_this2.$notify({ type: "success", message: "加入购物车成功" });_this2.show = false;} else {_this2.$notify({ type: "danger", message: "加入购物车失败,请联系客服" });}} });
+
+        } else {
+          // 立即购买
+          console.log(this.stevalue);
+          this.shop.desc = this.desc;
+          this.shop.num = this.stevalue;
+          var shop1 = '[' + JSON.stringify(this.shop) + ']';
           console.log(shop1);
           uni.request({
             url: 'http://127.0.0.1:3007/all/insertOrder',

@@ -216,7 +216,7 @@ var _default =
           } else {
             _this.$notify({ type: "primary", message: "保存成功" });
             setTimeout(function () {
-              uni.navigateTo({
+              uni.reLaunch({
                 url: './address' });
 
             }, 500);

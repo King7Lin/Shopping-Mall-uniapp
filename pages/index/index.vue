@@ -99,9 +99,9 @@
 					success:(res)=>{
 						let { shop } = res.data
 						console.log(shop.length)
-						let shop1 = this.shop[0].concat(shop[0])
+						this.shop[0] = this.shop[0].concat(shop[0])
 						// console.log('shop1',shop1)
-						this.shop[0] = shop1
+						// this.shop[0] = shop1
 						// console.log('shop',this.shop[0])
 					}
 				})

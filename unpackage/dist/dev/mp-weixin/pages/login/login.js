@@ -252,16 +252,18 @@ var _default =
             'content-type': 'application/x-www-form-urlencoded' },
 
           success: function success(res) {
+            console.log(res);
             if (res.data.status === 0) {
               _this2.$notify({ type: "success", message: "注册成功" });
               var pages = getCurrentPages();
               console.log(pages);
               var curPage = pages[pages.length - 1];
-              console.log(e, pages, curPage);
+              // console.log(e,pages,curPage)
               setTimeout(function () {
                 uni.redirectTo({
                   url: curPage.$page.fullPath });
 
+                // this.register = false
               }, 500);
             }
           },
