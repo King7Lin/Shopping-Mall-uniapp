@@ -60,7 +60,7 @@
 					this.$notify({ type: "danger", message: "请注意账号格式" });
 				}else{
 					uni.request({
-						url:'http://127.0.0.1:3007/api/login',
+						url:'http://47.94.11.39:3007/api/login',
 						data:{
 							username:this.username,
 							password:this.password
@@ -70,6 +70,7 @@
 							'content-type':'application/x-www-form-urlencoded'
 						},
 						success: (res) => {
+							
 							console.log(res)
 							if(res.data.status === 0 ){
 								this.$notify({ type: "success", message: "登录成功" });
@@ -110,7 +111,7 @@
 					this.$notify({ type: "danger", message: "请注意密码格式" });
 				}else{
 					uni.request({
-						url:'http://127.0.0.1:3007/api/regUser',
+						url:'http://47.94.11.39:3007/api/regUser',
 						data:{
 							username:this.Rusername,
 							password:this.Rpassword

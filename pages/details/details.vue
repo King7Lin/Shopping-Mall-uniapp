@@ -200,8 +200,8 @@
 			// console.log('$address',getApp().globalData)
 			// 详情
 			uni.request({
-				url:`http://127.0.0.1:3007/all/selectDetails?shop_id=${option.shop_id}&user_id=${this.user_id}`,
-				// url:`http://127.0.0.1:3007/all/selectDetails?shop_id=3&user_id=1`,
+				url:`http://47.94.11.39:3007/all/selectDetails?shop_id=${option.shop_id}&user_id=${this.user_id}`,
+				// url:`http://47.94.11.39:3007/all/selectDetails?shop_id=3&user_id=1`,
 				success: (res) => {
 					let { detailImg,shop,specifications } = res.data
 					this.checkList = res.data.check
@@ -229,7 +229,7 @@
 			})
 			// 地址
 			uni.request({
-				url:'http://127.0.0.1:3007/all/selectAddress?user_id=' + this.user_id,
+				url:'http://47.94.11.39:3007/all/selectAddress?user_id=' + this.user_id,
 				success: (res) => {
 					console.log(res)
 					this.address = res.data
@@ -244,7 +244,7 @@
 				}
 			})
 			uni.request({
-				url:'http://127.0.0.1:3007/all/insertfootprint?user_id=' + this.user_id +'&shop_id=' + option.shop_id,
+				url:'http://47.94.11.39:3007/all/insertfootprint?user_id=' + this.user_id +'&shop_id=' + option.shop_id,
 				success: (res) => {
 					console.log(res)
 				}
@@ -296,7 +296,7 @@
 					// 加入购物车
 					if(e.index == 0){
 						uni.request({
-							url:'http://127.0.0.1:3007/all/insertCart',
+							url:'http://47.94.11.39:3007/all/insertCart',
 							method:'POST',
 							header:{
 							'content-type':'application/x-www-form-urlencoded'
@@ -325,7 +325,7 @@
 						let shop1 ='[' + JSON.stringify(this.shop) + ']'
 						console.log(shop1)
 						uni.request({
-							url:'http://127.0.0.1:3007/all/insertOrder',
+							url:'http://47.94.11.39:3007/all/insertOrder',
 							method:'POST',
 							header:{
 							'content-type':'application/x-www-form-urlencoded'
@@ -359,7 +359,7 @@
 				this.checkList = !this.checkList
 				if(this.checkList){
 					uni.request({
-						url:'http://127.0.0.1:3007/all/insertCollection?user_id='+this.user_id+'&shop_id='+this.shop.shop_id,
+						url:'http://47.94.11.39:3007/all/insertCollection?user_id='+this.user_id+'&shop_id='+this.shop.shop_id,
 						success: (res) => {
 							console.log(res)
 							if(res.data.status !== 1){
@@ -372,7 +372,7 @@
 					
 				}else{
 					uni.request({
-						url:'http://127.0.0.1:3007/all/deleteCollection?user_id='+this.user_id+'&shop_id='+this.shop.shop_id,
+						url:'http://47.94.11.39:3007/all/deleteCollection?user_id='+this.user_id+'&shop_id='+this.shop.shop_id,
 						success: (res) => {
 							console.log(res)
 							if(res.data.status !== 1){

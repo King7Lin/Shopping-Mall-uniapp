@@ -65,7 +65,7 @@
 					}
 					let user_id = getApp().globalData.user_id
 					uni.request({
-						url:`http://127.0.0.1:3007/all/updateAddress`,
+						url:`http://47.94.11.39:3007/all/updateAddress`,
 						data:{
 							id:this.address[0].id,
 							user_id,

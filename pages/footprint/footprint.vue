@@ -48,7 +48,7 @@
 		created() {
 			let user_id = getApp().globalData.user_id
 			uni.request({
-				url:'http://127.0.0.1:3007/all/selectfootprint?user_id='+user_id,
+				url:'http://47.94.11.39:3007/all/selectfootprint?user_id='+user_id,
 				success: (res) => {
 					// console.log(res)
 					this.shop.push(res.data)

@@ -95,42 +95,40 @@
 				this.end+=6
 				console.log(this.star,this.end)
 				 uni.request({
-					url:'http://127.0.0.1:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
+					url:'http://47.94.11.39:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
 					success:(res)=>{
-						let { shop } = res.data
-						console.log(shop.length)
-						this.shop[0] = this.shop[0].concat(shop[0])
-						// console.log('shop1',shop1)
-						// this.shop[0] = shop1
-						// console.log('shop',this.shop[0])
+						console.log(res)
+						// let { shop } = res.data
+						// console.log(shop.length)
+						this.shop[0] = this.shop[0].concat(res.data[0])
+						console.log(this.shop[0])
+
 					}
 				})
 				
 			}
 		},
 		created(){
+				
 			let app = getApp()
 			let token = uni.getStorageSync('token_key')
 			
 			console.log('token',token)
-			if(app.globalData.login == false || app.globalData.user_id == 0 || token == undefined || token ==''){
-				uni.redirectTo({
-					url:'../login/login'
-				})
-			}
+			// if(app.globalData.login == false || app.globalData.user_id == 0 || token == undefined || token ==''){
+			// 	uni.redirectTo({
+			// 		url:'../login/login'
+			// 	})
+			// }
 			console.log(getApp().globalData)
 			uni.request({
-				url:'http://127.0.0.1:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
+				url:'http://47.94.11.39:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
 				success:(res)=>{
-					let { activity,advertisement,shop } = res.data
-					
-					this.activity = activity[0]
-					this.advertisement = advertisement[0]
-					this.shop.push(shop[0])
-					// console.log(res)
+					// let { activity,advertisement,shop } = res.data
+					console.log(res)
+					this.activity = res.data[1]
+					this.advertisement = res.data[2]
+					this.shop.push(res.data[0])
 					console.log(this.shop)
-					console.log(this.activity)
-					console.log(this.advertisement)
 				}
 			})
 		},

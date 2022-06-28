@@ -43,7 +43,7 @@
 		 mounted() {
 			
 			uni.request({
-				url:'http://127.0.0.1:3007/all/selectAddress?user_id=' + this.user_id,
+				url:'http://47.94.11.39:3007/all/selectAddress?user_id=' + this.user_id,
 				success: (res) => {
 					this.addressList = res.data
 					const a = getApp().getAddress
@@ -61,7 +61,7 @@
 			right(e){
 				console.log(e)
 				uni.request({
-					url:'http://127.0.0.1:3007/all/deleteAddress?user_id='+ this.user_id +'&id='+ e.id,
+					url:'http://47.94.11.39:3007/all/deleteAddress?user_id='+ this.user_id +'&id='+ e.id,
 					success: (res) => {
 						console.log(res)
 						if(res.data.status !== 1){
@@ -84,7 +84,7 @@
 			Add_default(e){
 				console.log(e)
 				uni.request({
-					url:'http://127.0.0.1:3007/all/updateDefault?user_id='+ this.user_id +'&id='+ e.id,
+					url:'http://47.94.11.39:3007/all/updateDefault?user_id='+ this.user_id +'&id='+ e.id,
 					success: (res) => {
 						console.log(res)
 						// to = true

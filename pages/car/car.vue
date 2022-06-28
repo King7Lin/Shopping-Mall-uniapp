@@ -138,7 +138,7 @@
 				console.log(self)
 				console.log(e)
 				uni.request({
-					url:'http://127.0.0.1:3007/all/deleteCart?user_id='+ this.user_id +'&shop_id='+e.shop_id,
+					url:'http://47.94.11.39:3007/all/deleteCart?user_id='+ this.user_id +'&shop_id='+e.shop_id,
 					success: (res) => {
 						console.log(res)
 						if(res.data.status ==1 ){
@@ -185,7 +185,7 @@
 				}else{
 					console.log(shop_id)
 					uni.request({
-						url:'http://127.0.0.1:3007/all/insertOrder',
+						url:'http://47.94.11.39:3007/all/insertOrder',
 						method:'post',
 						header:{
 							'content-type':'application/x-www-form-urlencoded'
@@ -229,7 +229,7 @@
 			},
 			getshop(){
 				uni.request({
-					url:'http://127.0.0.1:3007/all/selectcart?user_id=' + this.user_id,
+					url:'http://47.94.11.39:3007/all/selectcart?user_id=' + this.user_id,
 					success: (res) => {
 						console.log(res)
 						this.shop = res.data
