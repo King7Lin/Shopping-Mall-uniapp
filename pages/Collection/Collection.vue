@@ -56,7 +56,7 @@
 			let user_id = getApp().globalData.user_id
 			
 			uni.request({
-				url:'http://47.94.11.39:3007/all/selectcollection?user_id='+ user_id,
+				url:'http://1.12.230.158:3007/all/selectcollection?user_id='+ user_id,
 				success: (res) => {
 					this.shop = res.data
 					console.log(this.shop)

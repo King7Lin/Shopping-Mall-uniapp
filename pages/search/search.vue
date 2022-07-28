@@ -31,7 +31,7 @@
 			search(e){
 				console.log(e)
 				uni.request({
-					url:`http://47.94.11.39:3007/all/search?title=${e.value}`,
+					url:`http://1.12.230.158:3007/all/search?title=${e.value}`,
 					success: (res) => {
 						this.shop = res.data
 						console.log(res.data.length)

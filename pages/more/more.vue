@@ -48,7 +48,7 @@
 		},
 		created() {
 			uni.request({
-				url:'http://47.94.11.39:3007/all/selectMore',
+				url:'http://1.12.230.158:3007/all/selectMore',
 				success: (res) => {
 					let shop = []
 					shop = res.data

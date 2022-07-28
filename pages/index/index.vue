@@ -95,7 +95,7 @@
 				this.end+=6
 				console.log(this.star,this.end)
 				 uni.request({
-					url:'http://47.94.11.39:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
+					url:'http://1.12.230.158:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
 					success:(res)=>{
 						console.log(res)
 						// let { shop } = res.data
@@ -121,7 +121,7 @@
 			// }
 			console.log(getApp().globalData)
 			uni.request({
-				url:'http://47.94.11.39:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
+				url:'http://1.12.230.158:3007/all/selectShop?star=' + this.star + '&end='+ this.end,
 				success:(res)=>{
 					// let { activity,advertisement,shop } = res.data
 					console.log(res)
